@@ -13,5 +13,5 @@ public interface IBlogPostService
 
     Task UpdateBlogPostAsync(BlogPostModel blogPostModel);
 
-    Task<BlogPostModel?> GetPostBySlug(string slug);
+    Task<BlogPostModel?> GetBlogPostBySlug(string slug);
 }

@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMEAppHouse.Ladon.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMEAppHouse.Ladon.Web", "SMEAppHouse.Ladon.Web\SMEAppHouse.Ladon.Web.csproj", "{6CC3CA3B-C7FD-42E6-A4E4-CB59B5511AE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMEAppHouse.Core.Patterns.WebApi", "..\..\..\SMEAppHouse\CodeLibraries\SMEAppHouse.Core.Patterns.WebApi\SMEAppHouse.Core.Patterns.WebApi.csproj", "{09081230-047D-4E7D-88E9-B6824B1D9E8E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +53,6 @@ Global
 		{6CC3CA3B-C7FD-42E6-A4E4-CB59B5511AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CC3CA3B-C7FD-42E6-A4E4-CB59B5511AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CC3CA3B-C7FD-42E6-A4E4-CB59B5511AE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09081230-047D-4E7D-88E9-B6824B1D9E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09081230-047D-4E7D-88E9-B6824B1D9E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09081230-047D-4E7D-88E9-B6824B1D9E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09081230-047D-4E7D-88E9-B6824B1D9E8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,7 +61,6 @@ Global
 		{C4906710-D4BD-40F5-9BDD-1CCF02223839} = {8A562436-1797-4B3C-A492-0BEA2FE32800}
 		{363B84CE-0846-4F83-8501-A5D1D0EC7E4C} = {8A562436-1797-4B3C-A492-0BEA2FE32800}
 		{05CB409C-F083-4183-94C3-A48AA74CFEA5} = {8A562436-1797-4B3C-A492-0BEA2FE32800}
-		{09081230-047D-4E7D-88E9-B6824B1D9E8E} = {8A562436-1797-4B3C-A492-0BEA2FE32800}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8636499D-48AA-4213-B400-07517C129BAC}

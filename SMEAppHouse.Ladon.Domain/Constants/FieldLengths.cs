@@ -96,4 +96,10 @@ public static class FieldLengths
         public const int Email = General.EmailAddress;
         public const int CommentText = General.SuperLong;
     }
+
+    public static class QuestionAnswer
+    {
+        public const int Question = 120;
+        public const int AnswerText = General.SuperLong;
+    }
 }

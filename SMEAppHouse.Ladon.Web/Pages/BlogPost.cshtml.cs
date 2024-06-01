@@ -12,7 +12,7 @@ public class BlogPostPageModel(IBlogPostService blogPostService) : PageModel
 
     public async Task<IActionResult> OnGet(string slug)
     {
-        BlogPost = await _blogPostService.GetPostBySlug(slug);
+        BlogPost = await _blogPostService.GetBlogPostBySlug(slug);
 
         if (BlogPost == null)
             return NotFound();

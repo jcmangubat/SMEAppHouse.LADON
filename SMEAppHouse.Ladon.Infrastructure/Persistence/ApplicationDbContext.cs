@@ -15,6 +15,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 {
     private readonly DbMigrationInformation _dbMigrationInformation = dbMigrationInformation;
 
+    public virtual DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
     public virtual DbSet<UserProfileModel> UserProfiles { get; set; }
     public virtual DbSet<Message> Messages { get; set; }
     public virtual DbSet<SiteArea> SiteAreas { get; set; }
@@ -25,7 +26,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public virtual DbSet<Subscriber> Subscribers { get; set; }
     public virtual DbSet<QuoteRequest> QuoteRequests { get; set; }
     public virtual DbSet<QuoteRequestAttachment> QuoteRequestAttachments { get; set; }
-    public virtual DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
+    public virtual DbSet<QuestionAnswer> QuestionAnswers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -224,5 +225,125 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 AuthorName = "John Doe"
             }
         );
+
+        // Seed question and answers
+        builder.Entity<QuestionAnswer>().HasData(
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "What services does Ladon Construction Services offer?",
+                AnswerText = "Ladon Construction Services offers a wide range of construction services, including residential and commercial building, renovation, remodeling, and custom design-build projects. For more of the services offered, please scroll above to check out the Services we are offerring."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How long has Ladon Construction Services been in business?",
+                AnswerText = "Ladon Construction Services has been proudly serving clients for over 15 years, delivering high-quality construction and renovation projects."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How can I get a quote for my project?",
+                AnswerText = "You can request a quote by filling out the form on our 'Request a Quote' page, or by contacting us directly via email or phone."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How do you handle project timelines?",
+                AnswerText = "We work closely with our clients to establish realistic timelines and ensure that all milestones are met.Our project management team oversees every phase to keep things on track."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "Can you help with the design phase of my project?",
+                AnswerText = "Yes, we offer comprehensive design-build services, which means we can assist you from the initial design concept through to the final construction."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "What should I consider before starting a construction project?",
+                AnswerText = "Important considerations include your budget, desired timeline, the scope of the project, and any specific requirements or preferences you may have."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "Do you provide a warranty for your work?",
+                AnswerText = "Yes, we provide a warranty for all our construction projects to ensure your satisfaction and peace of mind."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How do you determine the cost of a construction project?",
+                AnswerText = "Project costs are determined based on the scope of work, materials, labor, and any specific client requirements. We provide detailed estimates to ensure transparency."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "Do you offer financing options?",
+                AnswerText = "Yes, we offer flexible financing options to help make your construction project more affordable.Please contact us for more details."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "Are there any hidden fees in your estimates?",
+                AnswerText = "No, our estimates are transparent and all - inclusive.We believe in honesty and integrity in all our dealings."
+            },
+
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How do I pay for my project?",
+                AnswerText = "We accept various forms of payment, including bank transfers, credit cards, and financing options. Payment schedules are outlined in our contracts."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How do you ensure the quality of your construction work?",
+                AnswerText = "We use high - quality materials and employ skilled craftsmen.Our project managers oversee all work to ensure it meets our stringent quality standards."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "What safety measures do you take on construction sites?",
+                AnswerText = "Safety is a top priority for us.We follow all industry safety standards and regulations, and our team is trained in best safety practices."
+            },
+
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "Are you licensed and insured?",
+                AnswerText = "Yes, Ladon Construction Services is fully licensed and insured to operate in the construction industry."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How will I be updated on the progress of my project?",
+                AnswerText = "We provide regular updates through meetings, emails, and our project management portal, ensuring you are always informed about the progress."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "What if I need to make changes to the project after it has started?",
+                AnswerText = "Changes can be made, but they may affect the timeline and budget. We will work with you to accommodate any changes as smoothly as possible."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "Who will be my point of contact during the project?",
+                AnswerText = "You will be assigned a dedicated project manager who will be your main point of contact throughout the duration of your project."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "Can I visit the construction site during the project?",
+                AnswerText = "Yes, clients are welcome to visit the construction site. Please coordinate with your project manager to ensure safety and scheduling."
+            },
+            new QuestionAnswer
+            {
+                Id = Guid.NewGuid(),
+                Question = "How do you handle project completion and handover?",
+                AnswerText = "Upon completion, we conduct a thorough walkthrough with you to ensure everything is to your satisfaction.We also provide a comprehensive handover package, including all necessary documentation."
+            });
     }
 }
+

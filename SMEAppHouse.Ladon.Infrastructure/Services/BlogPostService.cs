@@ -83,7 +83,7 @@ public class BlogPostService(IMapper mapper,
         }
     }
 
-    public async Task<BlogPostModel?> GetPostBySlug(string slug)
+    public async Task<BlogPostModel?> GetBlogPostBySlug(string slug)
     {
         try
         {

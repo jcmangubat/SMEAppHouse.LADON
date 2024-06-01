@@ -163,6 +163,7 @@ public class Startup(IConfiguration configuration)
         services.AddTransient<IUserProfileRepository, UserProfileRepository>();
         services.AddTransient<IQuoteRequestRepository, QuoteRequestRepository>();
         services.AddTransient<IQuoteRequestAttachmentRepository, QuoteRequestAttachmentRepository>();
+        services.AddTransient<IQuestionAnswerRepository, QuestionAnswerRepository>();
 
         // CORS Configuration
         services.AddCors(options =>
@@ -210,6 +211,7 @@ public class Startup(IConfiguration configuration)
         services.AddSingleton<ICloudinaryUploadService, CloudinaryUploadService>();
         services.AddSingleton<IImageKitUploadService, ImageKitUploadService>();
         services.AddScoped<IBlogPostService, BlogPostService>();
+        services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
 
         // Add MVC and Razor Pages
         services.AddControllersWithViews()
