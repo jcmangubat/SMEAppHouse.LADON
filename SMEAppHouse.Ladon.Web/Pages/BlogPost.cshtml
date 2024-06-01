@@ -1,0 +1,13 @@
+﻿@page "{slug}"
+@model BlogPostPageModel
+
+@{
+    ViewData["Title"] = Model.BlogPost.Title;
+    ViewData["MetaDescription"] = Model.BlogPost.MetaDescription;
+}
+
+<article>
+    <h1>@Model.BlogPost.Title</h1>
+    <p>@Model.BlogPost.Content</p>
+    
+</article>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>F:\LADON Constructions\IIS\LADON</_PublishTargetUrl>
+    <History>True|2024-05-08T14:03:15.0355387Z;True|2024-05-08T18:35:29.9059401+08:00;True|2024-05-08T17:43:30.2516122+08:00;True|2024-05-08T17:34:00.3245865+08:00;False|2024-05-08T17:32:11.6630523+08:00;False|2024-05-08T16:56:02.5122847+08:00;False|2024-05-08T16:55:11.7307712+08:00;True|2024-05-08T16:50:03.6073896+08:00;False|2024-05-08T16:49:25.1177774+08:00;True|2024-05-08T16:14:33.8296501+08:00;False|2024-05-08T16:13:56.5864779+08:00;False|2024-05-08T16:12:48.1362380+08:00;True|2024-05-08T15:57:10.6350098+08:00;True|2024-05-08T08:36:28.8468709+08:00;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=work-pc\sqlexpress%3bDatabase=SMEDigital.LCS%3bPersist Security Info=False%3bUser Id=dev%3bPassword=Pass123%24%3bEncrypt=False%3bMultipleActiveResultSets=true%3bTrustServerCertificate=True%3bTrusted_Connection=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

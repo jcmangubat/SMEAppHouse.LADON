@@ -1,0 +1,88 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section CritialPreLoads {
+    <link rel="preload" href="~/js/site.js" as="script" />
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha512-EIeyz8jygFLurz4RBJgtb2xBcR7uGWs6Gr6qygPowG13vYlYIaln5FyH+DN+da3jwPtb3Dq+pLA9yTR+uB3FYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+
+<!-- Carousel -->
+<partial name="~/pages/home/partialviews/_ServiceCarousel.cshtml" />
+
+<!-- Feature -->
+<partial name="~/pages/home/partialviews/_features.cshtml" />
+
+<!--Welcome-->
+<partial name="~/pages/home/partialviews/_welcome.cshtml" />
+
+<!-- About Us -->
+<section id="about-us">
+    <partial name="~/pages/home/partialviews/_aboutus.cshtml" />
+</section>
+
+<!-- Teams -->
+<section id="our-teams">
+    <partial name="~/pages/home/partialviews/_ourteam.cshtml" />
+</section>
+
+<!-- Facts -->
+<partial name="~/pages/home/partialviews/_facts.cshtml" />
+
+<!-- Company Video -->
+<partial name="~/pages/home/partialviews/_companyvideo.cshtml" />
+
+<!-- Our Services -->
+<section id="our-services">
+    <partial name="~/pages/home/partialviews/_services.cshtml" />
+</section>
+
+<!-- Our Portfolios & Projects -->
+<section id="portfolios">
+    @* <partial name="~/pages/partialviews/portfolios.cshtml" /> *@
+</section>
+
+<!-- Testimonials-->
+<section id="testimonials">
+    <partial name="~/pages/home/partialviews/_testimonials.cshtml" />
+</section>
+
+<!-- Contact Us -->
+<section id="contact-us">
+    <partial name="~/pages/home/partialviews/_contactus.cshtml" />
+</section>
+
+<!-- Blogs -->
+<section id="blogs">
+    <partial name="~/pages/home/partialviews/_blogsandnews.cshtml" />
+</section>
+
+<!-- FAQs -->
+<section id="faqs">
+    <partial name="~/pages/home/partialviews/_faqs.cshtml" />
+</section>
+
+<!-- Resources -->
+<section id="resources">
+    @* <partial name="~/pages/home/partialviews/_resources.cshtml" /> *@
+</section>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.5/isotope.pkgd.min.js" integrity="sha512-pTyLt2tKREvSiNYM21FRWRQtjOt/hZNYI+BRQx9yDObvcIydJ+3Ds/DxAKT/vK7D7ekSFfpubYh7ckity28MKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha512-nUUXyEC/xe6BRSl6eTPMaXErp5wdoftIGgrCBRd51MmwMn9PnN+X2usTJb7sGphsXtKT335xWAbccalopgcjNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//code.tidio.co/ilyllpftycsrzawxqfzghkbscmkzkt4v.js" async></script>
+
+    <!-- Application Javascript -->
+    <script src="~/js/site.js"></script>
+}
+

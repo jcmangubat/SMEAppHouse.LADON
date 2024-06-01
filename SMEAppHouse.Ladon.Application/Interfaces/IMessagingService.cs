@@ -1,0 +1,10 @@
+﻿using SMEAppHouse.Ladon.Application.Models;
+
+namespace SMEAppHouse.Ladon.Application.Interfaces;
+
+public interface IMessageService
+{
+    Task<MessageModel> GetMessageAsync(Guid? id);
+    Task<IEnumerable<MessageModel>> GetMessagesAsync();
+    Task SaveMessageAsync(MessageModel message);
+}

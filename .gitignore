@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SMEAppHouse.Ladon.Application/bin
+/SMEAppHouse.Ladon.Application/obj
+/.vs
+/SMEAppHouse.Ladon.DataAccess/obj
+/SMEAppHouse.Ladon.Domain/bin
+/SMEAppHouse.Ladon.Domain/obj
+/SMEAppHouse.Ladon.Infrastructure/bin
+/SMEAppHouse.Ladon.Infrastructure/obj
+/SMEAppHouse.Ladon.Web/bin
+/SMEAppHouse.Ladon.Web/obj
+/SMEAppHouse.Ladon.Web/SMEAppHouse.Ladon.Web.csproj.user
+/SMEDigital.Ladon.Web/bin/Debug/net8.0
+/SMEDigital.Ladon.Web/obj
+/SMEDigital.Ladon.Web
