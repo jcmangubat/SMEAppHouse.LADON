@@ -15,64 +15,121 @@
 }
 
 <!-- Carousel -->
-<partial name="~/pages/home/partialviews/_ServiceCarousel.cshtml" />
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Carousel && p.Value == true))
+{
+    <section id="carousel">
+        <partial name="~/pages/home/partialviews/_ServiceCarousel.cshtml" />
+    </section>
+}
 
 <!-- Feature -->
-<partial name="~/pages/home/partialviews/_features.cshtml" />
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Feature && p.Value == true))
+{
+    <section id="features">
+        <partial name="~/pages/home/partialviews/_features.cshtml" />
+    </section>
+}
 
-<!--Welcome-->
-<partial name="~/pages/home/partialviews/_welcome.cshtml" />
+<!-- Welcome -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Welcome && p.Value == true))
+{
+    <section id="welcome">
+        <partial name="~/pages/home/partialviews/_welcome.cshtml" />
+    </section>
+}
 
 <!-- About Us -->
-<section id="about-us">
-    <partial name="~/pages/home/partialviews/_aboutus.cshtml" />
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.AboutUs && p.Value == true))
+{
+    <section id="about-us">
+        <partial name="~/pages/home/partialviews/_aboutus.cshtml" />
+    </section>
+}
 
 <!-- Teams -->
-<section id="our-teams">
-    <partial name="~/pages/home/partialviews/_ourteam.cshtml" />
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Teams && p.Value == true))
+{
+    <section id="our-teams">
+        <partial name="~/pages/home/partialviews/_ourteam.cshtml" />
+    </section>
+}
 
 <!-- Facts -->
-<partial name="~/pages/home/partialviews/_facts.cshtml" />
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Facts && p.Value == true))
+{
+    <section id="facts">
+        <partial name="~/pages/home/partialviews/_facts.cshtml" />
+    </section>
+}
 
 <!-- Company Video -->
-<partial name="~/pages/home/partialviews/_companyvideo.cshtml" />
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.CompanyVideo && p.Value == true))
+{
+    <section id="company-video">
+        <partial name="~/pages/home/partialviews/_companyvideo.cshtml" />
+    </section>
+}
 
 <!-- Our Services -->
-<section id="our-services">
-    <partial name="~/pages/home/partialviews/_services.cshtml" />
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurServices && p.Value == true))
+{
+    <section id="our-services">
+        <partial name="~/pages/home/partialviews/_services.cshtml" />
+    </section>
+}
 
 <!-- Our Portfolios & Projects -->
-<section id="portfolios">
-    @* <partial name="~/pages/partialviews/portfolios.cshtml" /> *@
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurPortfoliosProjects && p.Value == true))
+{
+    <section id="portfolios">
+        @* <partial name="~/pages/partialviews/portfolios.cshtml" /> *@
+    </section>
+}
 
 <!-- Testimonials-->
-<section id="testimonials">
-    <partial name="~/pages/home/partialviews/_testimonials.cshtml" />
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Testimonials && p.Value == true))
+{
+    <section id="testimonials">
+        <partial name="~/pages/home/partialviews/_testimonials.cshtml" />
+    </section>
+}
 
 <!-- Contact Us -->
-<section id="contact-us">
-    <partial name="~/pages/home/partialviews/_contactus.cshtml" />
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.ContactUs && p.Value == true))
+{
+    <section id="contact-us">
+        <partial name="~/pages/home/partialviews/_contactus.cshtml" />
+    </section>
+}
+
 
 <!-- Blogs -->
-<section id="blogs">
-    <partial name="~/pages/home/partialviews/_blogsandnews.cshtml" />
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Blogs && p.Value == true))
+{
+    <section id="blogs">
+        <partial name="~/pages/home/partialviews/_blogsandnews.cshtml" />
+    </section>
+}
+
 
 <!-- FAQs -->
-<section id="faqs">
-    <partial name="~/pages/home/partialviews/_faqs.cshtml" />
-</section>
-
-<!-- Resources -->
-<section id="resources">
-    @* <partial name="~/pages/home/partialviews/_resources.cshtml" /> *@
-</section>
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.FAQs && p.Value == true))
+{
+    <section id="faqs">
+        <div class="faqs">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Frequently Asked Question</p>
+                    <h2>You May Ask</h2>
+                </div>
+                <div class="row" id="QAs">
+                    Loading...
+                </div>
+            </div>
+        </div>
+        @* <partial name="~/pages/home/partialviews/_faqs.cshtml" /> *@
+    </section>
+}
 
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.5/isotope.pkgd.min.js" integrity="sha512-pTyLt2tKREvSiNYM21FRWRQtjOt/hZNYI+BRQx9yDObvcIydJ+3Ds/DxAKT/vK7D7ekSFfpubYh7ckity28MKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -84,5 +141,14 @@
 
     <!-- Application Javascript -->
     <script src="~/js/site.js"></script>
-}
 
+    <script>
+        async function loadRandomQuestionAnswers() {
+            const response = await fetch('@Url.Page("Index", "RandomQuestionAnswers")');
+            const data = await response.text();
+            document.getElementById('QAs').innerHTML = data;
+        }
+
+        loadRandomQuestionAnswers();
+    </script>
+}

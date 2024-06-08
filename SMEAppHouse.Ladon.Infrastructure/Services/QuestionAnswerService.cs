@@ -50,6 +50,25 @@ public class QuestionAnswerService(IMapper mapper,
         }
     }
 
+    public async Task<IEnumerable<QuestionAnswerModel>?> GetBestTenQAsAsync()
+    {
+        try
+        {
+            Expression<Func<QuestionAnswer, bool>> efModelFilter = ExpressionConverter.Convert<QuestionAnswer, QuestionAnswerModel>(qa => qa.IsImportant == true);
+            var qaList = (await _QuestionAnswerRepository.GetListAsync(efModelFilter)).ToList();
+            var nonImportantQAs = (await _QuestionAnswerRepository.GetListRandomAsync(efModelFilter, 12 - qaList.Count())).ToList();
+            qaList.AddRange(nonImportantQAs);
+
+            var blgPosts = _mapper.Map<List<QuestionAnswerModel>>(qaList);
+            return blgPosts;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogDebug(ex.GetExceptionMessages());
+            throw;
+        }
+    }
+
     public async Task<QuestionAnswerModel?> SaveQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel)
     {
         try

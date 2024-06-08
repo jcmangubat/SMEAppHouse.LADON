@@ -16,6 +16,7 @@ public class QuestionAnswerConfiguration(string schema = "dbo")
 
         entityBuilder.DefineDbField(x => x.Question, true, FieldLengths.QuestionAnswer.Question);
         entityBuilder.DefineDbField(x => x.AnswerText, true, FieldLengths.QuestionAnswer.AnswerText);
+        entityBuilder.DefineDbField(x => x.IsImportant, false);
     }
 }
 

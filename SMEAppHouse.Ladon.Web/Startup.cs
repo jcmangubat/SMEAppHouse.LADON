@@ -158,7 +158,6 @@ public class Startup(IConfiguration configuration)
         services.AddTransient<IBlogPostRepository, BlogPostRepository>();
         services.AddTransient<IClientTestimonyRepository, ClientTestimonyRepository>();
         services.AddTransient<IMessageRepository, MessageRepository>();
-        services.AddTransient<ISiteAreaRepository, SiteAreaRepository>();
         services.AddTransient<ISubscriberRepository, SubscriberRepository>();
         services.AddTransient<IUserProfileRepository, UserProfileRepository>();
         services.AddTransient<IQuoteRequestRepository, QuoteRequestRepository>();

@@ -18,7 +18,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public virtual DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
     public virtual DbSet<UserProfileModel> UserProfiles { get; set; }
     public virtual DbSet<Message> Messages { get; set; }
-    public virtual DbSet<SiteArea> SiteAreas { get; set; }
     public virtual DbSet<Address> Addresses { get; set; }
     public virtual DbSet<ClientTestimony> ClientTestimonies { get; set; }
     public virtual DbSet<BlogPost> BlogPosts { get; set; }
@@ -62,7 +61,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
         builder.ApplyConfiguration(new UserProfileConfiguration(dbSchema));
         builder.ApplyConfiguration(new MessageConfiguration(dbSchema));
-        builder.ApplyConfiguration(new SiteAreaConfiguration(dbSchema));
         builder.ApplyConfiguration(new AddressConfiguration(dbSchema));
         builder.ApplyConfiguration(new ClientTestimonyConfiguration(dbSchema));
         builder.ApplyConfiguration(new BlogPostConfiguration(dbSchema, builder));
@@ -71,6 +69,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         builder.ApplyConfiguration(new SubscriberConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuoteRequestConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuoteRequestAttachmentConfiguration(dbSchema));
+        builder.ApplyConfiguration(new QuestionAnswerConfiguration(dbSchema));
 
         //Seed Users Data
         Seed(builder);
@@ -188,18 +187,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             }
         );
 
-        // Seed site areas:
-        builder.Entity<SiteArea>().HasData(
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-01", Name = "About" },
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-02", Name = "Service" },
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-03", Name = "Teams" },
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-04", Name = "Projects" },
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-05", Name = "Blogs" },
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-06", Name = "FAQs" },
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-07", Name = "ClientReviews" },
-            new SiteArea { Id = Guid.NewGuid(), Code = "LCS-08", Name = "Contact" }
-        );
-
         // Seed blog posts
         var blogPostId = Guid.NewGuid();
         builder.Entity<BlogPost>().HasData(
@@ -232,13 +219,16 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             {
                 Id = Guid.NewGuid(),
                 Question = "What services does Ladon Construction Services offer?",
-                AnswerText = "Ladon Construction Services offers a wide range of construction services, including residential and commercial building, renovation, remodeling, and custom design-build projects. For more of the services offered, please scroll above to check out the Services we are offerring."
+                AnswerText = "Ladon Construction Services offers a wide range of construction services, including residential and commercial building, renovation, remodeling, and custom design-build projects. For more of the services offered, please scroll above to check out the Services we are offerring.",
+                IsImportant = true,
+
             },
             new QuestionAnswer
             {
                 Id = Guid.NewGuid(),
                 Question = "How long has Ladon Construction Services been in business?",
-                AnswerText = "Ladon Construction Services has been proudly serving clients for over 15 years, delivering high-quality construction and renovation projects."
+                AnswerText = "Ladon Construction Services has been proudly serving clients for over 15 years, delivering high-quality construction and renovation projects.",
+                IsImportant = true,
             },
             new QuestionAnswer
             {
@@ -250,7 +240,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             {
                 Id = Guid.NewGuid(),
                 Question = "How do you handle project timelines?",
-                AnswerText = "We work closely with our clients to establish realistic timelines and ensure that all milestones are met.Our project management team oversees every phase to keep things on track."
+                AnswerText = "We work closely with our clients to establish realistic timelines and ensure that all milestones are met.Our project management team oversees every phase to keep things on track.",
+                IsImportant = true,
             },
             new QuestionAnswer
             {
@@ -262,13 +253,15 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             {
                 Id = Guid.NewGuid(),
                 Question = "What should I consider before starting a construction project?",
-                AnswerText = "Important considerations include your budget, desired timeline, the scope of the project, and any specific requirements or preferences you may have."
+                AnswerText = "Important considerations include your budget, desired timeline, the scope of the project, and any specific requirements or preferences you may have.",
+                IsImportant = true,
             },
             new QuestionAnswer
             {
                 Id = Guid.NewGuid(),
                 Question = "Do you provide a warranty for your work?",
-                AnswerText = "Yes, we provide a warranty for all our construction projects to ensure your satisfaction and peace of mind."
+                AnswerText = "Yes, we provide a warranty for all our construction projects to ensure your satisfaction and peace of mind.",
+                IsImportant = true,
             },
             new QuestionAnswer
             {
@@ -286,7 +279,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             {
                 Id = Guid.NewGuid(),
                 Question = "Are there any hidden fees in your estimates?",
-                AnswerText = "No, our estimates are transparent and all - inclusive.We believe in honesty and integrity in all our dealings."
+                AnswerText = "No, our estimates are transparent and all - inclusive.We believe in honesty and integrity in all our dealings.",
+                IsImportant = true,
             },
 
             new QuestionAnswer
@@ -299,7 +293,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             {
                 Id = Guid.NewGuid(),
                 Question = "How do you ensure the quality of your construction work?",
-                AnswerText = "We use high - quality materials and employ skilled craftsmen.Our project managers oversee all work to ensure it meets our stringent quality standards."
+                AnswerText = "We use high - quality materials and employ skilled craftsmen.Our project managers oversee all work to ensure it meets our stringent quality standards.",
+                IsImportant = true,
             },
             new QuestionAnswer
             {
@@ -312,7 +307,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             {
                 Id = Guid.NewGuid(),
                 Question = "Are you licensed and insured?",
-                AnswerText = "Yes, Ladon Construction Services is fully licensed and insured to operate in the construction industry."
+                AnswerText = "Yes, Ladon Construction Services is fully licensed and insured to operate in the construction industry.",
+                IsImportant = true,
             },
             new QuestionAnswer
             {
@@ -330,7 +326,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             {
                 Id = Guid.NewGuid(),
                 Question = "Who will be my point of contact during the project?",
-                AnswerText = "You will be assigned a dedicated project manager who will be your main point of contact throughout the duration of your project."
+                AnswerText = "You will be assigned a dedicated project manager who will be your main point of contact throughout the duration of your project.",
+                IsImportant = true,
             },
             new QuestionAnswer
             {

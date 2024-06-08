@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Persistence\Configurations\SiteAreaConfiguration.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="EmailTemplates\ContactUsMessageTemplate.html" />
     <None Remove="EmailTemplates\QuoteRequestMessageTemplate.html" />
   </ItemGroup>

@@ -6,4 +6,5 @@ public class QuestionAnswer : GuidKeyedEntity
 {
     public required string Question { get; set; } 
     public required string AnswerText { get; set; }
+    public bool? IsImportant { get; set; }
 }

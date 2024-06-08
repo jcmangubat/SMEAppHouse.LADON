@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
 namespace SMEAppHouse.Ladon.Application.Models;
 
@@ -13,4 +14,7 @@ public class ApplicationSettings
 
     [JsonPropertyName("ContactUsMessageForwardingInterval")]
     public TimeSpan? MessageForwardingInterval { get; set; }
+
+    [JsonPropertyName("SiteSectionOptions")]
+    public required Dictionary<SiteSectionsEnum, bool> SiteSectionOptions { get; set; }
 }

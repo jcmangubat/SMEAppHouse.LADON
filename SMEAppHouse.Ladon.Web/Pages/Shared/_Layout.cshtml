@@ -1,8 +1,11 @@
 ﻿@using SMEAppHouse.Ladon.Web.Pages.Shared.Components
-
+@using SMEAppHouse.Ladon.Web.Pages.Common
+@model BasePageModel
 @{
     var isAuthenticated = User.Identity.IsAuthenticated.ToString().ToLower();
     var hasClientRole = User.IsInRole("Client").ToString().ToLower();
+
+    var siteSectionOptions = Model.ApplicationSettings.SiteSectionOptions;
 }
 
 <!DOCTYPE html>
@@ -38,7 +41,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
           integrity="sha512-TyUaMbYrKFZfQfp+9nQGOEt+vGu4nKzLk0KaV3nFifL3K8n7lzb8DayTzLOK0pNyzxGJzGRSw78e8xqJhURJ3Q=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
 
     <link href="~/lib/flaticon/font/flaticon.css" rel="stylesheet" />
     @* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> *@
@@ -48,7 +51,7 @@
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer" />
-    
+
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="~/css/bundle.css" />
     <link href="~/css/common.css" rel="stylesheet" />
@@ -156,16 +159,43 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="unselectable navbar-nav mr-auto">
                             <a id="goto-home" href="#home" class="nav-item nav-link active">Home</a>
-                            <a href="#about-us" class="nav-item nav-link">About</a>
-                            <a href="#our-services" class="nav-item nav-link">Service</a>
-                            <a href="#our-teams" class="nav-item nav-link">Team</a>
-                            <a href="portfolio.html" class="nav-item nav-link">Projects</a>
+                            @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.AboutUs && p.Value == true))
+                            {
+                                <a href="#about-us" class="nav-item nav-link">About</a>
+                            }
+                            @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurServices && p.Value == true))
+                            {
+                                <a href="#our-services" class="nav-item nav-link">Service</a>
+                            }
+
+                            @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Teams && p.Value == true))
+                            {
+                                <a href="#our-teams" class="nav-item nav-link">Team</a>
+                            }
+
+                            @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurPortfoliosProjects && p.Value == true))
+                            {
+                                <a href="portfolio.html" class="nav-item nav-link">Projects</a>
+                            }
+
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                 <div class="other-site-features dropdown-menu">
-                                    <a href="#blogs" class="dropdown-item">Blogs</a>
-                                    <a href="#faqs" class="dropdown-item">Frequently Asked Questions (FAQs)</a>
-                                    <a href="#testimonials" class="dropdown-item">Client Testimonials</a>
+                                    @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Blogs && p.Value == true))
+                                    {
+                                          <a href="#blogs" class="dropdown-item">Blogs</a>
+                                    }
+
+                                    @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.FAQs && p.Value == true))
+                                    {
+                                        <a href="#faqs" class="dropdown-item">Frequently Asked Questions (FAQs)</a>
+                                    }
+
+                                    @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Testimonials && p.Value == true))
+                                    {
+                                        <a href="#testimonials" class="dropdown-item">Client Testimonials</a>
+                                    }
+
                                 </div>
                             </div>
                             <a href="#contact-us" class="nav-item nav-link">Contact</a>
@@ -221,7 +251,7 @@
         <div class="footer wow fadeIn" data-wow-delay="0.3s">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-4">
                         <div class="footer-contact">
                             <h2>Office Contact</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Tierra Nueva Tacunan, Tugbok, Davao City, Davao del Sur, Philippines</p>
@@ -235,17 +265,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
+                    @* <div class="col-md-6 col-lg-3">
                         <div class="footer-link">
                             <h2>Services Areas</h2>
-                            <a href="">Building Construction</a>
-                            <a href="">House Renovation</a>
-                            <a href="">Architecture Design</a>
-                            <a href="">Interior Design</a>
+                            <a href="">Residential Construction</a>
+                            <a href="">Commercial Construction</a>
+                            <a href="">New Construction</a>
+                            <a href="">Renovation and Remodeling</a>
+                            <a href="">Interior Fit-out Works</a>
+                            <a href="">Exterior & Interior Landscaping</a>
+                            <a href="">Restoration, Renovation and Preservation Works</a>
+                            <a href="">Structural Engineering & Planning</a>
+                            <a href="">Architectural Design and Planning</a>
+                            <a href="">HVAC Installation and Maintenance</a>
+                            <a href="">Plumbing and Piping Services</a>
+                            <a href="">Electrical Systems Installation and Maintenance</a>
+                            <a href="">Flooring Installation and Restoration</a>
                             <a href="">Painting</a>
+                            <a href="">Roofing and Waterproofing</a>
+                            <a href="">Telecommunications Infrastructure / Private Branch Exchange (PBX) Installation</a>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
+                    </div> *@
+                    <div class="col-md-6 col-lg-4">
                         <div class="footer-link">
                             <h2>Useful Pages</h2>
                             <a href="">About Us</a>
@@ -255,7 +296,7 @@
                             <a href="">Testimonial</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-4">
                         <div class="newsletter">
                             <h2>Newsletter</h2>
                             <p>

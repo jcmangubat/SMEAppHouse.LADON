@@ -336,4 +336,20 @@ public class Rules
         FromContactUs = 0,
         FromServiceQuoteRequest = 1
     }
+
+    public enum SiteSectionsEnum {
+        Carousel,
+        Feature,
+        Welcome,
+        AboutUs,
+        Teams,
+        Facts,
+        CompanyVideo,
+        OurServices,
+        OurPortfoliosProjects,
+        Testimonials,
+        ContactUs,
+        Blogs,
+        FAQs,
+    }
 }

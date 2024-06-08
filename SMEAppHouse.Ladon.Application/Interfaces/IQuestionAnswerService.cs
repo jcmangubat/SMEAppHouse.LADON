@@ -8,7 +8,7 @@ public interface IQuestionAnswerService
     Task<QuestionAnswerModel?> GetQuestionAnswerAsync(Guid questionAnswerId);
 
     Task<IEnumerable<QuestionAnswerModel>?> GetQuestionAnswersAsync(Expression<Func<QuestionAnswerModel, bool>> modelFilter);
-
+    Task<IEnumerable<QuestionAnswerModel>?> GetBestTenQAsAsync();
     Task<QuestionAnswerModel?> SaveQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel);
 
     Task UpdateQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel);
