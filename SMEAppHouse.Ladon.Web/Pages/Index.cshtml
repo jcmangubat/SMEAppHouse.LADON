@@ -33,7 +33,7 @@
 <!-- Welcome -->
 @if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Welcome && p.Value == true))
 {
-    <section id="welcome">
+    <section id="welcome" style="padding-top: unset;">
         <partial name="~/pages/home/partialviews/_welcome.cshtml" />
     </section>
 }
