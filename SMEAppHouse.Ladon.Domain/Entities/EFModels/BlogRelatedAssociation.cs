@@ -2,8 +2,6 @@
 
 public class BlogRelatedAssociation
 {
-    public Guid Id { get; set; }
-
     public Guid SourceBlogPostId { get; set; }
     public virtual required BlogPost SourceBlogPost { get; set; }
 

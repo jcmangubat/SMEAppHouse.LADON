@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Persistence\Configurations\BlogPostCategoryAssociationConfiguration.cs" />
     <Compile Remove="Persistence\Configurations\SiteAreaConfiguration.cs" />
   </ItemGroup>
 
@@ -26,6 +27,7 @@
     <PackageReference Include="Hangfire.SqlServer" Version="1.8.12" />
     <PackageReference Include="Imagekit" Version="4.0.2" />
     <PackageReference Include="MailKit" Version="4.6.0" />
+    <PackageReference Include="Markdig" Version="0.37.0" />
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5" />
   </ItemGroup>
@@ -39,6 +41,15 @@
   <ItemGroup>
     <Folder Include="Identity\" />
     <Folder Include="Persistence\Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SeedData\BlogPost\manifest.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\BlogPost\sustainable-solutions.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

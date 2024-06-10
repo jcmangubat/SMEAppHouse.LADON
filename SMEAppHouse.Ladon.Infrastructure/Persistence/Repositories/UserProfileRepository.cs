@@ -5,7 +5,7 @@ using SMEAppHouse.Ladon.Domain.Repositories;
 namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Repositories;
 
 public class UserProfileRepository(ApplicationDbContext dbContext) 
-    : RepositoryForKeyedEntity<UserProfileModel, Guid>(dbContext), IUserProfileRepository
+    : RepositoryForKeyedEntity<UserProfile, Guid>(dbContext), IUserProfileRepository
 {
 
 }

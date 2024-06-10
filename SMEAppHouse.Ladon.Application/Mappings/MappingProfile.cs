@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 
 namespace SMEAppHouse.Ladon.Application.Mappings;
@@ -69,7 +69,7 @@ public class MappingProfile : Profile
 
         CreateMap<QuoteRequestAttachmentModel, QuoteRequestAttachment>().ReverseMap();
 
-        CreateMap<BlogPost, BlogPostModel>()
+        /*CreateMap<BlogPost, BlogPostModel>()
            .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
            .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src.Content))
            .ForMember(dest => dest.PublishedDate, opt => opt.MapFrom(src => src.PublishedDate))
@@ -88,7 +88,11 @@ public class MappingProfile : Profile
            .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments))
            .ForMember(dest => dest.AuthorUserProfileId, opt => opt.MapFrom(src => src.AuthorUserProfileId))
            .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.AuthorName))
-           .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
+           .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+           .ForMember(dest => dest.ContentSourceMDCDNUrl, opt => opt.MapFrom(src => src.ContentSourceMDCDNUrl))
+           .ForMember(dest => dest.ContentSourceMDFileName, opt => opt.MapFrom(src => src.ContentSourceMDFileName))
+           .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images))
+           .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.Categories));
 
         CreateMap<BlogPostModel, BlogPost>()
            .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
@@ -109,7 +113,17 @@ public class MappingProfile : Profile
            .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments))
            .ForMember(dest => dest.AuthorUserProfileId, opt => opt.MapFrom(src => src.AuthorUserProfileId))
            .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.AuthorName))
-           .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id ?? default));
+           .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id ?? default))
+           .ForMember(dest => dest.ContentSourceMDCDNUrl, opt => opt.MapFrom(src => src.ContentSourceMDCDNUrl))
+           .ForMember(dest => dest.ContentSourceMDFileName, opt => opt.MapFrom(src => src.ContentSourceMDFileName))
+           .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images))
+           .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.Categories));*/
+
+        CreateMap<BlogPostModel, BlogPost>().ReverseMap();
+        CreateMap<ArticleCategoryModel, ArticleCategory>().ReverseMap();
+        CreateMap<BlogPostCommentModel, BlogPostComment>().ReverseMap();
+        CreateMap<BlogPostImageModel, BlogPostImage>().ReverseMap();
+        CreateMap<BlogRelatedAssociationModel, BlogRelatedAssociation>().ReverseMap();
     }
 }
 

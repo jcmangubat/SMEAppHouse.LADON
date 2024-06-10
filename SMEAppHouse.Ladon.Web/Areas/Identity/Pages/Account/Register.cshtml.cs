@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using SMEAppHouse.Ladon.Infrastructure.Interfaces;
-using UserProfile = SMEAppHouse.Ladon.Application.Models.UserProfile;
+using UserProfileModel = SMEAppHouse.Ladon.Application.Models.Data.UserProfileModel;
 
 namespace SMEAppHouse.Ladon.Web.Areas.Identity.Pages.Account
 {
@@ -165,8 +165,8 @@ namespace SMEAppHouse.Ladon.Web.Areas.Identity.Pages.Account
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(UserProfile)}'. " +
-                    $"Ensure that '{nameof(UserProfile)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(UserProfileModel)}'. " +
+                    $"Ensure that '{nameof(UserProfileModel)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }

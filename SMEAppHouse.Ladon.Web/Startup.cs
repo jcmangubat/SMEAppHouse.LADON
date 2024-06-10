@@ -10,6 +10,7 @@ using Serilog;
 using SMEAppHouse.Ladon.Application.Interfaces;
 using SMEAppHouse.Ladon.Application.Mappings;
 using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Application.Models.Validators;
 using SMEAppHouse.Ladon.Domain.Repositories;
 using SMEAppHouse.Ladon.Infrastructure.Interfaces;
@@ -154,7 +155,7 @@ public class Startup(IConfiguration configuration)
 
         // Repositories
         services.AddTransient<IAddressRepository, AddressRepository>();
-        services.AddTransient<IBlogCommentRepository, BlogCommentRepository>();
+        services.AddTransient<IBlogPostCommentRepository, BlogPostCommentRepository>();
         services.AddTransient<IBlogPostRepository, BlogPostRepository>();
         services.AddTransient<IClientTestimonyRepository, ClientTestimonyRepository>();
         services.AddTransient<IMessageRepository, MessageRepository>();
@@ -196,6 +197,8 @@ public class Startup(IConfiguration configuration)
         services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
         services.AddSingleton(resolver =>
             resolver.GetRequiredService<IOptions<ApplicationSettings>>().Value);
+
+        services.AddTransient<MarkdownService>();
 
         // Application Services
         services.AddScoped<IAuthMembershipService, AuthMembershipService>();
@@ -279,6 +282,9 @@ public class Startup(IConfiguration configuration)
             .UseSqlServerStorage(() => new Microsoft.Data.SqlClient.SqlConnection(hangfireConn)));
         services.AddHangfireServer();
     }
+
+
+
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)

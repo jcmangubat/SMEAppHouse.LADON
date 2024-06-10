@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\EFModels\BlogPostCategoryAssociation.cs" />
+    <Compile Remove="Entities\EFModels\DataProtectionKey.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\..\SMEAppHouse\CodeLibraries\SMEAppHouse.Core.Patterns.EF\SMEAppHouse.Core.Patterns.EF.csproj" />
     <ProjectReference Include="..\..\..\..\SMEAppHouse\CodeLibraries\SMEAppHouse.Core.Patterns.Repo\SMEAppHouse.Core.Patterns.Repo.csproj" />
   </ItemGroup>

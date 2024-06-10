@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SMEAppHouse.Core.CodeKits.Helpers;
 using SMEAppHouse.Ladon.Application.Interfaces;
-using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Domain.Repositories;
 using SMEAppHouse.Ladon.Infrastructure.Helpers;
 using QuoteRequestAttachment = SMEAppHouse.Ladon.Domain.Entities.EFModels.QuoteRequestAttachment;

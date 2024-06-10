@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SMEAppHouse.Ladon.Application.Interfaces;
-using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Domain.Constants;
 
 namespace SMEAppHouse.Ladon.Web.Controllers;

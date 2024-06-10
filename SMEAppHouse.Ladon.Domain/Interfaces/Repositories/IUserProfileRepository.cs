@@ -3,6 +3,6 @@ using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 
 namespace SMEAppHouse.Ladon.Domain.Repositories;
 
-public interface IUserProfileRepository : IRepositoryForKeyedEntity<UserProfileModel, Guid>
+public interface IUserProfileRepository : IRepositoryForKeyedEntity<UserProfile, Guid>
 {
 }

@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
-using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 
 namespace SMEAppHouse.Ladon.Infrastructure.Interfaces;
 
@@ -16,7 +16,7 @@ public interface IAuthMembershipService
     Task<IdentityResult> CreateAsync(IdentityUser<Guid> user, string password);
     Task<IdentityUser<Guid>> FindByEmailAsync(string email);
     Task<string> GenerateEmailConfirmationTokenAsync(IdentityUser<Guid> user);
-    Task<UserProfile> GetUserAsync(ClaimsPrincipal user);
+    Task<UserProfileModel> GetUserAsync(ClaimsPrincipal user);
     Task<string> GetUserIdAsync(IdentityUser<Guid> user);
     Task<SignInResult> PasswordSignInAsync(string email, string password, bool rememberMe, bool lockoutOnFailure);
     Task SignInAsync(IdentityUser<Guid> user, bool? isPersistent = false);

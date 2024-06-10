@@ -6,6 +6,7 @@ public static class FieldLengths
     {
         public const int PhoneNumber = 20;
         public const int EmailAddress = 200;
+        public const int URL = 2000;
 
         public const int ExtremelyShort = 5;
         public const int ExtraShort = 10;

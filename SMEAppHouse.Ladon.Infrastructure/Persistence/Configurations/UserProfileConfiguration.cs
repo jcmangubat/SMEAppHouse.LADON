@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SMEAppHouse.Core.Patterns.EF.Helpers;
 using SMEAppHouse.Core.Patterns.EF.ModelCfgAbstractions;
 using SMEAppHouse.Ladon.Domain.Entities.EFModels;
@@ -6,7 +7,7 @@ using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Configurations;
 
 public class UserProfileConfiguration(string schema = "dbo") 
-    : EntityConfiguration<UserProfileModel, Guid>(prefixEntityNameToId: true, 
+    : EntityConfiguration<UserProfile, Guid>(prefixEntityNameToId: true, 
         prefixAltTblNameToEntity: false, schema: schema, pluralizeTblName: true)
 {
 
@@ -14,7 +15,7 @@ public class UserProfileConfiguration(string schema = "dbo")
     /// 
     /// </summary>
     /// <param name="entityBuilder"></param>
-    public override void OnModelCreating(EntityTypeBuilder<UserProfileModel> entityBuilder)
+    public override void OnModelCreating(EntityTypeBuilder<UserProfile> entityBuilder)
     {
         base.OnModelCreating(entityBuilder);
 
@@ -28,6 +29,8 @@ public class UserProfileConfiguration(string schema = "dbo")
         entityBuilder.DefineDbField(x => x.ThumbnailUrl, false, 200);
         entityBuilder.DefineDbField(x => x.ProfileImageUrl, false, 200);
         entityBuilder.DefineDbField(x => x.BusinessInstitutionName, false, 120);
+
+        entityBuilder.HasIndex(u => new { u.FirstName, u.LastName });
 
         //entityBuilder.HasOne(p => p.ApplicationUser)
         //                .WithMany(p => p.Addresses)

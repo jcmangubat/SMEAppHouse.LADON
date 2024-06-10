@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using SMEAppHouse.Ladon.Domain.Constants;
 using SMEAppHouse.Core.CodeKits;
+using SMEAppHouse.Ladon.Application.Models.Data;
 
 namespace SMEAppHouse.Ladon.Application.Models.Validators;
 

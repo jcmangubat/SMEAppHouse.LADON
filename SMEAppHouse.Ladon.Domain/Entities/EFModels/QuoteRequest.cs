@@ -97,7 +97,7 @@ public class QuoteRequest : GuidKeyedEntity
     /* submitter (reference to an existing account is optional) */
     public Guid? RequestorUserProfileId { get; set; }
 
-    public virtual UserProfileModel? RequestorUserProfile { get; set; }
+    public virtual UserProfile? RequestorUserProfile { get; set; }
 
     /// <summary>
     /// Any Attachments or Supporting Documents(e.g., blueprints, site plans)

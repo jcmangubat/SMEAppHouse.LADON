@@ -1,4 +1,4 @@
-﻿using SMEAppHouse.Ladon.Application.Models;
+﻿using SMEAppHouse.Ladon.Application.Models.Data;
 
 namespace SMEAppHouse.Ladon.Web.Areas.Identity.ViewModels;
 
@@ -12,6 +12,6 @@ public class UserAuthenticationDetails
     public bool HasModeratorRole { get; set; }
     public bool HasClientRole { get; set; }
 
-    public UserProfile? UserProfile { get; set;}
+    public UserProfileModel? UserProfile { get; set;}
 
 }

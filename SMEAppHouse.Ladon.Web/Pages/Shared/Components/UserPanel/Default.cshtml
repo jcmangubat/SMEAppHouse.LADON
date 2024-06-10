@@ -1,4 +1,4 @@
-﻿@using SMEAppHouse.Ladon.Application.Models
+﻿@using SMEAppHouse.Ladon.Application.Models.Data
 @model dynamic 
 
 <div class="usr-menu-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="@Model.labelledbyParam">
@@ -9,19 +9,19 @@
             <div class="profile">
                 @if (Model.AuthDetails.HasAdminRole || Model.AuthDetails.HasManagerRole || Model.AuthDetails.HasEditorRole || Model.AuthDetails.HasModeratorRole)
                 {
-                    <img src="@(((UserProfile)Model.AuthDetails.UserProfile).ThumbnailUrl)" class="thumbnail">
+                    <img src="@(((UserProfileModel)Model.AuthDetails.UserProfile).ThumbnailUrl)" class="thumbnail">
                     <h5 class="name">
-                        @(((UserProfile)Model.AuthDetails.UserProfile).FullName)
+                        @(((UserProfileModel)Model.AuthDetails.UserProfile).FullName)
                     </h5>
-                    <p class="title">@(((UserProfile)Model.AuthDetails.UserProfile).BusinessInstitutionName)</p>
+                    <p class="title">@(((UserProfileModel)Model.AuthDetails.UserProfile).BusinessInstitutionName)</p>
                 }
                 else if (Model.AuthDetails.HasClientRole)
                 {
-                    <img src="@(((UserProfile)Model.AuthDetails.UserProfile).ThumbnailUrl)" class="thumbnail">
+                    <img src="@(((UserProfileModel)Model.AuthDetails.UserProfile).ThumbnailUrl)" class="thumbnail">
                     <h5 class="name">
-                        @(((UserProfile)Model.AuthDetails.UserProfile).FullName)
+                        @(((UserProfileModel)Model.AuthDetails.UserProfile).FullName)
                     </h5>
-                    <p class="title">@(((UserProfile)Model.AuthDetails.UserProfile).BusinessInstitutionName)</p>
+                    <p class="title">@(((UserProfileModel)Model.AuthDetails.UserProfile).BusinessInstitutionName)</p>
                 }
             </div>
         </div>

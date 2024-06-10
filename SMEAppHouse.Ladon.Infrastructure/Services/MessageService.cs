@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using SMEAppHouse.Core.CodeKits.Tools;
 using SMEAppHouse.Ladon.Application.Interfaces;
-using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Domain.Repositories;
 
 namespace SMEAppHouse.Ladon.Infrastructure.Services;

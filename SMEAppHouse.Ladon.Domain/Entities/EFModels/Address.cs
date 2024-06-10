@@ -13,6 +13,6 @@ namespace SMEAppHouse.Ladon.Domain.Entities.EFModels
         public string PostalCode { get; set; }
         public AddressTypesEnum AddressType { get; set; }
         public Guid UserProfileId { get; set; }
-        public virtual UserProfileModel UserProfile { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
     }
 }

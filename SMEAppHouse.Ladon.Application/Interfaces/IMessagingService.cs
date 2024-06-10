@@ -1,4 +1,4 @@
-﻿using SMEAppHouse.Ladon.Application.Models;
+﻿using SMEAppHouse.Ladon.Application.Models.Data;
 
 namespace SMEAppHouse.Ladon.Application.Interfaces;
 

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SMEAppHouse.Ladon.Application.Interfaces;
 using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Web.Pages.Common;
 
 namespace SMEAppHouse.Ladon.Web.Pages

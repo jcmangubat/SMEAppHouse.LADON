@@ -12,7 +12,11 @@ public class BlogPost : GuidKeyedEntity
     /// <summary>
     /// The main content of the blog post.
     /// </summary>
-    public required string Content { get; set; }
+    public string? Content { get; set; }
+
+    public string? ContentSourceMDFileName { get; set; }
+
+    public string? ContentSourceMDCDNUrl { get; set; }
 
     /// <summary>
     /// The date and time when the blog post was published.
@@ -63,34 +67,42 @@ public class BlogPost : GuidKeyedEntity
     /// <summary>
     /// Keywords or phrases relevant to the blog post for SEO purposes.
     /// </summary>
-    public List<string>? MetaKeywords { get; set; }
+    public IList<string>? MetaKeywords { get; set; } = [];
 
     /// <summary>
     /// Keywords or labels associated with the blog post for categorization or search purposes.
     /// </summary>
-    public List<string>? Tags { get; set; }
+    public IList<string>? Tags { get; set; } = [];
 
     /// <summary>
     /// Categories or topics to which the blog post belongs.
     /// </summary>
-    public virtual ICollection<BlogPostCategory>? BlogPostCategories { get; set; }
+    public virtual IList<ArticleCategory> ArticleCategories { get; set; } = [];
 
     /// <summary>
     /// Navigation property representing the related blog posts. 
     /// A collection of other blog posts that are related or similar to this post.
     /// </summary>
-    public virtual List<BlogRelatedAssociation>? RelatedPostsFrom { get; set; } // Navigation property for related posts
-    public virtual List<BlogRelatedAssociation>? RelatedPostsTo { get; set; } // Navigation property for related posts
+    public virtual IList<BlogRelatedAssociation>? RelatedPostsFrom { get; set; } = [];
+    public virtual IList<BlogRelatedAssociation>? RelatedPostsTo { get; set; } = [];
 
     /// <summary>
     /// A collection of comments or feedback submitted by readers.
     /// </summary>
-    public virtual List<BlogComment>? Comments { get; set; } = [];
+    public virtual IList<BlogPostComment>? Comments { get; set; } = [];
+
+    public virtual IList<BlogPostImage>? Images { get; set; } = [];
 
     /// <summary>
     /// The author or creator of the blog post.
     /// </summary>
     public Guid? AuthorUserProfileId { get; set; }
-    public virtual UserProfileModel? AuthorUserProfile { get; set; } // Navigation property
-    public string? AuthorName { get; set; }
+    public virtual UserProfile? AuthorUserProfile { get; set; } // Navigation property
+    public required string AuthorName { get; set; }
+
+    // Foreign key for the one-to-one relationship
+    public Guid? QuestionAnswerId { get; set; }
+
+    // Navigation property for the one-to-one relationship
+    public virtual QuestionAnswer? QuestionAnswer { get; set; }
 }

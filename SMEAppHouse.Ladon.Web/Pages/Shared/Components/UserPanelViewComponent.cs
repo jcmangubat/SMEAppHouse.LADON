@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Infrastructure.Interfaces;
 using SMEAppHouse.Ladon.Web.Areas.Identity.ViewModels;
 
@@ -29,7 +30,7 @@ public class UserPanelViewComponent : ViewComponent
                 httpContext.User.Identity.IsAuthenticated)
             {
                 // Retrieve the currently authenticated user
-                Application.Models.UserProfile userProfileDto = null;
+                UserProfileModel userProfileDto = null;
                 if (httpContext != null)
                     userProfileDto = await _authService.GetUserAsync(httpContext.User);
 

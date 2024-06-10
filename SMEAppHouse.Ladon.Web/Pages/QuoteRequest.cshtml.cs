@@ -7,6 +7,7 @@ using SMEAppHouse.Core.CodeKits.Geo;
 using SMEAppHouse.Core.CodeKits.Helpers;
 using SMEAppHouse.Ladon.Application.Interfaces;
 using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Infrastructure.Interfaces;
 using SMEAppHouse.Ladon.Web.Extensions;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;

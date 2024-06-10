@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using SMEAppHouse.Core.Patterns.EF.SettingsModel;
 using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 using SMEAppHouse.Ladon.Infrastructure.Persistence.Configurations;
+using SMEAppHouse.Ladon.Infrastructure.SeedData.BlogPosts;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 using DataProtectionKey = Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.DataProtectionKey;
 namespace SMEAppHouse.Ladon.Infrastructure.Persistence;
@@ -14,14 +15,58 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>(options), IDataProtectionKeyContext
 {
     private readonly DbMigrationInformation _dbMigrationInformation = dbMigrationInformation;
+    private readonly List<ArticleCategory> _blogPostCategories = [
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Accessibility in Construction" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Building Codes and Standards" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Case Studies and Success Stories" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Client Education" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Client Resources" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Community and Culture" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Company Updates" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Construction Careers" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Construction Finance" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Construction Management" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Construction Techniques" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Cost Estimation and Budgeting" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Customer Stories and Interviews" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Design and Architecture" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Disaster Preparedness and Recovery" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Energy Efficiency" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Environmental Impact" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Equipment Maintenance" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Green Building Materials" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Health and Wellness in Construction" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Historic Preservation" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Home Improvement and DIY" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Industry News" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Innovation and Future Trends" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Innovation Awards and Recognitions" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Landscaping and Outdoor Design" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Legal and Insurance" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Materials and Equipment" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Modular and Prefabricated Construction" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Project Showcase" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Property Management" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Real Estate Development" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Safety and Compliance" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Smart Home Technology" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Supply Chain and Logistics" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Sustainability and Green Building" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Technology in Construction" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Training and Certification" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Urban Planning and Development" },
+            new ArticleCategory() { Id = Guid.NewGuid(), Name = "Weather and Seasonal Tips" } ];
 
     public virtual DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
-    public virtual DbSet<UserProfileModel> UserProfiles { get; set; }
+    public virtual DbSet<UserProfile> UserProfiles { get; set; }
     public virtual DbSet<Message> Messages { get; set; }
     public virtual DbSet<Address> Addresses { get; set; }
     public virtual DbSet<ClientTestimony> ClientTestimonies { get; set; }
+
     public virtual DbSet<BlogPost> BlogPosts { get; set; }
-    public virtual DbSet<BlogComment> BlogComments { get; set; }
+    public virtual DbSet<ArticleCategory> BlogPostCategories { get; set; }
+
+    public virtual DbSet<BlogPostComment> BlogPostComments { get; set; }
     public virtual DbSet<Subscriber> Subscribers { get; set; }
     public virtual DbSet<QuoteRequest> QuoteRequests { get; set; }
     public virtual DbSet<QuoteRequestAttachment> QuoteRequestAttachments { get; set; }
@@ -33,8 +78,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
         var dbSchema = "dbo";
         builder.HasDefaultSchema(dbSchema);
-
-        //builder.Entity<DataProtectionKey>().ToTable("_DataProtectionKeys");
 
         builder.Entity<IdentityUser<Guid>>().ToTable("Users");
         builder.Entity<IdentityRole>().ToTable("Roles");
@@ -48,7 +91,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         builder.Entity<IdentityUserLogin<Guid>>().Property(x => x.LoginProvider).HasMaxLength(225);
         builder.Entity<IdentityUserToken<Guid>>().Property(x => x.Name).HasMaxLength(112);
         builder.Entity<IdentityUserToken<Guid>>().Property(x => x.LoginProvider).HasMaxLength(112);
-
 
         // Additional configurations
 
@@ -64,18 +106,21 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         builder.ApplyConfiguration(new AddressConfiguration(dbSchema));
         builder.ApplyConfiguration(new ClientTestimonyConfiguration(dbSchema));
         builder.ApplyConfiguration(new BlogPostConfiguration(dbSchema, builder));
-        builder.ApplyConfiguration(new BlogCategoryConfiguration(dbSchema, builder));
-        builder.ApplyConfiguration(new BlogCommentConfiguration(dbSchema));
+        builder.ApplyConfiguration(new ArticleCategoryConfiguration(dbSchema, builder));
+        builder.ApplyConfiguration(new BlogPostImageConfiguration(dbSchema, builder));
+        builder.ApplyConfiguration(new BlogPostCommentConfiguration(dbSchema));
         builder.ApplyConfiguration(new SubscriberConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuoteRequestConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuoteRequestAttachmentConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuestionAnswerConfiguration(dbSchema));
 
-        //Seed Users Data
-        Seed(builder);
+        SeedRolesAndUsers(builder);
+        SeedQuestionAndAnswers(builder);
+        SeedBlogCategory(builder);
+        SeedBlogPostEntity(builder);
     }
 
-    public static void Seed(ModelBuilder builder)
+    public void SeedRolesAndUsers(ModelBuilder builder)
     {
         // Seed roles
         var adminRole = new IdentityRole<Guid> { Id = Guid.NewGuid(), Name = "Admin", NormalizedName = "ADMIN" };
@@ -132,7 +177,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             new IdentityUserRole<Guid> { UserId = mgrIdentityUsr.Id, RoleId = mgrRole.Id }
         );
 
-        var adminUsrProfile = new UserProfileModel
+        var adminUsrProfile = new UserProfile
         {
             Id = Guid.NewGuid(),
             IdentityUserId = adminIdentityUsr.Id,
@@ -144,7 +189,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             MobilePhoneNo = "+639672814641",
         };
 
-        var mgrUsrProfile = new UserProfileModel
+        var mgrUsrProfile = new UserProfile
         {
             Id = Guid.NewGuid(),
             IdentityUserId = mgrIdentityUsr.Id,
@@ -157,7 +202,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         };
 
         // Seed the Application user 
-        builder.Entity<UserProfileModel>().HasData(adminUsrProfile, mgrUsrProfile);
+        builder.Entity<UserProfile>().HasData(adminUsrProfile, mgrUsrProfile);
 
         // Seed addresses
         builder.Entity<Address>().HasData(
@@ -187,7 +232,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             }
         );
 
-        // Seed blog posts
+        /*// Seed blog posts
         var blogPostId = Guid.NewGuid();
         builder.Entity<BlogPost>().HasData(
             new BlogPost
@@ -199,21 +244,16 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 Slug = "sanctifying-spaces-crafting-sacred-church-architecture",
                 AuthorUserProfileId = adminUsrProfile.Id // Ensure this matches the seeded admin user ID
             }
-        );
+        );*/
+    }
 
-        // Seed blog comments if necessary
-        builder.Entity<BlogComment>().HasData(
-            new BlogComment
-            {
-                Id = Guid.NewGuid(),
-                Email = "commenter@gmail.com",
-                BlogPostId = blogPostId,
-                CommentText = "This is a fantastic article!",
-                AuthorName = "John Doe"
-            }
-        );
+    public void SeedBlogCategory(ModelBuilder builder)
+    {
+        builder.Entity<ArticleCategory>().HasData(_blogPostCategories);
+    }
 
-        // Seed question and answers
+    public void SeedQuestionAndAnswers(ModelBuilder builder)
+    {
         builder.Entity<QuestionAnswer>().HasData(
             new QuestionAnswer
             {
@@ -282,7 +322,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 AnswerText = "No, our estimates are transparent and all - inclusive.We believe in honesty and integrity in all our dealings.",
                 IsImportant = true,
             },
-
             new QuestionAnswer
             {
                 Id = Guid.NewGuid(),
@@ -302,7 +341,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 Question = "What safety measures do you take on construction sites?",
                 AnswerText = "Safety is a top priority for us.We follow all industry safety standards and regulations, and our team is trained in best safety practices."
             },
-
             new QuestionAnswer
             {
                 Id = Guid.NewGuid(),
@@ -342,5 +380,79 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 AnswerText = "Upon completion, we conduct a thorough walkthrough with you to ensure everything is to your satisfaction.We also provide a comprehensive handover package, including all necessary documentation."
             });
     }
-}
 
+    public void SeedBlogPostEntity(ModelBuilder builder)
+    {
+        var blogPostsFromManifest = BlogPostManifestData.Read();
+
+        var blogPostEntities = new List<BlogPost>();
+        var blogPostImageEntities = new List<BlogPostImage>();
+        var blogPostCommentEntities = new List<BlogPostComment>();
+        var blogPostArticleCategoryAssocs = new List<dynamic>();
+
+        foreach (var post in blogPostsFromManifest.Posts)
+        {
+            var newBlogPostId = Guid.NewGuid();
+            var outputDirectory = AppContext.BaseDirectory;
+            var mdFilePath = Path.Combine(outputDirectory, "SeedData", "BlogPost", post.ContentFile);
+            if (!File.Exists(mdFilePath))
+                continue;
+
+            var blogPost = new BlogPost
+            {
+                Id = newBlogPostId,
+                Title = post.Title,
+                ContentSourceMDFileName = post.ContentFile,
+                PublishedDate = post.PublishedDate,
+                LastModified = post.LastModified,
+                Slug = post.Slug,
+                Likes = post.Likes,
+                Hearts = post.Hearts,
+                Views = post.Views,
+                IsFeatured = post.IsFeatured,
+                MetaDescription = post.MetaDescription,
+                CanonicalUrl = post.CanonicalUrl,
+                MetaKeywords = post.MetaKeywords,
+                Tags = post.Tags,
+                AuthorName = post.AuthorName
+            };
+
+            blogPostEntities.Add(blogPost);
+            foreach (var category in post.ArticleCategories)
+            {
+                var blogPostCategories = _blogPostCategories
+                                        .Where(bc => post.ArticleCategories.Any(mbc => mbc.Name == bc.Name))
+                                        .Select(p => new 
+                                        {
+                                            BlogPostId = newBlogPostId,
+                                            ArticleCategoryId = p.Id
+                                        })
+                                        .ToList();
+
+                blogPostArticleCategoryAssocs.AddRange(blogPostCategories);
+            }
+
+            blogPostCommentEntities.Add(new BlogPostComment
+            {
+                Id = Guid.NewGuid(),
+                Email = "commenter@gmail.com",
+                BlogPostId = newBlogPostId,
+                CommentText = "This is a fantastic article!",
+                AuthorName = "John Doe"
+            });
+
+            blogPostImageEntities.Add(new BlogPostImage()
+            {
+                Id = Guid.NewGuid(),
+                ImageCDNUrl = "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713973964/BG-Slider-Conservatories_ppeljm.jpg",
+                BlogPostId = newBlogPostId,
+            });
+        }
+
+        builder.Entity<BlogPost>().HasData(blogPostEntities);
+        builder.Entity<BlogPostArticleCategory>().HasData(blogPostArticleCategoryAssocs);
+
+        builder.Entity<BlogPostComment>().HasData(blogPostCommentEntities);
+        builder.Entity<BlogPostImage>().HasData(blogPostImageEntities);
+    }
+}

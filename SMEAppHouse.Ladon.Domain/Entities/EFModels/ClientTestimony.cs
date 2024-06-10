@@ -13,5 +13,5 @@ public class ClientTestimony : GuidKeyedEntity
     public string? ProjectImageUrl { get; set; }
 
     public Guid? UserProfileId { get; set; }
-    public virtual UserProfileModel? UserProfile { get; set; }
+    public virtual UserProfile? UserProfile { get; set; }
 }

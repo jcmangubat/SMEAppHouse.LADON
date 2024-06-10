@@ -20,7 +20,11 @@ public class BlogPostConfiguration(string schema = "dbo", ModelBuilder builder =
         base.OnModelCreating(entityBuilder);
 
         entityBuilder.DefineDbField(x => x.Title, true, FieldLengths.BlogPost.Title);
-        entityBuilder.DefineDbField(x => x.Content, true, "nvarchar(max)");
+
+        entityBuilder.DefineDbField(x => x.Content, false, "nvarchar(max)");
+        entityBuilder.DefineDbField(x => x.ContentSourceMDFileName, false, "nvarchar(2000)");
+        entityBuilder.DefineDbField(x => x.ContentSourceMDCDNUrl, false, "nvarchar(2000)");
+
         entityBuilder.DefineDbField(x => x.PublishedDate, false);
         entityBuilder.DefineDbField(x => x.LastModified, false);
 
@@ -35,20 +39,29 @@ public class BlogPostConfiguration(string schema = "dbo", ModelBuilder builder =
         entityBuilder.DefineDbField(x => x.MetaKeywords, false, FieldLengths.BlogPost.MetaKeywords, null, "nvarchar");
         entityBuilder.DefineDbField(x => x.CanonicalUrl, false, FieldLengths.BlogPost.CanonicalUrl, null, propertyType: "nvarchar");
 
-        entityBuilder.DefineDbField(x => x.AuthorName, false, FieldLengths.BlogPost.AuthorName, null, "nvarchar");
+        entityBuilder.DefineDbField(x => x.AuthorName, true, FieldLengths.BlogPost.AuthorName, null, "nvarchar");
         entityBuilder.DefineDbField(x => x.AuthorUserProfileId, false)
                     .HasOne(p => p.AuthorUserProfile)
                     .WithMany(p => p.Blogs)
                     .HasForeignKey(p => p.AuthorUserProfileId)
                     .IsRequired(false);
 
-        //public List<BlogComment> Comments { get; set; }
         entityBuilder.HasMany(x => x.Comments)
-                        .WithOne(p => p.BlogPost)
-                        .HasForeignKey(p => p.BlogPostId)
-                        .IsRequired(false)
-                        .OnDelete(DeleteBehavior.Cascade);
+                    .WithOne(p => p.BlogPost)
+                    .HasForeignKey(p => p.BlogPostId)
+                    .IsRequired(false)
+                    .OnDelete(DeleteBehavior.Cascade);
 
+        entityBuilder.HasMany(x => x.Images)
+                    .WithOne(p => p.BlogPost)
+                    .HasForeignKey(p => p.BlogPostId)
+                    .IsRequired(false)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+        entityBuilder.HasOne(b => b.QuestionAnswer)
+                    .WithOne(q => q.RelatedBlogPost)
+                    .HasForeignKey<QuestionAnswer>(q => q.RelatedBlogPostId)
+                    .IsRequired(false);
     }
 
     public override void OnModelCreating(ModelBuilder modelBuilder)
@@ -68,18 +81,16 @@ public class BlogPostConfiguration(string schema = "dbo", ModelBuilder builder =
             .HasForeignKey(r => r.TargetBlogPostId)
             .OnDelete(DeleteBehavior.NoAction);
 
-
-        modelBuilder.Entity<BlogPostCategory>()
-        .HasKey(bpc => new { bpc.BlogPostId, bpc.BlogCategoryId });
-
-        modelBuilder.Entity<BlogPostCategory>()
-            .HasOne(bpc => bpc.BlogPost)
-            .WithMany(bp => bp.BlogPostCategories)
-            .HasForeignKey(bpc => bpc.BlogPostId);
-
-        modelBuilder.Entity<BlogPostCategory>()
-            .HasOne(bpc => bpc.BlogCategory)
-            .WithMany(bc => bc.BlogPostCategories)
-            .HasForeignKey(bpc => bpc.BlogCategoryId);
+        // Configure many-to-many relationship with ArticleCategory
+        modelBuilder.Entity<BlogPost>()
+            .HasMany(bp => bp.ArticleCategories)
+            .WithMany(ac => ac.BlogPosts)
+            .UsingEntity<BlogPostArticleCategory>(
+                j => j.HasOne(bc => bc.ArticleCategory).WithMany().HasForeignKey(bc => bc.ArticleCategoryId),
+                j => j.HasOne(bc => bc.BlogPost).WithMany().HasForeignKey(bc => bc.BlogPostId),
+                j =>
+                {
+                    j.HasKey(bc => new { bc.BlogPostId, bc.ArticleCategoryId });
+                });
     }
 }

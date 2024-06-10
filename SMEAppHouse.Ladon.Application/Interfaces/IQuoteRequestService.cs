@@ -1,5 +1,5 @@
-﻿using SMEAppHouse.Ladon.Application.Models;
-using QuoteRequestModel = SMEAppHouse.Ladon.Application.Models.QuoteRequestModel;
+﻿using SMEAppHouse.Ladon.Application.Models.Data;
+using QuoteRequestModel = SMEAppHouse.Ladon.Application.Models.Data.QuoteRequestModel;
 
 namespace SMEAppHouse.Ladon.Application.Interfaces;
 

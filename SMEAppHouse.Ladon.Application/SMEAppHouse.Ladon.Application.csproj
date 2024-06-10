@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\BlogPostCategoryAssociationModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Services\" />
   </ItemGroup>

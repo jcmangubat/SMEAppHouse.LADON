@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Domain.Repositories;
 using SMEAppHouse.Ladon.Infrastructure.Interfaces;
 
@@ -54,7 +55,7 @@ public class AuthMembershipService : IAuthMembershipService
         return await _userManager.GenerateEmailConfirmationTokenAsync(user);
     }
 
-    public async Task<Application.Models.UserProfile> GetUserAsync(ClaimsPrincipal user)
+    public async Task<UserProfileModel> GetUserAsync(ClaimsPrincipal user)
     {
         if (!user.Identity.IsAuthenticated)
             return null;
@@ -67,7 +68,7 @@ public class AuthMembershipService : IAuthMembershipService
         if (userProfile == null)
             return null;
 
-        var usrDto = _mapper.Map<Application.Models.UserProfile>(userProfile);
+        var usrDto = _mapper.Map<UserProfileModel>(userProfile);
         return usrDto;
     }
 
