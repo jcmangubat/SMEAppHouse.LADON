@@ -155,8 +155,8 @@ public class Startup(IConfiguration configuration)
 
         // Repositories
         services.AddTransient<IAddressRepository, AddressRepository>();
-        services.AddTransient<IBlogPostCommentRepository, BlogPostCommentRepository>();
-        services.AddTransient<IBlogPostRepository, BlogPostRepository>();
+        services.AddTransient<IArticleCommentRepository, ArticleCommentRepository>();
+        services.AddTransient<IArticleRepository, ArticleRepository>();
         services.AddTransient<IClientTestimonyRepository, ClientTestimonyRepository>();
         services.AddTransient<IMessageRepository, MessageRepository>();
         services.AddTransient<ISubscriberRepository, SubscriberRepository>();
@@ -212,7 +212,7 @@ public class Startup(IConfiguration configuration)
         services.AddScoped<IQuoteRequestAttachmentService, QuoteRequestAttachmentService>();
         services.AddSingleton<ICloudinaryUploadService, CloudinaryUploadService>();
         services.AddSingleton<IImageKitUploadService, ImageKitUploadService>();
-        services.AddScoped<IBlogPostService, BlogPostService>();
+        services.AddScoped<IArticleService, ArticleService>();
         services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
 
         // Add MVC and Razor Pages

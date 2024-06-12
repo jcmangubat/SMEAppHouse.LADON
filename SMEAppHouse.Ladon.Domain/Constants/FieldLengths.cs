@@ -72,7 +72,7 @@ public static class FieldLengths
         public const int MobilePhoneNo = General.PhoneNumber;
     }
 
-    public static class BlogPost
+    public static class Article
     {
         public const int Title = 60;
         public const int Content = 4000;
@@ -86,12 +86,12 @@ public static class FieldLengths
         public const int AuthorName = 80;
     }
 
-    public static class BlogCategory
+    public static class ArticleCategory
     {
         public const int CategoryName = 120;
     }
 
-    public static class BlogComment
+    public static class ArticleComment
     {
         public const int Name = 30;
         public const int Email = General.EmailAddress;

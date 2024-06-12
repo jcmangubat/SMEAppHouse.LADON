@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using SMEAppHouse.Core.Patterns.EF.SettingsModel;
 using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 using SMEAppHouse.Ladon.Infrastructure.Persistence.Configurations;
-using SMEAppHouse.Ladon.Infrastructure.SeedData.BlogPosts;
+using SMEAppHouse.Ladon.Infrastructure.SeedData.Articles;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 using DataProtectionKey = Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.DataProtectionKey;
 namespace SMEAppHouse.Ladon.Infrastructure.Persistence;
@@ -15,7 +15,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>(options), IDataProtectionKeyContext
 {
     private readonly DbMigrationInformation _dbMigrationInformation = dbMigrationInformation;
-    private readonly List<ArticleCategory> _blogPostCategories = [
+    private readonly List<ArticleCategory> _articleCategories = [
             new ArticleCategory() { Id = Guid.NewGuid(), Name = "Accessibility in Construction" },
             new ArticleCategory() { Id = Guid.NewGuid(), Name = "Building Codes and Standards" },
             new ArticleCategory() { Id = Guid.NewGuid(), Name = "Case Studies and Success Stories" },
@@ -63,10 +63,10 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public virtual DbSet<Address> Addresses { get; set; }
     public virtual DbSet<ClientTestimony> ClientTestimonies { get; set; }
 
-    public virtual DbSet<BlogPost> BlogPosts { get; set; }
-    public virtual DbSet<ArticleCategory> BlogPostCategories { get; set; }
+    public virtual DbSet<Article> Articles { get; set; }
+    public virtual DbSet<ArticleCategory> ArticleCategories { get; set; }
 
-    public virtual DbSet<BlogPostComment> BlogPostComments { get; set; }
+    public virtual DbSet<ArticleComment> ArticleComments { get; set; }
     public virtual DbSet<Subscriber> Subscribers { get; set; }
     public virtual DbSet<QuoteRequest> QuoteRequests { get; set; }
     public virtual DbSet<QuoteRequestAttachment> QuoteRequestAttachments { get; set; }
@@ -105,10 +105,10 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         builder.ApplyConfiguration(new MessageConfiguration(dbSchema));
         builder.ApplyConfiguration(new AddressConfiguration(dbSchema));
         builder.ApplyConfiguration(new ClientTestimonyConfiguration(dbSchema));
-        builder.ApplyConfiguration(new BlogPostConfiguration(dbSchema, builder));
+        builder.ApplyConfiguration(new ArticleConfiguration(dbSchema, builder));
         builder.ApplyConfiguration(new ArticleCategoryConfiguration(dbSchema, builder));
-        builder.ApplyConfiguration(new BlogPostImageConfiguration(dbSchema, builder));
-        builder.ApplyConfiguration(new BlogPostCommentConfiguration(dbSchema));
+        builder.ApplyConfiguration(new ArticleImageConfiguration(dbSchema, builder));
+        builder.ApplyConfiguration(new ArticleCommentConfiguration(dbSchema));
         builder.ApplyConfiguration(new SubscriberConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuoteRequestConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuoteRequestAttachmentConfiguration(dbSchema));
@@ -116,8 +116,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
         SeedRolesAndUsers(builder);
         SeedQuestionAndAnswers(builder);
-        SeedBlogCategory(builder);
-        SeedBlogPostEntity(builder);
+        SeedArticleCategory(builder);
+        SeedArticlePostEntity(builder);
     }
 
     public void SeedRolesAndUsers(ModelBuilder builder)
@@ -231,25 +231,11 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 PostalCode = "8000"
             }
         );
-
-        /*// Seed blog posts
-        var blogPostId = Guid.NewGuid();
-        builder.Entity<BlogPost>().HasData(
-            new BlogPost
-            {
-                Id = blogPostId,
-                Title = "Sanctifying Spaces: Crafting Sacred Church Architecture",
-                Content = "Creating holy sanctuaries with inspired design, fostering spiritual growth and community.",
-                PublishedDate = DateTime.UtcNow,
-                Slug = "sanctifying-spaces-crafting-sacred-church-architecture",
-                AuthorUserProfileId = adminUsrProfile.Id // Ensure this matches the seeded admin user ID
-            }
-        );*/
     }
 
-    public void SeedBlogCategory(ModelBuilder builder)
+    public void SeedArticleCategory(ModelBuilder builder)
     {
-        builder.Entity<ArticleCategory>().HasData(_blogPostCategories);
+        builder.Entity<ArticleCategory>().HasData(_articleCategories);
     }
 
     public void SeedQuestionAndAnswers(ModelBuilder builder)
@@ -381,27 +367,28 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             });
     }
 
-    public void SeedBlogPostEntity(ModelBuilder builder)
+    public void SeedArticlePostEntity(ModelBuilder builder)
     {
-        var blogPostsFromManifest = BlogPostManifestData.Read();
+        var articlesFromManifest = ArticleManifestData.Read();
 
-        var blogPostEntities = new List<BlogPost>();
-        var blogPostImageEntities = new List<BlogPostImage>();
-        var blogPostCommentEntities = new List<BlogPostComment>();
-        var blogPostArticleCategoryAssocs = new List<dynamic>();
+        var articleEntities = new List<Article>();
+        var articleImageEntities = new List<ArticleImage>();
+        var articleCommentEntities = new List<ArticleComment>();
+        var articleArticleCategoryAssocs = new List<dynamic>();
 
-        foreach (var post in blogPostsFromManifest.Posts)
+        foreach (var post in articlesFromManifest.Posts)
         {
-            var newBlogPostId = Guid.NewGuid();
+            var newPostId = Guid.NewGuid();
             var outputDirectory = AppContext.BaseDirectory;
-            var mdFilePath = Path.Combine(outputDirectory, "SeedData", "BlogPost", post.ContentFile);
+            var mdFilePath = Path.Combine(outputDirectory, "SeedData", "Articles", post.ContentFile);
             if (!File.Exists(mdFilePath))
                 continue;
 
-            var blogPost = new BlogPost
+            var article = new Article
             {
-                Id = newBlogPostId,
+                Id = newPostId,
                 Title = post.Title,
+                ArticleType = post.ArticleType,
                 ContentSourceMDFileName = post.ContentFile,
                 PublishedDate = post.PublishedDate,
                 LastModified = post.LastModified,
@@ -414,45 +401,49 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 CanonicalUrl = post.CanonicalUrl,
                 MetaKeywords = post.MetaKeywords,
                 Tags = post.Tags,
-                AuthorName = post.AuthorName
+                AuthorName = post.AuthorName,
+                AuthorAvatarImageCDNUrl = post.AuthorAvatarImageCDNUrl
             };
 
-            blogPostEntities.Add(blogPost);
+            articleEntities.Add(article);
             foreach (var category in post.ArticleCategories)
             {
-                var blogPostCategories = _blogPostCategories
+                var articleCategories = _articleCategories
                                         .Where(bc => post.ArticleCategories.Any(mbc => mbc.Name == bc.Name))
-                                        .Select(p => new 
+                                        .Select(p => new
                                         {
-                                            BlogPostId = newBlogPostId,
+                                            ArticleId = newPostId,
                                             ArticleCategoryId = p.Id
                                         })
                                         .ToList();
 
-                blogPostArticleCategoryAssocs.AddRange(blogPostCategories);
+                articleArticleCategoryAssocs.AddRange(articleCategories);
             }
 
-            blogPostCommentEntities.Add(new BlogPostComment
+            articleCommentEntities.Add(new ArticleComment
             {
                 Id = Guid.NewGuid(),
                 Email = "commenter@gmail.com",
-                BlogPostId = newBlogPostId,
+                ArticleId = newPostId,
                 CommentText = "This is a fantastic article!",
                 AuthorName = "John Doe"
             });
 
-            blogPostImageEntities.Add(new BlogPostImage()
+            foreach (var imagesUrl in post.ArticleImages)
             {
-                Id = Guid.NewGuid(),
-                ImageCDNUrl = "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713973964/BG-Slider-Conservatories_ppeljm.jpg",
-                BlogPostId = newBlogPostId,
-            });
+                articleImageEntities.Add(new ArticleImage()
+                {
+                    Id = Guid.NewGuid(),
+                    ImageCDNUrl = imagesUrl,
+                    ArticleId = newPostId,
+                });
+            }
         }
 
-        builder.Entity<BlogPost>().HasData(blogPostEntities);
-        builder.Entity<BlogPostArticleCategory>().HasData(blogPostArticleCategoryAssocs);
+        builder.Entity<Article>().HasData(articleEntities);
+        builder.Entity<ArticleCategoryAssociation>().HasData(articleArticleCategoryAssocs);
 
-        builder.Entity<BlogPostComment>().HasData(blogPostCommentEntities);
-        builder.Entity<BlogPostImage>().HasData(blogPostImageEntities);
+        builder.Entity<ArticleComment>().HasData(articleCommentEntities);
+        builder.Entity<ArticleImage>().HasData(articleImageEntities);
     }
 }

@@ -9,6 +9,6 @@ public class QuestionAnswerModel : KeyedModel
     public required string AnswerText { get; set; }
     public bool? IsImportant { get; set; }
     
-    public Guid? RelatedBlogPostId { get; set; }
-    public virtual BlogPostModel? RelatedBlogPost { get; set; }
+    public Guid? RelatedArticleId { get; set; }
+    public virtual ArticleModel? RelatedArticle { get; set; }
 }

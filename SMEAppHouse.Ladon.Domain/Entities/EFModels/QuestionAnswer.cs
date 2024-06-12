@@ -9,8 +9,8 @@ public class QuestionAnswer : GuidKeyedEntity
     public bool? IsImportant { get; set; }
 
     // Foreign key for the one-to-one relationship
-    public Guid? RelatedBlogPostId { get; set; }
+    public Guid? RelatedArticleId { get; set; }
 
     // Navigation property for the one-to-one relationship
-    public virtual BlogPost? RelatedBlogPost { get; set; }
+    public virtual Article? RelatedArticle { get; set; }
 }

@@ -106,7 +106,7 @@
 
 
 <!-- Blogs -->
-@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Blogs && p.Value == true))
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Articles && p.Value == true))
 {
     <section id="blogs">
         <partial name="~/pages/home/partialviews/_blogsandnews.cshtml" />

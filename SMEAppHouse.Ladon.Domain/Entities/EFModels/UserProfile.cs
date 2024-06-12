@@ -37,6 +37,6 @@ public class UserProfile : GuidKeyedEntity
     public virtual List<Message> Messages { get; set; } = [];
     public virtual List<Address> Addresses { get; set; } = [];
     public virtual List<ClientTestimony> ClientTestimonies { get; set; } = [];
-    public virtual List<BlogPost> Blogs { get; set; } = [];
+    public virtual List<Article> Articles { get; set; } = [];
     public virtual List<QuoteRequest> QuoteRequests { get; set; } = [];
 }

@@ -40,6 +40,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Areas\Article\Pages\BlogsIndex - Copy.cshtml.cs" />
+	  <Compile Remove="Areas\Article\Pages\BlogsIndexOLD.cshtml.cs" />
 	  <Compile Remove="Areas\Identity\Pages\Account\Login_Old.cshtml.cs" />
 	  <Compile Remove="Middlewares\ApplicationUserMiddleware.cs" />
 	  <Compile Remove="Pages\QuoteRequest - Copy.cshtml.cs" />
@@ -47,6 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Content Remove="Areas\Article\Pages\BlogsIndexOLD.cshtml" />
 	  <Content Remove="Areas\Identity\Pages\Account\Login_Old.cshtml" />
 	  <Content Remove="Pages\Home\PartialViews\Testimonials_OLD.cshtml" />
 	  <Content Remove="Pages\Home\_Login.cshtml" />

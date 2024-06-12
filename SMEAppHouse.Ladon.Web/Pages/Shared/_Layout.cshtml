@@ -166,7 +166,7 @@
                             }
                             @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurServices && p.Value == true))
                             {
-                                <a href="#our-services" class="nav-item nav-link">Service</a>
+                                <a href="#our-services" class="nav-item nav-link">Services</a>
                             }
 
                             @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Teams && p.Value == true))
@@ -182,7 +182,7 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                 <div class="other-site-features dropdown-menu">
-                                    @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Blogs && p.Value == true))
+                                    @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Articles && p.Value == true))
                                     {
                                           <a href="#blogs" class="dropdown-item">Blogs</a>
                                     }

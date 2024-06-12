@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Persistence\Configurations\BlogPostCategoryAssociationConfiguration.cs" />
-    <Compile Remove="Persistence\Configurations\SiteAreaConfiguration.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="EmailTemplates\ContactUsMessageTemplate.html" />
     <None Remove="EmailTemplates\QuoteRequestMessageTemplate.html" />
   </ItemGroup>
@@ -44,10 +39,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="SeedData\BlogPost\manifest.xml">
+    <None Update="SeedData\Articles\lcs-Secures-Major-Contract.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\BlogPost\sustainable-solutions.md">
+    <None Update="SeedData\Articles\manifest.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs-New-Industry-Leader.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\sustainable-solutions.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

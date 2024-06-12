@@ -201,65 +201,65 @@ public class Rules
     }
 
 
-    public enum BlogPostStatus
+    public enum ArticleStatus
     {
         /// <summary>
-        /// The blog post is still being written or edited and is not yet ready for publication.
+        /// The article is still being written or edited and is not yet ready for publication.
         /// </summary>
         Draft,
 
         /// <summary>
-        /// The blog post has been completed and is awaiting review by an editor or moderator before publication.
+        /// The article has been completed and is awaiting review by an editor or moderator before publication.
         /// </summary>
         PendingReview,
 
         /// <summary>
-        /// The blog post has been reviewed and scheduled for publication at a future date and time.
+        /// The article has been reviewed and scheduled for publication at a future date and time.
         /// </summary>
         Scheduled,
 
         /// <summary>
-        /// The blog post has been published and is live on the website for public viewing.
+        /// The article has been published and is live on the website for public viewing.
         /// </summary>
         Published,
 
         /// <summary>
-        /// The blog post has been removed from the main blog feed or archive and is no longer prominently displayed.
+        /// The article has been removed from the main article feed or archive and is no longer prominently displayed.
         /// </summary>
         Archived,
 
         /// <summary>
-        /// The blog post has been permanently deleted from the website and cannot be restored.
+        /// The article has been permanently deleted from the website and cannot be restored.
         /// </summary>
         Deleted,
 
         /// <summary>
-        /// The blog post has been highlighted or featured on the website's homepage or in a special section.
+        /// The article has been highlighted or featured on the website's homepage or in a special section.
         /// </summary>
         Featured,
 
         /// <summary>
-        /// The blog post has been promoted via social media, email newsletters, or other channels.
+        /// The article has been promoted via social media, email newsletters, or other channels.
         /// </summary>
         Promoted,
 
         /// <summary>
-        /// The blog post has been flagged for review due to concerns such as inappropriate content or spam.
+        /// The article has been flagged for review due to concerns such as inappropriate content or spam.
         /// </summary>
         Flagged,
 
         /// <summary>
-        /// The blog post has been submitted for approval and is awaiting approval from a higher authority.
+        /// The article has been submitted for approval and is awaiting approval from a higher authority.
         /// </summary>
         PendingApproval,
 
         /// <summary>
-        /// The blog post has been reviewed but requires revisions or updates before publication.
+        /// The article has been reviewed but requires revisions or updates before publication.
         /// </summary>
         NeedsRevision,
 
         /// <summary>
-        /// The blog post has been marked for deletion and will be permanently removed from the website at a future date.
+        /// The article has been marked for deletion and will be permanently removed from the website at a future date.
         /// </summary>
         ScheduledForDeletion
     }
@@ -349,7 +349,23 @@ public class Rules
         OurPortfoliosProjects,
         Testimonials,
         ContactUs,
-        Blogs,
+        Articles,
         FAQs,
+    }
+
+    public enum ArticleTypesEnum { 
+        News,
+        Blog,
+        PressRelease,
+        CaseStudy,
+        Opinion,
+        Feature,
+        Interview,
+        Editorial,
+        Review,
+        Announcement,
+        Tutorial,
+        Report,
+        Event
     }
 }

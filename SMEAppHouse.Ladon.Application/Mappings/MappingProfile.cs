@@ -68,62 +68,11 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.SiteProjectName, opt => opt.MapFrom(src => src.SiteProjectName));
 
         CreateMap<QuoteRequestAttachmentModel, QuoteRequestAttachment>().ReverseMap();
-
-        /*CreateMap<BlogPost, BlogPostModel>()
-           .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
-           .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src.Content))
-           .ForMember(dest => dest.PublishedDate, opt => opt.MapFrom(src => src.PublishedDate))
-           .ForMember(dest => dest.LastModified, opt => opt.MapFrom(src => src.LastModified))
-           .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.Slug))
-           .ForMember(dest => dest.Likes, opt => opt.MapFrom(src => src.Likes))
-           .ForMember(dest => dest.Hearts, opt => opt.MapFrom(src => src.Hearts))
-           .ForMember(dest => dest.Views, opt => opt.MapFrom(src => src.Views))
-           .ForMember(dest => dest.IsFeatured, opt => opt.MapFrom(src => src.IsFeatured))
-           .ForMember(dest => dest.MetaDescription, opt => opt.MapFrom(src => src.MetaDescription))
-           .ForMember(dest => dest.CanonicalUrl, opt => opt.MapFrom(src => src.CanonicalUrl))
-           .ForMember(dest => dest.MetaKeywords, opt => opt.MapFrom(src => src.MetaKeywords))
-           .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.Tags))
-           .ForMember(dest => dest.RelatedPostsFrom, opt => opt.MapFrom(src => src.RelatedPostsFrom))
-           .ForMember(dest => dest.RelatedPostsTo, opt => opt.MapFrom(src => src.RelatedPostsTo))
-           .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments))
-           .ForMember(dest => dest.AuthorUserProfileId, opt => opt.MapFrom(src => src.AuthorUserProfileId))
-           .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.AuthorName))
-           .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-           .ForMember(dest => dest.ContentSourceMDCDNUrl, opt => opt.MapFrom(src => src.ContentSourceMDCDNUrl))
-           .ForMember(dest => dest.ContentSourceMDFileName, opt => opt.MapFrom(src => src.ContentSourceMDFileName))
-           .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images))
-           .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.Categories));
-
-        CreateMap<BlogPostModel, BlogPost>()
-           .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
-           .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src.Content))
-           .ForMember(dest => dest.PublishedDate, opt => opt.MapFrom(src => src.PublishedDate))
-           .ForMember(dest => dest.LastModified, opt => opt.MapFrom(src => src.LastModified))
-           .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.Slug))
-           .ForMember(dest => dest.Likes, opt => opt.MapFrom(src => src.Likes))
-           .ForMember(dest => dest.Hearts, opt => opt.MapFrom(src => src.Hearts))
-           .ForMember(dest => dest.Views, opt => opt.MapFrom(src => src.Views))
-           .ForMember(dest => dest.IsFeatured, opt => opt.MapFrom(src => src.IsFeatured))
-           .ForMember(dest => dest.MetaDescription, opt => opt.MapFrom(src => src.MetaDescription))
-           .ForMember(dest => dest.CanonicalUrl, opt => opt.MapFrom(src => src.CanonicalUrl))
-           .ForMember(dest => dest.MetaKeywords, opt => opt.MapFrom(src => src.MetaKeywords))
-           .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.Tags))
-           .ForMember(dest => dest.RelatedPostsFrom, opt => opt.MapFrom(src => src.RelatedPostsFrom))
-           .ForMember(dest => dest.RelatedPostsTo, opt => opt.MapFrom(src => src.RelatedPostsTo))
-           .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments))
-           .ForMember(dest => dest.AuthorUserProfileId, opt => opt.MapFrom(src => src.AuthorUserProfileId))
-           .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.AuthorName))
-           .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id ?? default))
-           .ForMember(dest => dest.ContentSourceMDCDNUrl, opt => opt.MapFrom(src => src.ContentSourceMDCDNUrl))
-           .ForMember(dest => dest.ContentSourceMDFileName, opt => opt.MapFrom(src => src.ContentSourceMDFileName))
-           .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images))
-           .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.Categories));*/
-
-        CreateMap<BlogPostModel, BlogPost>().ReverseMap();
+        CreateMap<ArticleModel, Article>().ReverseMap();
         CreateMap<ArticleCategoryModel, ArticleCategory>().ReverseMap();
-        CreateMap<BlogPostCommentModel, BlogPostComment>().ReverseMap();
-        CreateMap<BlogPostImageModel, BlogPostImage>().ReverseMap();
-        CreateMap<BlogRelatedAssociationModel, BlogRelatedAssociation>().ReverseMap();
+        CreateMap<ArticleCommentModel, ArticleComment>().ReverseMap();
+        CreateMap<ArticleImageModel, ArticleImage>().ReverseMap();
+        CreateMap<ArticleAssociationModel, ArticleAssociation>().ReverseMap();
     }
 }
 

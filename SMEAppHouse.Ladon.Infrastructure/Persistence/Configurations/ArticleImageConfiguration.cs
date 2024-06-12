@@ -7,18 +7,18 @@ using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 
 namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Configurations;
 
-public class ArticleCategoryConfiguration(string schema = "dbo", ModelBuilder builder = null)
-    : EntityConfiguration<ArticleCategory, Guid>(builder, prefixEntityNameToId: true,
+public class ArticleImageConfiguration(string schema = "dbo", ModelBuilder builder = null)
+    : EntityConfiguration<ArticleImage, Guid>(builder, prefixEntityNameToId: true,
         prefixAltTblNameToEntity: false, schema: schema, pluralizeTblName: true)
 {
     /// <summary>
     /// 
     /// </summary>
     /// <param name="entityBuilder"></param>
-    public override void OnModelCreating(EntityTypeBuilder<ArticleCategory> entityBuilder)
+    public override void OnModelCreating(EntityTypeBuilder<ArticleImage> entityBuilder)
     {
         base.OnModelCreating(entityBuilder);
 
-        entityBuilder.DefineDbField(x => x.Name, true, FieldLengths.ArticleCategory.CategoryName);
+        entityBuilder.DefineDbField(x => x.ImageCDNUrl, true, FieldLengths.General.URL);
     }
 }

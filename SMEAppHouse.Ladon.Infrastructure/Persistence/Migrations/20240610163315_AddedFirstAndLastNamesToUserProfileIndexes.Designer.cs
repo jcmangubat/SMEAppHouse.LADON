@@ -967,7 +967,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            BlogPostId = new Guid("f251bc4c-218d-4446-b284-5c4c3ba4158c"),
+                            ArticleId = new Guid("f251bc4c-218d-4446-b284-5c4c3ba4158c"),
                             ArticleCategoryId = new Guid("75ca83d6-e88b-4fae-b516-12cda64974af")
                         });
                 });
