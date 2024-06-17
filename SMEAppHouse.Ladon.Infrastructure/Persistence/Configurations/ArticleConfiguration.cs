@@ -21,6 +21,7 @@ public class ArticleConfiguration(string schema = "dbo", ModelBuilder builder = 
 
         entityBuilder.DefineDbField(x => x.Title, true, FieldLengths.Article.Title);
         entityBuilder.DefineDbField(x => x.ArticleType, true);
+        entityBuilder.DefineDbField(x => x.ArticleStatus, true);
 
         entityBuilder.DefineDbField(x => x.Content, false, "nvarchar(max)");
         entityBuilder.DefineDbField(x => x.ContentSourceMDFileName, false, "nvarchar(2000)");
@@ -37,6 +38,7 @@ public class ArticleConfiguration(string schema = "dbo", ModelBuilder builder = 
         entityBuilder.DefineDbField(x => x.Views, false);
         entityBuilder.DefineDbField(x => x.IsFeatured, false);
         entityBuilder.DefineDbField(x => x.MetaDescription, false, FieldLengths.Article.MetaDescription, null, "nvarchar");
+        entityBuilder.DefineDbField(x => x.ArticleOverview, false, FieldLengths.Article.ArticleOverview, null, "nvarchar");
         entityBuilder.DefineDbField(x => x.MetaKeywords, false, FieldLengths.Article.MetaKeywords, null, "nvarchar");
         entityBuilder.DefineDbField(x => x.CanonicalUrl, false, FieldLengths.Article.CanonicalUrl, null, propertyType: "nvarchar");
 

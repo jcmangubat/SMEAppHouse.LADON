@@ -201,7 +201,7 @@ public class Rules
     }
 
 
-    public enum ArticleStatus
+    public enum ArticleStatusEnum
     {
         /// <summary>
         /// The article is still being written or edited and is not yet ready for publication.

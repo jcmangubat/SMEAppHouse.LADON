@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SMEAppHouse.Core.Patterns.EF.Helpers;
 using SMEAppHouse.Core.Patterns.EF.ModelCfgAbstractions;
 using SMEAppHouse.Ladon.Domain.Entities.EFModels;

@@ -6,7 +6,7 @@ public static class FieldLengths
     {
         public const int PhoneNumber = 20;
         public const int EmailAddress = 200;
-        public const int URL = 2000;
+        public const int URL = 2400;
 
         public const int ExtremelyShort = 5;
         public const int ExtraShort = 10;
@@ -14,8 +14,9 @@ public static class FieldLengths
         public const int Medium = 50;
         public const int Long = 150;
         public const int ExtraLong = 300;
-        public const int SuperLong = 800;
+        public const int SuperLong = 1000;
         public const int HyperLong = 2400;
+        public const int SummaryParagraph = 800;
     }
 
     public static class GeneralAddress
@@ -59,7 +60,7 @@ public static class FieldLengths
     public static class QuoteRequestAttachment
     {
         public const int OriginalFilename = General.Long;
-        public const int AssetCDNUrl = General.HyperLong;
+        public const int AssetCDNUrl = General.URL;
     }
 
     public static class Message
@@ -74,15 +75,16 @@ public static class FieldLengths
 
     public static class Article
     {
-        public const int Title = 60;
+        public const int Title = 200;
         public const int Content = 4000;
 
         public const int Tags = 120;
         public const int Slug = 1000;
 
-        public const int MetaDescription = 400;
+        public const int MetaDescription = 300;
+        public const int ArticleOverview = General.SummaryParagraph;
         public const int MetaKeywords = 400;
-        public const int CanonicalUrl = 1000;
+        public const int CanonicalUrl = General.URL;
         public const int AuthorName = 80;
     }
 
@@ -102,5 +104,16 @@ public static class FieldLengths
     {
         public const int Question = 120;
         public const int AnswerText = General.SuperLong;
+    }
+
+    public static class ClientTestimony
+    {
+        public const int ClientName = 60;
+        public const int ClientProfession = 40;
+        public const int ClientBusinessName = 60;
+        public const int Remarks = 600;
+
+        public const int ClientThumnailUrl = General.URL;
+        public const int ProjectImageUrl = General.URL;
     }
 }

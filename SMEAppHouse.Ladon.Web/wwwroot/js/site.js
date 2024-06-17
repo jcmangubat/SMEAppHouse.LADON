@@ -33,28 +33,7 @@ $.when(
         time: 2000
     });
 
-    // Testimonial Slider
-    $('.testimonial-slider').slick({
-        infinite: true,
-        autoplay: true,
-        arrows: false,
-        dots: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        asNavFor: '.testimonial-slider-nav',
 
-    });
-    $('.testimonial-slider-nav').slick({
-        arrows: false,
-        dots: false,
-        focusOnSelect: true,
-        centerMode: true,
-        centerPadding: '22px',
-        slidesToShow: 3,
-        asNavFor: '.testimonial-slider',
-        pauseOnHover: true
-    });
-    $('.testimonial .slider-nav').css({ "position": "relative", "height": "170px" });
 });
 
 $.when(
@@ -139,9 +118,9 @@ $.when(
     });
 
     // Hide the usr-menu-dropdown when scrolled or hovered out of it.
-    $(window).on('scroll', function () {
+    /*$(window).on('scroll', function () {
         $('.usr-menu-dropdown').dropdown('hide');
-    });
+    });*/
 });
 
 $.when(
@@ -219,7 +198,7 @@ $.when(
         $('#' + inputId + '-validation').text('');
         $('#login-validation').text('');
     });
-    
+
     $('#contactForm').on('submit', function (event) {
 
         event.preventDefault(); // Prevent the default form submission
@@ -321,4 +300,13 @@ $.when(
         event.preventDefault();
         window.location.href = '/quoterequest';
     });
+});
+
+$.when(
+    $.ready
+).done(function (data) {
+
+    "use strict";
+
+    
 });

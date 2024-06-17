@@ -14,6 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha512-EIeyz8jygFLurz4RBJgtb2xBcR7uGWs6Gr6qygPowG13vYlYIaln5FyH+DN+da3jwPtb3Dq+pLA9yTR+uB3FYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="~/css/carousel.css" rel="stylesheet" />
+    <link href="~/css/feature.css" rel="stylesheet" />
+    <link href="~/css/welcome.css" rel="stylesheet" />
+    <link href="~/css/about.css" rel="stylesheet" />
+    <link href="~/css/fact.css" rel="stylesheet" />
+    <link href="~/css/service.css" rel="stylesheet" />
+    <link href="~/css/video.css" rel="stylesheet" />
+    <link href="~/css/team.css" rel="stylesheet" />
+    <link href="~/css/faq.css" rel="stylesheet" />
+    <link href="~/css/testimonial.css" rel="stylesheet" />
+    <link href="~/css/blog.css" rel="stylesheet" />
+    <link href="~/css/contact.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 }
 
 <!-- Carousel -->
@@ -92,7 +107,23 @@
 @if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Testimonials && p.Value == true))
 {
     <section id="testimonials">
-        <partial name="~/pages/home/partialviews/_testimonials.cshtml" />
+        @* <partial name="~/pages/home/partialviews/_testimonials.cshtml" /> *@
+
+        <div class="testimonial wow fadeIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Client Testimonials &amp Reviews</p>
+                    <h2>Our Proof is in the Praises</h2>
+                </div><div class="row">
+                    <div class="col-12">
+                        <div class="testimonial-slider" id="client-testimonials">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </section>
 }
 
@@ -109,7 +140,16 @@
 @if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Articles && p.Value == true))
 {
     <section id="blogs">
-        <partial name="~/pages/home/partialviews/_blogsandnews.cshtml" />
+        <div class="blog wow fadeIn">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Latest Blog Articles</p>
+                    <h2>Check Out Our Latest Blog Updates</h2>
+                </div>
+                <div class="owl-carousel owl-theme" id="blog-articles">
+                </div>
+            </div>
+        </div>
     </section>
 }
 
@@ -129,7 +169,6 @@
                 </div>
             </div>
         </div>
-        @* <partial name="~/pages/home/partialviews/_faqs.cshtml" /> *@
     </section>
 }
 
@@ -139,18 +178,141 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="//code.tidio.co/ilyllpftycsrzawxqfzghkbscmkzkt4v.js" async></script>
+
+    <script>
+
+        // FAQs
+        $.when(
+            $.ready
+        ).done(function (data) { // Document is ready.
+
+            "use strict";
+
+            function loadRandomQuestionAnswers(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "RandomQuestionAnswers")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('#QAs').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading FAQ items:', error);
+                    }
+                });
+            }
+
+            loadRandomQuestionAnswers();
+
+
+            function loadLatestBlogArticles(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "LatestBlogArticles")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('#blog-articles').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading latest blog articles:', error);
+                    }
+                });
+            }
+
+            loadLatestBlogArticles(function () {
+
+                // Blogs carousel
+                var blogsCarousel = $(".owl-carousel");
+                blogsCarousel.owlCarousel({
+                    autoplay: true,
+                    dots: false,
+                    loop: true,
+                    nav: true,
+                    navText: [
+                        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+                    ],
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        576: {
+                            items: 2
+                        },
+                        768: {
+                            items: 3
+                        }
+                    }
+                });
+                blogsCarousel.on('changed.owl.carousel', function (event) {
+                    if ($('.owl-nav').find('a.btn.blog-more.left-float').length === 0) {
+                        // If it doesn't exist, add it
+                        $('.owl-nav').prepend('<a class="btn blog-more left-float" href="/articles" target="_blank">View More...</a>');
+                    }
+                });
+            });
+
+            function loadClientTestimonials(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "ClientTestimonials")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('#client-testimonials').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading client testimonials:', error);
+                    }
+                });
+            }
+            loadClientTestimonials(() => {
+                // Testimonial Slider
+                $('.testimonial-slider').slick({
+                    infinite: true,
+                    autoplay: true,
+                    arrows: false,
+                    dots: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    //asNavFor: '.testimonial-slider-nav',
+
+                });
+                /*$('.testimonial-slider-nav').slick({
+                    arrows: false,
+                    dots: false,
+                    focusOnSelect: true,
+                    centerMode: true,
+                    centerPadding: '22px',
+                    slidesToShow: 3,
+                    asNavFor: '.testimonial-slider',
+                    pauseOnHover: true
+                });*/
+                $('.testimonial .slider-nav').css({ "position": "relative", "height": "170px" });
+            });
+
+            var $grid = $('.grid').masonry({
+                itemSelector: '.grid-item',
+                fitWidth: true
+                //, columnWidth: 200
+            });
+
+            // layout Masonry after each image loads
+            $grid.imagesLoaded().progress(function () {
+                $grid.masonry('layout');
+            });
+
+        });
+
+    </script>
 
     <!-- Application Javascript -->
     <script src="~/js/site.js"></script>
 
-    <script>
-        async function loadRandomQuestionAnswers() {
-            const response = await fetch('@Url.Page("Index", "RandomQuestionAnswers")');
-            const data = await response.text();
-            document.getElementById('QAs').innerHTML = data;
-        }
-
-        loadRandomQuestionAnswers();
-    </script>
 }

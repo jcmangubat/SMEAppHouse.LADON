@@ -1,8 +1,9 @@
 ﻿using Markdig;
+using SMEAppHouse.Ladon.Application.Interfaces;
 
 namespace SMEAppHouse.Ladon.Infrastructure.Services;
 
-public class MarkdownService
+public class MarkdownService: IMarkdownService
 {
     public async Task<string> ConvertMarkdownToHtmlAsync(string filePath)
     {

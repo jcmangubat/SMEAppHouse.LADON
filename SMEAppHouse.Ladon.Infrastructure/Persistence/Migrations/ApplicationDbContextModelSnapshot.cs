@@ -91,37 +91,37 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3829d801-fcee-483c-bc65-8d05c1193bd3"),
+                            Id = new Guid("309d464c-44ae-4850-9792-5df9105d9d2d"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("ab0fae75-765f-4864-8348-3ba3162d59e3"),
+                            Id = new Guid("fe190203-930c-4723-a8b9-22676fdc436c"),
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = new Guid("ff164d5f-4077-4747-8aa5-fd70353b1321"),
+                            Id = new Guid("31f5fadf-7ccb-4824-81b7-1ecd750a0acf"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         },
                         new
                         {
-                            Id = new Guid("3e7a7af6-31d0-41b3-96dc-e918a53f85cc"),
+                            Id = new Guid("54fbb3e2-e4a5-4077-9005-541a9a520d8a"),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = new Guid("cb8cae03-986f-494c-a41c-2b1510256cac"),
+                            Id = new Guid("45e8586a-cb24-4bdf-befe-8114c52f6779"),
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = new Guid("7dc84681-0cdc-4c29-bd5b-b83c571f5fff"),
+                            Id = new Guid("8c0313ed-311b-4943-a6ba-d78d89879cdd"),
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });
@@ -219,35 +219,35 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b5bb26f3-73d4-41b6-b898-10d4eb27b8b9"),
+                            Id = new Guid("96f4c92c-204d-4cd2-b94d-1508452f279a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "384f47ac-684c-474d-a614-64adc7e63a66",
+                            ConcurrencyStamp = "953e6adb-a3b9-4aec-bec2-865e933fc689",
                             Email = "jc.mangubat@hotmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JC.MANGUBAT@HOTMAIL.COM",
                             NormalizedUserName = "JC.MANGUBAT@HOTMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDlq2Q+YkyzEIdI/S0e4mnflWVhm4IN4meQEfdKq4UkzHQDti9Ch0Xk9zks/9s6Q2w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE8HA/E+pEWn01hBzyhuvKuN4QeVK3w8wuv6XcF200AGyQzwjZmwoX2mdGrwel3L1A==",
                             PhoneNumber = "+639672814641",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "98ec28c8-606b-2f78-1c45-f6a2f32991b3_20240612120850177",
+                            SecurityStamp = "7abf7fa7-2159-2e9b-ef03-1de50938e43f_20240617141128493",
                             TwoFactorEnabled = false,
                             UserName = "jc.mangubat@hotmail.com"
                         },
                         new
                         {
-                            Id = new Guid("c55a297a-cd7d-4890-b934-07a909d371af"),
+                            Id = new Guid("e364b2b6-a915-43b7-98c9-be4e1e46907e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "922544fc-e938-4fc7-9517-1e3662e4aa84",
+                            ConcurrencyStamp = "b9518473-d310-4972-a61b-5023ddcdedd8",
                             Email = "ladonconst@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "LADONCONST@GMAIL.COM",
                             NormalizedUserName = "LADONCONST@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELuqOhWFK9VbgbLH2w+EvXAVez9L48jeU0pr/p+hxquC+RjhLUgGsbrxZff/oLhbyQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDdLS+awz//gFMctCMLJTQMqUEDw3zG27lkLNvyIUQOyz4oipdQetNGdePbWcgTI0g==",
                             PhoneNumber = "+639951225449",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "98ec28c8-606b-2f78-1c45-f6a2f32991b3_20240612120850177",
+                            SecurityStamp = "7abf7fa7-2159-2e9b-ef03-1de50938e43f_20240617141128493",
                             TwoFactorEnabled = false,
                             UserName = "ladonconst@gmail.com"
                         });
@@ -317,13 +317,13 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = new Guid("b5bb26f3-73d4-41b6-b898-10d4eb27b8b9"),
-                            RoleId = new Guid("3829d801-fcee-483c-bc65-8d05c1193bd3")
+                            UserId = new Guid("96f4c92c-204d-4cd2-b94d-1508452f279a"),
+                            RoleId = new Guid("309d464c-44ae-4850-9792-5df9105d9d2d")
                         },
                         new
                         {
-                            UserId = new Guid("c55a297a-cd7d-4890-b934-07a909d371af"),
-                            RoleId = new Guid("ab0fae75-765f-4864-8348-3ba3162d59e3")
+                            UserId = new Guid("e364b2b6-a915-43b7-98c9-be4e1e46907e"),
+                            RoleId = new Guid("fe190203-930c-4723-a8b9-22676fdc436c")
                         });
                 });
 
@@ -386,7 +386,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 160, DateTimeKind.Local).AddTicks(6806))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 477, DateTimeKind.Local).AddTicks(3679))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -424,33 +424,33 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e063bce8-7525-46f0-979a-4b9451b4176b"),
+                            Id = new Guid("e53353aa-b052-4737-834f-5b467c1ccb0c"),
                             AddressLine1 = "Lot20 Blk10 Park Villas 1",
                             AddressLine2 = "Ellenita Heights, Catalunan Grande",
                             AddressType = 2,
                             City = "Davao",
                             Country = "Philippines",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6438),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6438),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(298),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(299),
                             IsActive = true,
                             PostalCode = "8000",
                             Region = "Davao del Sur",
-                            UserProfileId = new Guid("03f7b33b-a4cd-4e1c-a2fa-a6e5a604b213")
+                            UserProfileId = new Guid("728bd4f0-ed70-4ecf-90ff-f3e6b9621ef8")
                         },
                         new
                         {
-                            Id = new Guid("725cd08f-dba4-4ed7-9a5c-21c04cef106a"),
+                            Id = new Guid("d05e6b64-de1d-46a9-81b0-6391ea085d9c"),
                             AddressLine1 = "",
                             AddressLine2 = "Tierra Nueva Tacunan, Tugbok",
                             AddressType = 2,
                             City = "Davao",
                             Country = "Philippines",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6444),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6445),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(307),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(307),
                             IsActive = true,
                             PostalCode = "8000",
                             Region = "Davao del Sur",
-                            UserProfileId = new Guid("8198253f-b3f2-44ce-a3fa-7cf09cc540ff")
+                            UserProfileId = new Guid("953da12f-0f3b-4398-9a54-b8c36a5aea72")
                         });
                 });
 
@@ -461,6 +461,15 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("ArticleId")
                         .HasColumnOrder(0);
+
+                    b.Property<string>("ArticleOverview")
+                        .HasMaxLength(800)
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("ArticleOverview");
+
+                    b.Property<int>("ArticleStatus")
+                        .HasColumnType("int")
+                        .HasColumnName("ArticleStatus");
 
                     b.Property<int>("ArticleType")
                         .HasColumnType("int")
@@ -480,7 +489,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                         .HasColumnName("AuthorUserProfileId");
 
                     b.Property<string>("CanonicalUrl")
-                        .HasMaxLength(1000)
+                        .HasMaxLength(2400)
                         .HasColumnType("nvarchar")
                         .HasColumnName("CanonicalUrl");
 
@@ -499,7 +508,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 161, DateTimeKind.Local).AddTicks(9330))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 478, DateTimeKind.Local).AddTicks(4026))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -530,7 +539,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                         .HasColumnName("Likes");
 
                     b.Property<string>("MetaDescription")
-                        .HasMaxLength(400)
+                        .HasMaxLength(300)
                         .HasColumnType("nvarchar")
                         .HasColumnName("MetaDescription");
 
@@ -558,8 +567,8 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
                         .HasColumnName("Title");
 
                     b.Property<int?>("Views")
@@ -575,20 +584,222 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("fc4eefaa-bfb5-41a9-80e5-ab3b2f6efc94"),
+                            Id = new Guid("6a440cb0-4216-41dc-9e7d-9a4057323fe9"),
+                            ArticleOverview = "\n		At Ladon Construction Services, we invite you to bring your dream projects to life. Learn about our comprehensive services, experienced team, and commitment to excellence.\n	",
+                            ArticleStatus = 3,
                             ArticleType = 1,
                             AuthorAvatarImageCDNUrl = "",
                             AuthorName = "Charles Reyes",
-                            CanonicalUrl = "https://ladonco.ph/blog/sustainable-solutions-building-a-greener-tomorrow",
-                            ContentSourceMDFileName = "sustainable-solutions.md",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 333, DateTimeKind.Utc).AddTicks(6368),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 333, DateTimeKind.Utc).AddTicks(6370),
+                            CanonicalUrl = "https://example.com/blog/build-your-dreams-with-ladon-construction-services",
+                            ContentSourceMDFileName = "build-your-dreams-with-ladon-construction-services.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(5671),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(5675),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "Discover Ladon Construction Services and how we exceed expectations in residential and commercial construction, renovation, landscaping, and more.",
+                            MetaKeywords = "[\"Mindanao\",\"Davao City\",\"Trusted Construction Company\"]",
+                            PublishedDate = new DateTime(2024, 5, 5, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "build-your-dreams-with-ladon-construction-services",
+                            Tags = "[\"Mindanao\",\"Davao City\",\"Trusted Construction Company\"]",
+                            Title = "Build Your Dreams with Ladon Construction Services",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("c092f4cf-e2b8-45cd-b56c-c4db238a0763"),
+                            ArticleOverview = "\n		In the construction industry, hiring certified and well-trained skilled workers versus self-claimed experienced builders significantly impacts project success. Certification signifies proficiency and adherence to industry standards, providing numerous benefits in training, safety, and professionalism. This article explores the reasons for opting for certified skilled construction workers, highlighting their advantages and the risks of unverified experience.\n	",
+                            ArticleStatus = 3,
+                            ArticleType = 1,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://example.com/blog/certified-vs-self-claimed-experienced-builders-why-certification-matters",
+                            ContentSourceMDFileName = "certified-vs-self-claimed-experienced-builders-why-certification-matters.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6119),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6119),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "Choosing certified skilled construction workers ensures higher quality, enhanced safety, and long-term cost savings compared to self-claimed experienced builders.",
+                            MetaKeywords = "[\"certified construction workers\",\"skilled labor\",\"construction safety\",\"construction certification\"]",
+                            PublishedDate = new DateTime(2024, 6, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "certified-vs-self-claimed-experienced-builders-why-certification-matters",
+                            Tags = "[\"Construction\",\"Skilled Workers\",\"Certification\",\"Safety\"]",
+                            Title = "Certified vs. Self-Claimed Experienced Builders: Why Certification Matters",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("8d8ec95a-eed2-478d-943b-81c3da9a249f"),
+                            ArticleOverview = "\n		In today's construction industry, innovative materials like recycled concrete and bamboo are reshaping sustainable building practices. Learn about their benefits, applications, and environmental impact.\n	",
+                            ArticleStatus = 3,
+                            ArticleType = 1,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://example.com/blog/innovative-materials-in-construction-from-recycled-concrete-to-bamboo",
+                            ContentSourceMDFileName = "innovative-materials-in-construction-from-recycled-concrete-to-bamboo.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6200),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6200),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "Exploring the use of recycled concrete and bamboo as innovative materials in sustainable construction.",
+                            MetaKeywords = "[\"recycled concrete\",\"bamboo construction\",\"sustainable building materials\",\"environmentally friendly materials\"]",
+                            PublishedDate = new DateTime(2024, 6, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "innovative-materials-in-construction-from-recycled-concrete-to-bamboo",
+                            Tags = "[\"Sustainability\",\"Recycled Concrete\",\"Bamboo\",\"Construction Materials\"]",
+                            Title = "Innovative Materials in Construction: From Recycled Concrete to Bamboo",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("eabce088-581e-47f9-b034-5e248e723b70"),
+                            ArticleOverview = "\n		LADON Construction Services, headquartered in Davao City, has won the public bidding for the fit-out works of Northpoint Camella. Established in 2021, the company's rapid growth underscores their commitment to excellence and sustainable building practices.\n	",
+                            ArticleStatus = 3,
+                            ArticleType = 0,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://ladonco.ph/news/ladon-construction-services-wins-public-bid-for-northpoint-camella-fit-out-in-davao-city",
+                            ContentSourceMDFileName = "lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6265),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6265),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "LADON Construction Services secures significant milestone with Northpoint Camella fit-out project in Davao City.",
+                            MetaKeywords = "[\"LADON Construction Services\",\"Northpoint Camella\",\"fit-out project\",\"Davao City construction\"]",
+                            PublishedDate = new DateTime(2024, 6, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "ladon-construction-services-wins-public-bid-for-northpoint-camella-fit-out-in-davao-city",
+                            Tags = "[\"Construction Industry\",\"Public Bidding\",\"Fit-out Works\",\"Davao City\"]",
+                            Title = "LADON Construction Services Wins Public Bid for Northpoint Camella Fit-out in Davao City",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("b95c8379-4102-4d3c-b336-560e5b90a4b4"),
+                            ArticleOverview = "In a strategic move, Ladon Construction Services emphasizes small residence house improvement projects for sustainability. This enhances community ties and aligns with environmental goals. Charles Reyes notes, \"These projects deliver personalized solutions, promote energy efficiency, and integrate green materials.\" By expanding into smaller projects, Ladon aims to diversify while committing to sustainable practices, fostering innovation in local communities.",
+                            ArticleStatus = 3,
+                            ArticleType = 0,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://ladonco.ph/news/ladon-construction-services-expands-focus-on-small-residence-house-improvement-projects-for-sustainable-growth",
+                            ContentSourceMDFileName = "lcs-expands-focus-small-house-projects.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6319),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6319),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "Ladon Construction Services expands its focus on small residence house improvement projects to promote sustainable growth and community engagement.",
+                            MetaKeywords = "[\"sustainable construction\",\"community engagement\",\"small residence projects\",\"environmental responsibility\"]",
+                            PublishedDate = new DateTime(2024, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "ladon-construction-services-expands-focus-on-small-residence-house-improvement-projects-for-sustainable-growth",
+                            Tags = "[\"Sustainability\",\"Green Building\",\"Community Engagement\"]",
+                            Title = "Ladon Construction Services Expands Focus on Small Residence House Improvement Projects for Sustainable Growth",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("7dcec4cb-24be-4dd7-bac5-463f91613d10"),
+                            ArticleOverview = "Ladon Construction Services, founded in 2021, is a leading construction company dedicated to delivering exceptional services under the leadership of Mr. Charlemagne Reyes. With a team of experienced professionals, they prioritize meticulous attention to detail and superior customer service.",
+                            ArticleStatus = 3,
+                            ArticleType = 0,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://ladonco.ph/blog/ladon-construction-services-new-leader-industry-charlemagne-reyes",
+                            ContentSourceMDFileName = "lcs-New-Industry-Leader.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6426),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6427),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 12, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "Founded in 2021, Ladon Construction Services quickly became a leader in the construction industry under Mr. Charlemagne Reyes' guidance",
+                            MetaKeywords = "[\"construction industry\",\"leadership\",\"Charlemagne Reyes\",\"Ladon Construction Services\"]",
+                            PublishedDate = new DateTime(2024, 6, 12, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "ladon-construction-services-new-leader-industry-charlemagne-reyes",
+                            Tags = "[\"Construction\",\"Leadership\",\"Industry News\"]",
+                            Title = "Ladon Construction Services: A New Leader in the Construction Industry Under Mr. Charlemagne Reyes",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("7ddaaf0b-8271-4550-8a7a-6cefa0464e2c"),
+                            ArticleOverview = "Ladon Construction Services has been awarded a significant contract to construct a state-of-the-art office complex in downtown, marking a major milestone for the company under the leadership of Mr. Charlemagne Reyes. The project promises to be a testament to the company's commitment to innovation and sustainability, with construction set to commence in August 2024.",
+                            ArticleStatus = 3,
+                            ArticleType = 0,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://ladonco.ph/blog/ladon-construction-secures-major-contract-downtown-office-complex",
+                            ContentSourceMDFileName = "lcs-Secures-Major-Contract.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6495),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6495),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 12, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "Ladon Construction Services, led by Mr. Charlemagne Reyes, secures a PHP10M contract to build a 20-story office tower downtown, marking a significant achievement",
+                            MetaKeywords = "[\"construction contract\",\"downtown office complex\",\"Charlemagne Reyes\",\"Ladon Construction Services\"]",
+                            PublishedDate = new DateTime(2024, 6, 12, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "ladon-construction-secures-major-contract-downtown-office-complex",
+                            Tags = "[\"Construction\",\"Contracts\",\"Office Complex\",\"Downtown Development\"]",
+                            Title = "Ladon Construction Services Secures Major Contract for New Downtown Office Complex",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("ec196330-bbdf-4dbd-b249-88b37052dacf"),
+                            ArticleOverview = "\n		In the realm of construction services, the focus often leans towards large-scale projects. However, at Ladon Construction Services, we recognize the sustainability and value in catering to small residence house improvement projects. These projects contribute to economic viability, community engagement, and environmental responsibility, offering flexibility, enhanced client relationships, and opportunities for skill development. Discover how our approach fosters sustainability beyond environmental impact and strengthens our commitment to excellence and community enrichment.\n	",
+                            ArticleStatus = 3,
+                            ArticleType = 1,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://ladonco.ph/blog/small-residential-projects-sustainable-for-ladon-construction",
+                            ContentSourceMDFileName = "lcs-Small-Residence-Projects-Sustainability.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6545),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6545),
                             Hearts = 0,
                             IsActive = true,
                             IsFeatured = false,
                             LastModified = new DateTime(2024, 6, 11, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Likes = 0,
-                            MetaDescription = "Leading the way in sustainable construction, minimizing environmental impact for a brighter future.",
+                            MetaDescription = "Catering to small residence house improvement projects: exploring sustainability, community engagement, and economic viability in construction services.",
+                            MetaKeywords = "[\"sustainability\",\"green construction\",\"environmental impact\",\"sustainable solutions\"]",
+                            PublishedDate = new DateTime(2024, 6, 11, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Slug = "small-residential-projects-sustainable-for-ladon-construction",
+                            Tags = "[\"Sustainability\",\"Green Building\",\"Environmental Impact\"]",
+                            Title = "Small Residential Projects: Sustainable for Ladon Construction",
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("caf0c44e-37dd-4258-93de-8e33245a491b"),
+                            ArticleOverview = "The construction industry plays a vital role in sustainability, impacting the environment throughout a building's lifecycle. Sustainable practices like energy efficiency, water conservation, and waste reduction offer benefits such as cost savings and healthier spaces. Innovations like green roofs and smart technology drive progress. Ladon Construction Services leads in sustainability, surpassing standards and collaborating for a greener future.",
+                            ArticleStatus = 3,
+                            ArticleType = 1,
+                            AuthorAvatarImageCDNUrl = "",
+                            AuthorName = "Charles Reyes",
+                            CanonicalUrl = "https://ladonco.ph/blog/sustainable-solutions-building-a-greener-tomorrow",
+                            ContentSourceMDFileName = "lcs-sustainable-solutions.md",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6590),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6590),
+                            Hearts = 0,
+                            IsActive = true,
+                            IsFeatured = false,
+                            LastModified = new DateTime(2024, 6, 11, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Likes = 0,
+                            MetaDescription = "Leading sustainable construction to minimize environmental impact for a brighter future",
                             MetaKeywords = "[\"sustainability\",\"green construction\",\"environmental impact\",\"sustainable solutions\"]",
                             PublishedDate = new DateTime(2024, 6, 11, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Slug = "sustainable-solutions-building-a-greener-tomorrow",
@@ -624,7 +835,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 174, DateTimeKind.Local).AddTicks(1492))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 489, DateTimeKind.Local).AddTicks(8569))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -651,321 +862,321 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0cb34bc7-90d6-405f-8d7a-ef37265341ba"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(1458),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(1515),
+                            Id = new Guid("5ffad37b-d9d7-4348-be37-4398f5e2ecce"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2457),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2458),
                             IsActive = true,
                             Name = "Accessibility in Construction"
                         },
                         new
                         {
-                            Id = new Guid("cdebfdcb-a0e6-4964-b673-1c94fb926821"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(2995),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(2995),
+                            Id = new Guid("4988b801-0de5-492f-acfa-59b0959c014d"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2511),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2511),
                             IsActive = true,
                             Name = "Building Codes and Standards"
                         },
                         new
                         {
-                            Id = new Guid("49963d44-44b6-4e72-9f20-337b6c10fddd"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3012),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3013),
+                            Id = new Guid("0133029c-151c-43ad-bbad-6c9f1d912d8d"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2514),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2514),
                             IsActive = true,
                             Name = "Case Studies and Success Stories"
                         },
                         new
                         {
-                            Id = new Guid("21a8c6d7-5afa-429e-a1f1-676e2b4ac8d4"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3016),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3016),
+                            Id = new Guid("474590f2-519f-4d9c-9868-a695ef91ffcc"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2524),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2524),
                             IsActive = true,
                             Name = "Client Education"
                         },
                         new
                         {
-                            Id = new Guid("5b9fea9e-bc2d-4256-b16e-e39a15c23824"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3018),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3018),
+                            Id = new Guid("661441b6-4361-4ca4-9d4b-71f2f2ac3615"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2526),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2527),
                             IsActive = true,
                             Name = "Client Resources"
                         },
                         new
                         {
-                            Id = new Guid("82c69c40-1a52-4b5f-82ff-81fbabd567fb"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3020),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3021),
+                            Id = new Guid("9e030790-4371-4543-ad3e-345d2bb0fe70"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2528),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2529),
                             IsActive = true,
                             Name = "Community and Culture"
                         },
                         new
                         {
-                            Id = new Guid("d4038a0d-2e3b-40e7-ad18-2f9aa4965a94"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3040),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3040),
+                            Id = new Guid("f04e6c2d-1e1c-41c4-a2b6-f5d375a6038e"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2530),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2531),
                             IsActive = true,
                             Name = "Company Updates"
                         },
                         new
                         {
-                            Id = new Guid("70b57cf1-30a3-45d8-9bc7-6baf44fec250"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3042),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3042),
+                            Id = new Guid("71eed4b6-8a64-496d-a37c-72899c13a11c"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2533),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2533),
                             IsActive = true,
                             Name = "Construction Careers"
                         },
                         new
                         {
-                            Id = new Guid("6e904ed1-4802-4c4a-8069-0b68f630a107"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3045),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3045),
+                            Id = new Guid("c017f9f1-0d61-4c07-8e59-df8b29fe5d7f"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2535),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2535),
                             IsActive = true,
                             Name = "Construction Finance"
                         },
                         new
                         {
-                            Id = new Guid("224817da-4471-4769-a4a4-721269818d99"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3047),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3047),
+                            Id = new Guid("3067df56-940a-4e73-a26b-32c551556ed3"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2537),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2537),
                             IsActive = true,
                             Name = "Construction Management"
                         },
                         new
                         {
-                            Id = new Guid("1ac12081-fcd7-4a51-98bd-29b784896f00"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3050),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3050),
+                            Id = new Guid("24e2e1dd-6771-4dfa-b0b3-78d447f7b980"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2539),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2539),
                             IsActive = true,
                             Name = "Construction Techniques"
                         },
                         new
                         {
-                            Id = new Guid("ad6e3aef-6e50-4790-83b7-8d6a51f5600e"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3052),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3052),
+                            Id = new Guid("846cb57a-2286-46a9-9b98-95c851de8830"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2544),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2544),
                             IsActive = true,
                             Name = "Cost Estimation and Budgeting"
                         },
                         new
                         {
-                            Id = new Guid("1889bf66-e371-4697-a2e6-20522379537c"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3055),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3055),
+                            Id = new Guid("466f0b6a-097c-4272-8bc0-09f9c9357148"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2546),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2547),
                             IsActive = true,
                             Name = "Customer Stories and Interviews"
                         },
                         new
                         {
-                            Id = new Guid("29e16487-6593-498d-ad9a-60b63f8e1133"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3057),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3058),
+                            Id = new Guid("8efc9715-90fd-4e0c-9081-1a25acccded7"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2548),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2549),
                             IsActive = true,
                             Name = "Design and Architecture"
                         },
                         new
                         {
-                            Id = new Guid("269900f4-abf0-46c0-86fd-776826ec0bb2"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3063),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3063),
+                            Id = new Guid("cc224776-9ff0-45a6-90de-d060bee219c5"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2550),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2551),
                             IsActive = true,
                             Name = "Disaster Preparedness and Recovery"
                         },
                         new
                         {
-                            Id = new Guid("f42f149c-78da-4224-b7ef-2d1c8dec48d8"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3066),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3066),
+                            Id = new Guid("658ec5ee-ddf8-41ed-afb5-b4d6f2a6c99a"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2553),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2553),
                             IsActive = true,
                             Name = "Energy Efficiency"
                         },
                         new
                         {
-                            Id = new Guid("a2c4141a-b90a-49d4-8e66-6ac6f83150f3"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3068),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3069),
+                            Id = new Guid("4161e22b-359e-4438-9a0f-e9bd8f62c4fc"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2555),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2555),
                             IsActive = true,
                             Name = "Environmental Impact"
                         },
                         new
                         {
-                            Id = new Guid("b01b2d40-1de1-4316-84ad-95fc360a4bcb"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3098),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3099),
+                            Id = new Guid("a6270969-ce2a-471e-888e-a3eec218ffc9"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2557),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2557),
                             IsActive = true,
                             Name = "Equipment Maintenance"
                         },
                         new
                         {
-                            Id = new Guid("41e618fc-4c2d-482d-9dd2-0a0cf5f8a01c"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3102),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3102),
+                            Id = new Guid("57a3b949-9c5a-4268-8b4d-67c3b18e5048"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2559),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2559),
                             IsActive = true,
                             Name = "Green Building Materials"
                         },
                         new
                         {
-                            Id = new Guid("11b099fe-0ead-4d9f-ad44-b2195ab24712"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3104),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3105),
+                            Id = new Guid("aed36297-f774-46d4-ad29-2653886d88cf"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2563),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2563),
                             IsActive = true,
                             Name = "Health and Wellness in Construction"
                         },
                         new
                         {
-                            Id = new Guid("3715ea08-073a-4c05-9ce0-d0eebfc2b123"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3107),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3107),
+                            Id = new Guid("2354c777-0d4a-463a-bad8-ccb4f89b3d11"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2565),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2566),
                             IsActive = true,
                             Name = "Historic Preservation"
                         },
                         new
                         {
-                            Id = new Guid("cfc04ef9-f481-4689-ace1-5ea4ab8fb4a5"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3109),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3110),
+                            Id = new Guid("806a4bb5-52b6-4ee0-8e3e-f0f94bcd219d"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2567),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2568),
                             IsActive = true,
                             Name = "Home Improvement and DIY"
                         },
                         new
                         {
-                            Id = new Guid("6f69eee1-b945-40bf-9fdd-a4c07aaa740b"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3169),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3170),
+                            Id = new Guid("c5269b17-d1e1-4886-bcc8-14af6c52d7e8"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2569),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2570),
                             IsActive = true,
                             Name = "Industry News"
                         },
                         new
                         {
-                            Id = new Guid("3d3d7d52-4052-4e2a-bbfd-c66e9a421888"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3173),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3173),
+                            Id = new Guid("f5b8eaf2-c27b-4cdf-9d4e-d8e6992ac35b"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2571),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2572),
                             IsActive = true,
                             Name = "Innovation and Future Trends"
                         },
                         new
                         {
-                            Id = new Guid("8625f96d-468f-4500-977e-2d3fbe1769f0"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3176),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3176),
+                            Id = new Guid("853d3d3f-0bb9-425a-bb31-d9939d6fe105"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2574),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2574),
                             IsActive = true,
                             Name = "Innovation Awards and Recognitions"
                         },
                         new
                         {
-                            Id = new Guid("ee325cbe-26bc-4d56-91ca-8246cefadc7a"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3178),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3178),
+                            Id = new Guid("34c23b12-e55a-401c-b5a9-13c01855c685"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2576),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2576),
                             IsActive = true,
                             Name = "Landscaping and Outdoor Design"
                         },
                         new
                         {
-                            Id = new Guid("2ba6ca47-2743-4921-ae8b-a66c6f381fc3"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3180),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3181),
+                            Id = new Guid("2ef71811-03a6-4224-a8ef-722a18f7bc5b"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2578),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2578),
                             IsActive = true,
                             Name = "Legal and Insurance"
                         },
                         new
                         {
-                            Id = new Guid("a7cc0470-bab1-4dab-8cc0-b914a5ce599d"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3183),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3183),
+                            Id = new Guid("a7b5e5d9-59b1-47a7-b86a-1d48a2dc9ba1"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2582),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2582),
                             IsActive = true,
                             Name = "Materials and Equipment"
                         },
                         new
                         {
-                            Id = new Guid("c11b4360-970e-43f1-be27-9e3472d4253d"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3185),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3186),
+                            Id = new Guid("176b7f42-bc47-44d2-95bc-d89f275b84fb"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2584),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2584),
                             IsActive = true,
                             Name = "Modular and Prefabricated Construction"
                         },
                         new
                         {
-                            Id = new Guid("77202bd1-f156-4f57-a18f-7afcf70c0c0d"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3188),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3188),
+                            Id = new Guid("e0351a3a-63ca-48fa-8e93-e3e83388592c"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2586),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2586),
                             IsActive = true,
                             Name = "Project Showcase"
                         },
                         new
                         {
-                            Id = new Guid("8cf58e92-6d2a-4938-ac36-2f0a44ef4ecf"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3193),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3193),
+                            Id = new Guid("6700183e-e204-49d8-8f1a-d5d23118781c"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2588),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2589),
                             IsActive = true,
                             Name = "Property Management"
                         },
                         new
                         {
-                            Id = new Guid("486f6f33-a58a-4123-be91-1bc35a943736"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3196),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3196),
+                            Id = new Guid("50fcf487-4d60-4ff1-b58b-7e35522139f6"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2590),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2591),
                             IsActive = true,
                             Name = "Real Estate Development"
                         },
                         new
                         {
-                            Id = new Guid("d34c7dde-1b9a-4f8b-b257-dc6ff4fbf1b6"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3198),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3198),
+                            Id = new Guid("734a32a1-0381-4b75-8a13-1c66585d5a3b"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2592),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2593),
                             IsActive = true,
                             Name = "Safety and Compliance"
                         },
                         new
                         {
-                            Id = new Guid("69f76ebf-bb80-424c-a804-f4fca5d65059"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3200),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3201),
+                            Id = new Guid("27dd1522-3495-4f32-8073-333c8880b56e"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2595),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2595),
                             IsActive = true,
                             Name = "Smart Home Technology"
                         },
                         new
                         {
-                            Id = new Guid("00fa268c-ca27-439d-af80-349f44015d47"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3203),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3203),
+                            Id = new Guid("395e8144-79c2-4da1-871b-087a97c3736d"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2597),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2597),
                             IsActive = true,
                             Name = "Supply Chain and Logistics"
                         },
                         new
                         {
-                            Id = new Guid("8df1fe97-a5a5-4342-a1a4-f5848ad1c7ac"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3205),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3206),
+                            Id = new Guid("27d85071-1a1b-4587-a284-7fc20d67470a"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2601),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2601),
                             IsActive = true,
                             Name = "Sustainability and Green Building"
                         },
                         new
                         {
-                            Id = new Guid("652697b2-eba4-4d27-b24b-0ccc7f6bb2aa"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3208),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3208),
+                            Id = new Guid("32bf5e5d-abd1-4920-8d9c-dca25b7eceeb"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2603),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2603),
                             IsActive = true,
                             Name = "Technology in Construction"
                         },
                         new
                         {
-                            Id = new Guid("03f8d5cb-ed09-4bb6-95f0-8ec641df3b20"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3210),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3210),
+                            Id = new Guid("fdba2fdd-5833-4f12-8ad2-f09ce45ae61a"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2605),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2605),
                             IsActive = true,
                             Name = "Training and Certification"
                         },
                         new
                         {
-                            Id = new Guid("cd9a9358-45ab-41dd-9a18-e8f948f8ac5e"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3215),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3215),
+                            Id = new Guid("671558f9-358d-4dd8-829a-7c501bd11b20"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2607),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2607),
                             IsActive = true,
                             Name = "Urban Planning and Development"
                         },
                         new
                         {
-                            Id = new Guid("0a228566-a905-4e14-a3e4-05477ba785bd"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3217),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 48, 317, DateTimeKind.Utc).AddTicks(3218),
+                            Id = new Guid("9750c967-87ee-4ef8-9484-602141b3d4f4"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2609),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 493, DateTimeKind.Utc).AddTicks(2609),
                             IsActive = true,
                             Name = "Weather and Seasonal Tips"
                         });
@@ -988,8 +1199,78 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            ArticleId = new Guid("fc4eefaa-bfb5-41a9-80e5-ab3b2f6efc94"),
-                            ArticleCategoryId = new Guid("8df1fe97-a5a5-4342-a1a4-f5848ad1c7ac")
+                            ArticleId = new Guid("6a440cb0-4216-41dc-9e7d-9a4057323fe9"),
+                            ArticleCategoryId = new Guid("474590f2-519f-4d9c-9868-a695ef91ffcc")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("6a440cb0-4216-41dc-9e7d-9a4057323fe9"),
+                            ArticleCategoryId = new Guid("f04e6c2d-1e1c-41c4-a2b6-f5d375a6038e")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("c092f4cf-e2b8-45cd-b56c-c4db238a0763"),
+                            ArticleCategoryId = new Guid("474590f2-519f-4d9c-9868-a695ef91ffcc")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("c092f4cf-e2b8-45cd-b56c-c4db238a0763"),
+                            ArticleCategoryId = new Guid("fdba2fdd-5833-4f12-8ad2-f09ce45ae61a")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("eabce088-581e-47f9-b034-5e248e723b70"),
+                            ArticleCategoryId = new Guid("f04e6c2d-1e1c-41c4-a2b6-f5d375a6038e")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("eabce088-581e-47f9-b034-5e248e723b70"),
+                            ArticleCategoryId = new Guid("c5269b17-d1e1-4886-bcc8-14af6c52d7e8")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("7dcec4cb-24be-4dd7-bac5-463f91613d10"),
+                            ArticleCategoryId = new Guid("474590f2-519f-4d9c-9868-a695ef91ffcc")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("7dcec4cb-24be-4dd7-bac5-463f91613d10"),
+                            ArticleCategoryId = new Guid("f04e6c2d-1e1c-41c4-a2b6-f5d375a6038e")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("7dcec4cb-24be-4dd7-bac5-463f91613d10"),
+                            ArticleCategoryId = new Guid("3067df56-940a-4e73-a26b-32c551556ed3")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("7dcec4cb-24be-4dd7-bac5-463f91613d10"),
+                            ArticleCategoryId = new Guid("c5269b17-d1e1-4886-bcc8-14af6c52d7e8")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("7ddaaf0b-8271-4550-8a7a-6cefa0464e2c"),
+                            ArticleCategoryId = new Guid("f04e6c2d-1e1c-41c4-a2b6-f5d375a6038e")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("7ddaaf0b-8271-4550-8a7a-6cefa0464e2c"),
+                            ArticleCategoryId = new Guid("c5269b17-d1e1-4886-bcc8-14af6c52d7e8")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("7ddaaf0b-8271-4550-8a7a-6cefa0464e2c"),
+                            ArticleCategoryId = new Guid("e0351a3a-63ca-48fa-8e93-e3e83388592c")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("ec196330-bbdf-4dbd-b249-88b37052dacf"),
+                            ArticleCategoryId = new Guid("27d85071-1a1b-4587-a284-7fc20d67470a")
+                        },
+                        new
+                        {
+                            ArticleId = new Guid("caf0c44e-37dd-4258-93de-8e33245a491b"),
+                            ArticleCategoryId = new Guid("27d85071-1a1b-4587-a284-7fc20d67470a")
                         });
                 });
 
@@ -1014,14 +1295,14 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("CommentText")
                         .IsRequired()
-                        .HasMaxLength(800)
-                        .HasColumnType("nvarchar(800)")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
                         .HasColumnName("CommentText");
 
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 174, DateTimeKind.Local).AddTicks(7916))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 490, DateTimeKind.Local).AddTicks(3890))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1050,12 +1331,100 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9588313c-033d-42bf-86ad-4ce6a87e2f8f"),
-                            ArticleId = new Guid("fc4eefaa-bfb5-41a9-80e5-ab3b2f6efc94"),
+                            Id = new Guid("f8010314-3915-48cf-bea6-5c083fe907f3"),
+                            ArticleId = new Guid("6a440cb0-4216-41dc-9e7d-9a4057323fe9"),
                             AuthorName = "John Doe",
                             CommentText = "This is a fantastic article!",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 333, DateTimeKind.Utc).AddTicks(7117),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 333, DateTimeKind.Utc).AddTicks(7117),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6087),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6088),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("59947f91-3623-4a7d-bd3c-5fc41141161c"),
+                            ArticleId = new Guid("c092f4cf-e2b8-45cd-b56c-c4db238a0763"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6176),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6177),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("6c303614-f78d-47fb-9242-69f0cf05d329"),
+                            ArticleId = new Guid("8d8ec95a-eed2-478d-943b-81c3da9a249f"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6253),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6254),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("6ef8ba6b-70af-459b-acbb-f371db2652bc"),
+                            ArticleId = new Guid("eabce088-581e-47f9-b034-5e248e723b70"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6308),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6309),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("243fc35d-2a0c-49e5-af7b-e62799e7ee26"),
+                            ArticleId = new Guid("b95c8379-4102-4d3c-b336-560e5b90a4b4"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6353),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6353),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("8248b105-7dcc-41e8-87b4-1ea19954db0f"),
+                            ArticleId = new Guid("7dcec4cb-24be-4dd7-bac5-463f91613d10"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6484),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6484),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("40ed2ae5-4be5-477c-ab70-f2a7eaac1cb2"),
+                            ArticleId = new Guid("7ddaaf0b-8271-4550-8a7a-6cefa0464e2c"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6536),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6537),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("09f1bf17-2b77-421c-9705-e85ce95042e5"),
+                            ArticleId = new Guid("ec196330-bbdf-4dbd-b249-88b37052dacf"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6576),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6576),
+                            Email = "commenter@gmail.com",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("5c626d51-1889-43f3-a909-696c4042e1a0"),
+                            ArticleId = new Guid("caf0c44e-37dd-4258-93de-8e33245a491b"),
+                            AuthorName = "John Doe",
+                            CommentText = "This is a fantastic article!",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6622),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6622),
                             Email = "commenter@gmail.com",
                             IsActive = true
                         });
@@ -1075,7 +1444,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 174, DateTimeKind.Local).AddTicks(4886))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 490, DateTimeKind.Local).AddTicks(1330))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1086,8 +1455,8 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("ImageCDNUrl")
                         .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)")
+                        .HasMaxLength(2400)
+                        .HasColumnType("nvarchar(2400)")
                         .HasColumnName("ImageCDNUrl");
 
                     b.Property<bool?>("IsActive")
@@ -1104,13 +1473,135 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b80f06d2-bcd2-415f-8293-ead37f3190ea"),
-                            ArticleId = new Guid("fc4eefaa-bfb5-41a9-80e5-ab3b2f6efc94"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 333, DateTimeKind.Utc).AddTicks(7128),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 333, DateTimeKind.Utc).AddTicks(7129),
+                            Id = new Guid("707d02b4-ef02-46fc-8a8e-3a4af1a30fa8"),
+                            ArticleId = new Guid("6a440cb0-4216-41dc-9e7d-9a4057323fe9"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6106),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6106),
+                            ImageCDNUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Originals/2024%20LCS_ladon_25.png",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("ae41f823-3b87-492c-be46-b1ac99ba755c"),
+                            ArticleId = new Guid("c092f4cf-e2b8-45cd-b56c-c4db238a0763"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6180),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6180),
+                            ImageCDNUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Article-Images/construction-worker-is-tying-the-structural-steel-2023-02-09-00-32-24-utc.jpg",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("c9b8a92d-46fb-4139-95cb-be25f0eb5629"),
+                            ArticleId = new Guid("8d8ec95a-eed2-478d-943b-81c3da9a249f"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6258),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6259),
+                            ImageCDNUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Article-Images/Eco-Friendly-Building-Materials-15-1024x683.webp?updatedAt=1718460175427",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("1e6816ec-1d8d-4f8f-bc7c-19a68bf17ce0"),
+                            ArticleId = new Guid("eabce088-581e-47f9-b034-5e248e723b70"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6312),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6313),
+                            ImageCDNUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Article-Images/northpoint-camella-davao?updatedAt=1718457478612",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("f59b94d4-819f-4088-98dc-bf0f811ac3b4"),
+                            ArticleId = new Guid("b95c8379-4102-4d3c-b336-560e5b90a4b4"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6413),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6414),
+                            ImageCDNUrl = "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713973964/BG-Slider-Conservatories_ppeljm.jpg",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("b7e0d064-39aa-4d61-bdda-3e25a2c40c5f"),
+                            ArticleId = new Guid("7dcec4cb-24be-4dd7-bac5-463f91613d10"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6488),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6489),
+                            ImageCDNUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Originals/2024%20LCS_ladon_aboutUs.png?updatedAt=1718209432040",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("e606a5d8-2d68-457b-abe8-0f584578c4d9"),
+                            ArticleId = new Guid("7ddaaf0b-8271-4550-8a7a-6cefa0464e2c"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6539),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6540),
+                            ImageCDNUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Originals/2024%20LCS_ladon_08.png?updatedAt=1718209420276",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("a819e601-c103-4b57-a457-e07a4aaee127"),
+                            ArticleId = new Guid("ec196330-bbdf-4dbd-b249-88b37052dacf"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6584),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6584),
+                            ImageCDNUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Article-Images/illumina-estates.jpg",
+                            IsActive = true
+                        },
+                        new
+                        {
+                            Id = new Guid("0fa1d88e-3c4d-42c2-bb69-5cea61cfb314"),
+                            ArticleId = new Guid("caf0c44e-37dd-4258-93de-8e33245a491b"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6626),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(6626),
                             ImageCDNUrl = "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713973964/BG-Slider-Conservatories_ppeljm.jpg",
                             IsActive = true
                         });
+                });
+
+            modelBuilder.Entity("SMEAppHouse.Ladon.Domain.Entities.EFModels.ArticleMetric", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ArticleMetricId")
+                        .HasColumnOrder(0);
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateCreated")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("DateTime2")
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 490, DateTimeKind.Local).AddTicks(8000))
+                        .HasColumnName("_dateCreated")
+                        .HasColumnOrder(501);
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("DateTime2")
+                        .HasColumnName("_dateModified")
+                        .HasColumnOrder(508);
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnOrder(506);
+
+                    b.Property<Guid>("MetricArticleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("Shares")
+                        .HasColumnType("int")
+                        .HasColumnName("Shares");
+
+                    b.Property<TimeSpan?>("TimeOnPage")
+                        .HasColumnType("time")
+                        .HasColumnName("TimeOnPage");
+
+                    b.Property<int?>("UniqueVisitors")
+                        .HasColumnType("int")
+                        .HasColumnName("UniqueVisitors");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MetricArticleId");
+
+                    b.ToTable("ArticleMetrics", "dbo");
                 });
 
             modelBuilder.Entity("SMEAppHouse.Ladon.Domain.Entities.EFModels.ClientTestimony", b =>
@@ -1122,8 +1613,9 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                         .HasColumnOrder(0);
 
                     b.Property<string>("ClientBusinessName")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)")
                         .HasColumnName("ClientBusinessName");
 
                     b.Property<string>("ClientName")
@@ -1133,19 +1625,20 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                         .HasColumnName("ClientName");
 
                     b.Property<string>("ClientProfession")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
                         .HasColumnName("ClientProfession");
 
                     b.Property<string>("ClientThumnailUrl")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(2400)
+                        .HasColumnType("nvarchar(2400)")
                         .HasColumnName("ClientThumnailUrl");
 
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 161, DateTimeKind.Local).AddTicks(5774))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 478, DateTimeKind.Local).AddTicks(793))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1161,14 +1654,14 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                         .HasColumnOrder(506);
 
                     b.Property<string>("ProjectImageUrl")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(2400)
+                        .HasColumnType("nvarchar(2400)")
                         .HasColumnName("ProjectImageUrl");
 
                     b.Property<string>("Remarks")
                         .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(600)
+                        .HasColumnType("nvarchar(600)")
                         .HasColumnName("Remarks");
 
                     b.Property<Guid?>("UserProfileId")
@@ -1180,6 +1673,60 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasIndex("UserProfileId");
 
                     b.ToTable("ClientTestimonies", "dbo");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("ef4538c9-06bd-4d55-8692-a8bae1e2498b"),
+                            ClientBusinessName = "RDN Shipping",
+                            ClientName = "Mr. Donnie Tefasco",
+                            ClientProfession = "Businessman",
+                            ClientThumnailUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Client-Profiles/download.jpg",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7206),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7206),
+                            IsActive = true,
+                            ProjectImageUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Testimonies-Images/eyJidWNrZXQiOiJwcmQtbGlmdWxsY29ubmVjdC1iYWNrZW5kLWIyYi1pbWFnZXMiLCJrZXkiOiJwcm9wZXJ0aWVzL2VlNTgwMTNhLTU4NGMtNGE5My05N2U4LTU4NjEzNDIwYWMzMS8zOTE5ZjVmYS1hM2U3LTRlMTAtODE4OS03MGQ0NjMwNWY4NTkuanBnIiwiYnJhbmQiOiJET1RQUk9QRVJUWSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTE3MCwiaGVpZ2h0Ijo3ODAsImZpdCI6ImNvdmVyIn19fQ==",
+                            Remarks = "Working with Ladon Construction Services for our shipping depot warehouse in Taguig was a game-changer. Their meticulous planning and seamless execution exceeded our expectations. From structural engineering to interior fit-outs, every detail was handled with precision. Their team's expertise and dedication ensured our project was completed on time and within budget. We highly recommend Ladon for any construction project, big or small—they truly bring dreams to life!"
+                        },
+                        new
+                        {
+                            Id = new Guid("8475459d-b91e-4141-88d2-50ec6596c6fc"),
+                            ClientBusinessName = "AgriVents (Rizal)",
+                            ClientName = "Mr. Thomas Bernardino",
+                            ClientProfession = "Businessman",
+                            ClientThumnailUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Client-Profiles/2024%20LCS_ladon_72.jpg",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7216),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7217),
+                            IsActive = true,
+                            ProjectImageUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Testimonies-Images/eyJidWNrZXQiOiJwcmQtbGlmdWxsY29ubmVjdC1iYWNrZW5kLWIyYi1pbWFnZXMiLCJrZXkiOiJwcm9wZXJ0aWVzL2VlNTgwMTNhLTU4NGMtNGE5My05N2U4LTU4NjEzNDIwYWMzMS8zOTE5ZjVmYS1hM2U3LTRlMTAtODE4OS03MGQ0NjMwNWY4NTkuanBnIiwiYnJhbmQiOiJET1RQUk9QRVJUWSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTE3MCwiaGVpZ2h0Ijo3ODAsImZpdCI6ImNvdmVyIn19fQ==",
+                            Remarks = "Propesyonal, mabibilis at masisipag ang mga tao ni Charles! Sulit sa cost ng contract napagkasunduan namin. Napakinabangan ko kaagad pinapagawa kong poultry facility."
+                        },
+                        new
+                        {
+                            Id = new Guid("c937ff58-d94c-4860-bb7e-b0373edd3f49"),
+                            ClientBusinessName = "Rice Sprout Orchids",
+                            ClientName = "Mr. & Mrs. Rominadores",
+                            ClientProfession = "Business Proprietor",
+                            ClientThumnailUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Client-Profiles/2024%20LCS_ladon_71.jpg",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7220),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7221),
+                            IsActive = true,
+                            ProjectImageUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Testimonies-Images/358969675.jpg_k=36a69f0e8594a860d13c9e529ef60256a1ab5428780c13a09526aa10da3e534b&o=&hp=1?updatedAt=1718613620130",
+                            Remarks = "Engaging Ladon Construction Services for our construction needs was a worthwhile decision! Despite their busy schedule, they maintained excellent professionalism by keeping us updated on our projects, even while we were overseas. They consistently surpassed our expectations and delivered outstanding results."
+                        },
+                        new
+                        {
+                            Id = new Guid("65cd4351-47f0-456e-a86f-d15ee99e73cd"),
+                            ClientBusinessName = "La Cordia Centre Mall",
+                            ClientName = "Mr. Arnold Dominguez",
+                            ClientProfession = "VP Operations",
+                            ClientThumnailUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Client-Profiles/2024%20LCS_ladon_73.jpg",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7223),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 661, DateTimeKind.Utc).AddTicks(7224),
+                            IsActive = true,
+                            ProjectImageUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Testimonies-Images/Untitled-2021-01-23T180416.134.jpg?updatedAt=1718613750156",
+                            Remarks = "We are immensely grateful to LADON Construction Services for their invaluable expertise in completing the fit-out works for our small town commercial mall. Their team exhibited exceptional professionalism and attention to detail throughout the project. Despite the challenges we faced, they ensured timely delivery without compromising on quality. LADON's commitment to excellence and client satisfaction truly sets them apart. We highly recommend their services and look forward to partnering with them again in the future."
+                        });
                 });
 
             modelBuilder.Entity("SMEAppHouse.Ladon.Domain.Entities.EFModels.Message", b =>
@@ -1202,7 +1749,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 160, DateTimeKind.Local).AddTicks(3919))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 477, DateTimeKind.Local).AddTicks(1204))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1268,14 +1815,14 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("AnswerText")
                         .IsRequired()
-                        .HasMaxLength(800)
-                        .HasColumnType("nvarchar(800)")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
                         .HasColumnName("AnswerText");
 
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 177, DateTimeKind.Local).AddTicks(2547))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 493, DateTimeKind.Local).AddTicks(1567))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1313,183 +1860,210 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3f035e51-f1a5-45f7-8abe-46bc6c7540db"),
+                            Id = new Guid("b0e98090-3bbb-4c39-b0dc-4d4f739432c0"),
                             AnswerText = "Ladon Construction Services offers a wide range of construction services, including residential and commercial building, renovation, remodeling, and custom design-build projects. For more of the services offered, please scroll above to check out the Services we are offerring.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6482),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6482),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(373),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(373),
                             IsActive = true,
                             IsImportant = true,
                             Question = "What services does Ladon Construction Services offer?"
                         },
                         new
                         {
-                            Id = new Guid("bcff0df2-6525-4d71-81ae-0c6688cb0e21"),
+                            Id = new Guid("935501cd-e681-4495-8a15-160d896ab783"),
                             AnswerText = "Ladon Construction Services has been proudly serving clients for over 15 years, delivering high-quality construction and renovation projects.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6486),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6486),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(390),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(391),
                             IsActive = true,
                             IsImportant = true,
                             Question = "How long has Ladon Construction Services been in business?"
                         },
                         new
                         {
-                            Id = new Guid("c2b3e757-6677-44c4-a839-b871ba3c9c3d"),
+                            Id = new Guid("31137083-6a75-4e0a-9ecd-3bc85477dccd"),
                             AnswerText = "You can request a quote by filling out the form on our 'Request a Quote' page, or by contacting us directly via email or phone.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6488),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6488),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(396),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(397),
                             IsActive = true,
                             Question = "How can I get a quote for my project?"
                         },
                         new
                         {
-                            Id = new Guid("61379eb4-d247-47b8-b3d2-c2694c6d35c6"),
+                            Id = new Guid("faaad391-b38f-4bad-89a2-170212028c18"),
                             AnswerText = "We work closely with our clients to establish realistic timelines and ensure that all milestones are met.Our project management team oversees every phase to keep things on track.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6490),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6491),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(402),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(403),
                             IsActive = true,
                             IsImportant = true,
                             Question = "How do you handle project timelines?"
                         },
                         new
                         {
-                            Id = new Guid("aefb166b-0a7e-4fcd-a070-c0c67b60f1cf"),
+                            Id = new Guid("914345e4-f17b-4d27-b538-6432bdf35371"),
                             AnswerText = "Yes, we offer comprehensive design-build services, which means we can assist you from the initial design concept through to the final construction.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6493),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6493),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(408),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(409),
                             IsActive = true,
                             Question = "Can you help with the design phase of my project?"
                         },
                         new
                         {
-                            Id = new Guid("eb5c7e4b-52f3-4fc4-a8cd-78b1f8836164"),
+                            Id = new Guid("b3ac6ef2-1711-4132-9886-347a6c65e1a2"),
                             AnswerText = "Important considerations include your budget, desired timeline, the scope of the project, and any specific requirements or preferences you may have.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6495),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6495),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(414),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(414),
                             IsActive = true,
                             IsImportant = true,
                             Question = "What should I consider before starting a construction project?"
                         },
                         new
                         {
-                            Id = new Guid("5e6086bd-3087-455b-a0cf-558d6f687c50"),
+                            Id = new Guid("108cbe2d-7739-411d-9f67-2e22f9240b94"),
                             AnswerText = "Yes, we provide a warranty for all our construction projects to ensure your satisfaction and peace of mind.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6500),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6501),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(420),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(420),
                             IsActive = true,
                             IsImportant = true,
                             Question = "Do you provide a warranty for your work?"
                         },
                         new
                         {
-                            Id = new Guid("a02961a4-86bd-4764-bfc4-244f8c0c2dc1"),
+                            Id = new Guid("57a7c4de-d6f4-40ce-aff7-a447bbe675a9"),
                             AnswerText = "Project costs are determined based on the scope of work, materials, labor, and any specific client requirements. We provide detailed estimates to ensure transparency.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6502),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6503),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(422),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(423),
                             IsActive = true,
                             Question = "How do you determine the cost of a construction project?"
                         },
                         new
                         {
-                            Id = new Guid("21c667dd-23b7-433c-ade7-4c09a8e76573"),
+                            Id = new Guid("45cfc6ac-484a-4721-8618-7610e47c9d19"),
                             AnswerText = "Yes, we offer flexible financing options to help make your construction project more affordable.Please contact us for more details.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6504),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6505),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(425),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(425),
                             IsActive = true,
                             Question = "Do you offer financing options?"
                         },
                         new
                         {
-                            Id = new Guid("19ae5453-2557-44cc-b30d-908dc7e131da"),
+                            Id = new Guid("0504a802-fff3-4df1-acf3-e259622afc8d"),
                             AnswerText = "No, our estimates are transparent and all - inclusive.We believe in honesty and integrity in all our dealings.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6506),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6507),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(431),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(431),
                             IsActive = true,
                             IsImportant = true,
                             Question = "Are there any hidden fees in your estimates?"
                         },
                         new
                         {
-                            Id = new Guid("6eca351f-d2ae-43dc-b63c-f35ba2ad0a6f"),
+                            Id = new Guid("e5485302-7016-4550-821b-da95725b8cfe"),
                             AnswerText = "We accept various forms of payment, including bank transfers, credit cards, and financing options. Payment schedules are outlined in our contracts.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6509),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6509),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(434),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(434),
                             IsActive = true,
                             Question = "How do I pay for my project?"
                         },
                         new
                         {
-                            Id = new Guid("cc7208de-69bc-4017-8a7b-98b95262a017"),
+                            Id = new Guid("d21c0ca6-61ef-40c4-b264-b05225f5fc68"),
                             AnswerText = "We use high - quality materials and employ skilled craftsmen.Our project managers oversee all work to ensure it meets our stringent quality standards.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6511),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6511),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(436),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(436),
                             IsActive = true,
                             IsImportant = true,
                             Question = "How do you ensure the quality of your construction work?"
                         },
                         new
                         {
-                            Id = new Guid("59c607b7-d7ad-4ff3-b93a-d87c5b24feec"),
+                            Id = new Guid("010a5584-5d98-4fef-a60f-e83a66708bbd"),
                             AnswerText = "Safety is a top priority for us.We follow all industry safety standards and regulations, and our team is trained in best safety practices.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6513),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6513),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(441),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(441),
                             IsActive = true,
                             Question = "What safety measures do you take on construction sites?"
                         },
                         new
                         {
-                            Id = new Guid("83aa0ac8-eb17-4327-aa80-a01454b018a5"),
+                            Id = new Guid("417c9b92-ac07-44c2-8cb2-3f71a36ec8a9"),
                             AnswerText = "Yes, Ladon Construction Services is fully licensed and insured to operate in the construction industry.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6515),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6515),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(445),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(446),
                             IsActive = true,
                             IsImportant = true,
                             Question = "Are you licensed and insured?"
                         },
                         new
                         {
-                            Id = new Guid("50f72dea-4ddf-473b-9ae1-6cc83794d29c"),
+                            Id = new Guid("de500451-d66a-4432-b6d0-0a22518978b0"),
                             AnswerText = "We provide regular updates through meetings, emails, and our project management portal, ensuring you are always informed about the progress.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6520),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6520),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(450),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(450),
                             IsActive = true,
                             Question = "How will I be updated on the progress of my project?"
                         },
                         new
                         {
-                            Id = new Guid("2b0efbc1-c30c-49d0-b873-f054b9dbf665"),
+                            Id = new Guid("2847a973-8322-46a7-a0a3-cbdcbfa40588"),
                             AnswerText = "Changes can be made, but they may affect the timeline and budget. We will work with you to accommodate any changes as smoothly as possible.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6522),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6522),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(454),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(455),
                             IsActive = true,
                             Question = "What if I need to make changes to the project after it has started?"
                         },
                         new
                         {
-                            Id = new Guid("2584ccde-8fd5-4745-9b54-0dc4cbe21f88"),
+                            Id = new Guid("fcf94cc5-c415-4e9a-bd01-de97a23bb4df"),
                             AnswerText = "You will be assigned a dedicated project manager who will be your main point of contact throughout the duration of your project.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6524),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6524),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(459),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(460),
                             IsActive = true,
                             IsImportant = true,
                             Question = "Who will be my point of contact during the project?"
                         },
                         new
                         {
-                            Id = new Guid("27a7c4db-cdb8-43ef-bfd0-b40381b4be7c"),
+                            Id = new Guid("e0f3bdc1-1473-4a2b-a091-bf8e9c1d92b9"),
                             AnswerText = "Yes, clients are welcome to visit the construction site. Please coordinate with your project manager to ensure safety and scheduling.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6526),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6527),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(468),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(469),
                             IsActive = true,
                             Question = "Can I visit the construction site during the project?"
                         },
                         new
                         {
-                            Id = new Guid("0bc69892-08e7-4fac-bb5b-34f5396b6984"),
+                            Id = new Guid("6d324988-543a-44ae-ac6f-aecb9e41af1a"),
                             AnswerText = "Upon completion, we conduct a thorough walkthrough with you to ensure everything is to your satisfaction.We also provide a comprehensive handover package, including all necessary documentation.",
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6528),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6528),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(471),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(471),
                             IsActive = true,
                             Question = "How do you handle project completion and handover?"
+                        },
+                        new
+                        {
+                            Id = new Guid("471b6dc3-eba7-4ae5-9d1e-d9c2df62080c"),
+                            AnswerText = "Certification in the construction industry signifies that an individual has met certain standards of proficiency and competence, ensuring quality work and adherence to industry regulations.",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(474),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(474),
+                            IsActive = true,
+                            Question = "Why is certification important in the construction industry?"
+                        },
+                        new
+                        {
+                            Id = new Guid("65453a9a-7436-428e-93e5-e9f447f6be0e"),
+                            AnswerText = "Self-claimed experienced builders may lack formal training and education, leading to potential safety hazards and lower quality workmanship on construction projects.",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(476),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(476),
+                            IsActive = true,
+                            Question = "What are the risks of hiring self-claimed experienced builders?"
+                        },
+                        new
+                        {
+                            Id = new Guid("aad12e5a-1256-4223-bc4f-719b9030cd7e"),
+                            AnswerText = "Certified skilled workers often complete projects more efficiently and with higher quality, reducing the need for costly rework or corrections in the long run.",
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(479),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(479),
+                            IsActive = true,
+                            Question = "How can certified skilled workers contribute to long-term cost savings?"
                         });
                 });
 
@@ -1547,7 +2121,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 176, DateTimeKind.Local).AddTicks(4039))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 492, DateTimeKind.Local).AddTicks(4689))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1711,7 +2285,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 176, DateTimeKind.Local).AddTicks(9657))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 492, DateTimeKind.Local).AddTicks(9172))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1753,7 +2327,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 175, DateTimeKind.Local).AddTicks(2611))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 491, DateTimeKind.Local).AddTicks(5538))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1799,7 +2373,7 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 12, 20, 8, 50, 159, DateTimeKind.Local).AddTicks(4610))
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 22, 11, 28, 476, DateTimeKind.Local).AddTicks(3770))
                         .HasColumnName("_dateCreated")
                         .HasColumnOrder(501);
 
@@ -1862,12 +2436,12 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("03f7b33b-a4cd-4e1c-a2fa-a6e5a604b213"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6299),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6308),
+                            Id = new Guid("728bd4f0-ed70-4ecf-90ff-f3e6b9621ef8"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(130),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(134),
                             FirstName = "James",
                             Gender = 0,
-                            IdentityUserId = new Guid("b5bb26f3-73d4-41b6-b898-10d4eb27b8b9"),
+                            IdentityUserId = new Guid("96f4c92c-204d-4cd2-b94d-1508452f279a"),
                             IsActive = true,
                             LastName = "Mangubat",
                             MobilePhoneNo = "+639672814641",
@@ -1875,12 +2449,12 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8198253f-b3f2-44ce-a3fa-7cf09cc540ff"),
-                            DateCreated = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6354),
-                            DateModified = new DateTime(2024, 6, 12, 12, 8, 50, 332, DateTimeKind.Utc).AddTicks(6354),
+                            Id = new Guid("953da12f-0f3b-4398-9a54-b8c36a5aea72"),
+                            DateCreated = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(195),
+                            DateModified = new DateTime(2024, 6, 17, 14, 11, 28, 657, DateTimeKind.Utc).AddTicks(195),
                             FirstName = "Charles",
                             Gender = 0,
-                            IdentityUserId = new Guid("c55a297a-cd7d-4890-b934-07a909d371af"),
+                            IdentityUserId = new Guid("e364b2b6-a915-43b7-98c9-be4e1e46907e"),
                             IsActive = true,
                             LastName = "Reyes",
                             MobilePhoneNo = "+639951225449",
@@ -2018,6 +2592,17 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
                     b.Navigation("Article");
                 });
 
+            modelBuilder.Entity("SMEAppHouse.Ladon.Domain.Entities.EFModels.ArticleMetric", b =>
+                {
+                    b.HasOne("SMEAppHouse.Ladon.Domain.Entities.EFModels.Article", "Article")
+                        .WithMany("ArticleMetrics")
+                        .HasForeignKey("MetricArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+                });
+
             modelBuilder.Entity("SMEAppHouse.Ladon.Domain.Entities.EFModels.ClientTestimony", b =>
                 {
                     b.HasOne("SMEAppHouse.Ladon.Domain.Entities.EFModels.UserProfile", "UserProfile")
@@ -2068,6 +2653,8 @@ namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("SMEAppHouse.Ladon.Domain.Entities.EFModels.Article", b =>
                 {
+                    b.Navigation("ArticleMetrics");
+
                     b.Navigation("Comments");
 
                     b.Navigation("Images");

@@ -1,0 +1,213 @@
+﻿/*******************************/
+/******* Testimonial CSS *******/
+/*******************************/
+
+.testimonial {
+    position: relative;
+    /*margin: 45px 0;*/
+    padding: 30px 0;
+    text-align: center;
+    background: linear-gradient(rgb(137 141 149 / 90%), rgba(3, 15, 39, .9)), url(https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975744/2024_LCS_ladon_65_prx3xw.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .testimonial .container {
+        max-width: 760px;
+    }
+
+.about-page .testimonial {
+    padding-bottom: 90px;
+}
+
+.testimonial .testimonial-slider-nav {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+}
+
+    .testimonial .testimonial-slider-nav .slick-slide {
+        position: relative;
+        opacity: 0;
+        transition: .5s;
+    }
+
+    .testimonial .testimonial-slider-nav .slick-active {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+
+    .testimonial .testimonial-slider-nav .slick-center {
+        transform: scale(2.5);
+        z-index: 1;
+    }
+
+    .testimonial .testimonial-slider-nav .slick-slide img {
+        position: relative;
+        display: block;
+        margin-top: 37px;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+.testimonial .testimonial-slider {
+    position: relative;
+    padding-top: 50px;
+}
+
+    .testimonial .testimonial-slider::before {
+        position: absolute;
+        content: "";
+        width: 60px;
+        height: 50px;
+        top: 0;
+        left: calc(50% - 30px);
+        /*background: url('/img/quote.png') top center no-repeat;*/
+        background: url('https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/quote.png?updatedAt=1717074586555') top center no-repeat;
+    }
+
+    .testimonial .testimonial-slider h3 {
+        color: #fdbe33;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .testimonial .testimonial-slider h4 {
+        font-size: 14px;
+        font-weight: 300;
+        color: #ffffff;
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+
+    .testimonial .testimonial-slider p {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .testimonial .testimonial-slider img {
+        width: 100%;
+        height: 100%;
+        margin-top: 5px;
+        object-fit: contain;
+    }
+
+.slick-current {
+    top: 40px;
+}
+
+.testimonial-slider-nav .slick-list.draggable {
+    height: 240px;
+}
+
+
+
+
+
+.slider-item {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.testimonial-item {
+    font-family: 'Lato', sans-serif;
+    background-color: #fff;
+    border-radius: 20px;
+    /*box-shadow: 0 0 7px 1px #e5e5e5, 0 0 9px 0px #ebecca, 0 0 20px 0px #e3eff0, 0 0 20px 2px #a7a7a7;*/
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+    box-shadow: -15px -17px 20px #7ea4f147, 5px 5px 20px 4px rgb(255 255 255 / 47%);
+    overflow: hidden;
+    max-width: 100%;
+    width: 500px;
+}
+
+    .testimonial-item .testimonial-body {
+        padding: 30px 40px 80px;
+        background: linear-gradient(rgb(137 141 149 / 7%), rgba(3, 2, 39, .61),rgba(13, 15, 39, .21)), url(https://ik.imagekit.io/yt1tgrjzh/LADONCO/Article-Images/northpoint-camella-davao?updatedAt=1718457478612);
+        background-attachment: local;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+        .testimonial-item .testimonial-body p {
+            color: #ffff;
+            font-size: 18px;
+            line-height: 26px;
+            margin-bottom: 5px;
+            font-family: system-ui;
+        }
+
+        .testimonial-item .testimonial-body .fa-quote-right {
+            color: #eee;
+            font-size: 40px;
+            float: right;
+        }
+
+    .testimonial-item .testimonial-footer {
+        background-color: #1c1c49;
+        color: #fff;
+        padding: 40px;
+        text-align: center;
+    }
+
+        .testimonial-item .testimonial-footer img {
+            border-radius: 10%;
+            border: 5px solid #fff;
+            height: 120px;
+            width: 120px;
+            margin-top: -100px;
+            display: unset;
+        }
+
+        .testimonial-item .testimonial-footer h3 {
+            margin: 10px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-item .testimonial-footer h4 {
+            color: #b3b5ef;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+.testimonial-remark {
+    background: linear-gradient(45deg, rgb(158, 12, 128), rgb(250, 96, 42));
+    position: relative;
+}
+
+    .testimonial-remark:first-child h3 {
+        font-size: 3em;
+    }
+
+    .testimonial-remark:nth-child(2) {
+        background: linear-gradient(45deg, rgb(250, 96, 42), rgb(252, 180, 0));
+    }
+
+    .testimonial-remark:nth-child(3) {
+        background: linear-gradient(45deg, rgb(0, 226, 255), rgb(250, 96, 42));
+    }
+
+    .testimonial-remark:nth-child(4) {
+        background: linear-gradient(45deg, rgb(158, 12, 128), rgb(252, 180, 0));
+    }
+
+    .testimonial-remark:nth-child(5) {
+        background: linear-gradient(45deg, rgb(250, 96, 42), rgb(0, 226, 255));
+    }
+
+    .testimonial-remark:nth-child(6) {
+        background: linear-gradient(45deg, rgb(158, 12, 128), rgb(0, 226, 255));
+    }
+
+    .testimonial-remark:last-child h3 {
+        font-size: 3em;
+    }

@@ -1,15 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Web.Pages.Common;
 
 namespace SMEAppHouse.Ladon.Web.Pages
 {
-    public class PrivacyModel : PageModel
+    public class PrivacyModel(ILogger<PrivacyModel> logger, ApplicationSettings applicationSettings) :
+    BasePageModel(applicationSettings)
     {
-        private readonly ILogger<PrivacyModel> _logger;
-
-        public PrivacyModel(ILogger<PrivacyModel> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<PrivacyModel> _logger = logger;
 
         public void OnGet()
         {

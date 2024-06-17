@@ -1,6 +1,17 @@
 ﻿/*******************************/
 /********* General CSS *********/
 /*******************************/
+
+:root {
+    --orange: rgb(250, 96, 42);
+    --yellow: rgb(252, 180, 0);
+    --purple: rgb(158, 12, 128);
+    --blue: rgb(0, 226, 255);
+    --green: rgb(149, 174, 32);
+    --neutral: rgb(51, 51, 51);
+    --light: #ffffff;
+}
+
 body {
     color: #666666;
     background: #dddddd;
@@ -76,6 +87,7 @@ main {
     .back-to-top:hover {
         color: #fdbe33;
         background: #121518;
+        cursor: pointer;
     }
 
     .back-to-top i {
@@ -327,7 +339,7 @@ main {
 /**********************************/
 .nav-bar {
     position: relative;
-    background: #000000;
+    background: #030f27;
     transition: .3s;
 }
 
@@ -472,8 +484,8 @@ main {
 /*******************************/
 .footer {
     position: relative;
-    margin-top: 45px;
-    padding-top: 90px;
+    /*margin-top: 45px;*/
+    padding-top: 25px;
     background: #030f27;
     color: #ffffff;
 }
@@ -740,3 +752,36 @@ main {
             background: #6fb32b;
             outline: none;
         }
+
+
+.section-header {
+    position: relative;
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+    .section-header p {
+        color: #fdbe33;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .section-header h2 {
+        margin: 0;
+        position: relative;
+        font-size: 50px;
+        font-weight: 700;
+        color: whitesmoke;
+    }
+
+
+@-webkit-keyframes glow-text {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}

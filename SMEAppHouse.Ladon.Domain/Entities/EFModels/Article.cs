@@ -12,6 +12,8 @@ public class Article : GuidKeyedEntity
 
     public required ArticleTypesEnum ArticleType { get; set; }
 
+    public required ArticleStatusEnum ArticleStatus { get; set; }
+
     /// <summary>
     /// The main content of the article.
     /// </summary>
@@ -62,6 +64,8 @@ public class Article : GuidKeyedEntity
     /// </summary>
     public string? MetaDescription { get; set; }
 
+    public string? ArticleOverview { get; set; }
+
     /// <summary>
     /// The canonical URL of the article, used to indicate the preferred version of the post for search engines.
     /// </summary>
@@ -109,4 +113,6 @@ public class Article : GuidKeyedEntity
 
     // Navigation property for the one-to-one relationship
     public virtual QuestionAnswer? QuestionAnswer { get; set; }
+
+    public virtual IList<ArticleMetric>? ArticleMetrics { get; set; } = [];
 }

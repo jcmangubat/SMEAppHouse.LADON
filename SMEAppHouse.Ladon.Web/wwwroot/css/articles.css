@@ -104973,3 +104973,16 @@ img, video {
         animation: bounce 1s infinite
     }
 }
+
+.article-categories {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+}
+
+    .article-categories a {
+        font-style: italic;
+        display: inline-block;
+        text-decoration: underline;
+        font-weight: 500;
+    }

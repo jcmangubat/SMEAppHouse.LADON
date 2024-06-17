@@ -7,7 +7,10 @@ public interface IArticleService
 {
     Task<ArticleModel?> GetArticleAsync(Guid articleId);
 
-    Task<IEnumerable<ArticleModel>?> GetArticlesAsync(Expression<Func<ArticleModel, bool>> modelFilter);
+    Task<IEnumerable<ArticleModel>> GetArticlesAsync(Expression<Func<ArticleModel, bool>> modelFilter,
+                                                                    int? articleCount = 0);
+
+    Task<IEnumerable<ArticleModel>> GetNewsArticlesAsync(int? articleCount = 0);
 
     Task<ArticleModel?> GetArticleAsync(Expression<Func<ArticleModel, bool>> modelFilter);
 
@@ -16,4 +19,7 @@ public interface IArticleService
     Task UpdateArticleAsync(ArticleModel articleModel);
 
     Task<ArticleModel?> GetArticleBySlug(string slug);
+
+    Task<IEnumerable<ArticleModel>> GetBlogsAsync(int? articleCount = 3);
+
 }

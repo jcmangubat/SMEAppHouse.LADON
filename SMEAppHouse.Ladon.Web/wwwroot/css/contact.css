@@ -1,0 +1,252 @@
+﻿/*******************************/
+/********* Contact CSS *********/
+/*******************************/
+.contact {
+    position: relative;
+    width: 100%;
+    padding: 45px 0;
+    background: linear-gradient(rgb(3 15 39 / 70%), rgb(137 141 149 / 90%)), url(https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/ladon_srvc_14.jpg?updatedAt=1715838557483);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .contact .col-md-6 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+        .contact .col-md-6:first-child {
+            background: #030f27;
+        }
+
+        .contact .col-md-6:last-child {
+            /*background: #fdbe33;*/
+            background: #7d7d7d;
+        }
+
+    .contact .contact-info {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 56.25%;
+    }
+
+        .contact .contact-info iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    .contact .contact-item {
+        position: relative;
+        margin-bottom: 30px;
+        padding: 30px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        border: 1px solid rgba(256, 256, 256, .2);
+    }
+
+        .contact .contact-item [class^="flaticon-"]::before {
+            margin: 0;
+            color: #fdbe33;
+            font-size: 40px;
+        }
+
+    .contact .contact-text {
+        position: relative;
+        width: auto;
+        padding-left: 20px;
+    }
+
+        .contact .contact-text h2 {
+            color: #fdbe33;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .contact .contact-text p {
+            margin: 0;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+    .contact .contact-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact .contact-form {
+        position: relative;
+        padding: 0 15px;
+    }
+
+        .contact .contact-form textarea.form-control {
+            min-height: 130px;
+        }
+
+        .contact .contact-form .contact-message-form .control-group {
+            padding-bottom: 10px;
+        }
+
+        .contact .contact-form input,
+        .contact .contact-form textarea {
+            background-color: #bbb2b2;
+            color: white;
+            border-radius: 5px;
+        }
+
+            .contact .contact-form input:focus,
+            .contact .contact-form textarea:focus {
+                background-color: white;
+                color: black;
+                border-radius: 5px;
+            }
+
+                .contact .contact-form input:focus::placeholder,
+                .contact .contact-form textarea:focus::placeholder {
+                    color: grey;
+                }
+
+        .contact .contact-form .form-control {
+            padding-left: 10px;
+        }
+
+            .contact .contact-form .form-control::placeholder {
+                color: #ffffff;
+                opacity: 1;
+            }
+
+            .contact .contact-form .form-control::-ms-input-placeholder {
+                color: #ffffff;
+            }
+
+            .contact .contact-form .form-control::-ms-input-placeholder {
+                color: #ffffff;
+            }
+
+        .contact .contact-form .btn {
+            padding: 16px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fdbe33;
+            background: #030f27;
+            border: none;
+            border-radius: 0;
+            transition: .3s;
+        }
+
+            .contact .contact-form .btn:hover {
+                color: #030f27;
+                background: #fdbe33;
+            }
+
+        .contact .contact-form .contact-address {
+            color: #f1f3f4;
+            margin-bottom: 35px;
+            font-size: large;
+            font-weight: 400;
+        }
+
+            .contact .contact-form .contact-address h2 {
+                font-weight: 400;
+                margin-bottom: 1em;
+                color: #fdbe33;
+            }
+
+            .contact .contact-form .contact-address p {
+                margin-bottom: 0;
+            }
+
+    .contact .help-block ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+@keyframes contact-msg-valid-error {
+    0% {
+        color: #fdbe33;
+    }
+
+    50% {
+        color: #f1f1f1;
+    }
+
+    100% {
+        color: #fdbe33;
+    }
+}
+
+.contact-form .vald-osci-text {
+    color: #fdbe33;
+    animation-name: contact-msg-valid-error;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@media (max-width: 1024px) {
+    .align-items-center {
+        align-items: unset;
+    }
+}
+
+
+.form {
+    width: 100%;
+    height: auto;
+    flex: 50%;
+    text-align: center;
+}
+
+    .form h1 {
+        border-bottom: 1px solid #fff;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .form form {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .form .form-in {
+        margin-bottom: 0.5rem;
+        border: none;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border-radius: 5px;
+        font-family: inherit;
+    }
+
+        .form .form-in:focus {
+            outline: none;
+        }
+
+        .form .form-in::placeholder {
+            color: #aaa;
+        }
+
+    .form form textarea {
+        height: 10rem;
+    }
+
+    .form form button {
+        font-weight: bold;
+        cursor: pointer;
+        color: rebeccapurple;
+        font-size: 1.1rem !important;
+    }
+
+        .form form button:active {
+            transform: scale(0.98);
+        }
+
+    .form small {
+        font-size: 0.5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #aaa;
+    }

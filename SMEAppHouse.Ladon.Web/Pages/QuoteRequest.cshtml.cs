@@ -1,7 +1,6 @@
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using SMEAppHouse.Core.CodeKits.Extensions;
 using SMEAppHouse.Core.CodeKits.Geo;
 using SMEAppHouse.Core.CodeKits.Helpers;
@@ -10,6 +9,7 @@ using SMEAppHouse.Ladon.Application.Models;
 using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Infrastructure.Interfaces;
 using SMEAppHouse.Ladon.Web.Extensions;
+using SMEAppHouse.Ladon.Web.Pages.Common;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
 namespace SMEAppHouse.Ladon.Web.Pages;
@@ -23,10 +23,10 @@ public class QuoteRequestPageModel(ILogger<QuoteRequestPageModel> logger,
                                 IHttpContextAccessor httpContextAccessor,
                                 IAuthMembershipService authService,
                                 IValidator<QuoteRequestModel> validator,
-                                IImageKitUploadService imageKitUploadService) : PageModel
+                                IImageKitUploadService imageKitUploadService)
+    : BasePageModel(applicationSettings)
 {
     private readonly ILogger<QuoteRequestPageModel> _logger = logger;
-    private readonly ApplicationSettings _applicationSettings = applicationSettings;
     private readonly IValidator<QuoteRequestModel> _validator = validator;
     private readonly IProjectServiceTypesManager _serviceTypesManager = serviceTypesManager;
     private readonly IMessageService _messageService = messageService;
@@ -183,7 +183,7 @@ public class QuoteRequestPageModel(ILogger<QuoteRequestPageModel> logger,
         catch (Exception ex)
         {
             _logger.LogInformation($"SubmitQuoteRequest: Error... >> {ex.GetExceptionMessages()}");
-            
+
             // Handle any exceptions that occur during the quote request sending process
             return StatusCode(500, new
             {

@@ -1,5 +1,4 @@
-﻿using Microsoft.Identity.Client;
-using SMEAppHouse.Core.CodeKits;
+﻿using SMEAppHouse.Core.CodeKits;
 using SMEAppHouse.Ladon.Application.Models.Base;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
@@ -10,6 +9,7 @@ public class ArticleModel : KeyedModel
     public new Guid? Id { get; set; }
     public required string Title { get; set; }
     public required ArticleTypesEnum ArticleType { get; set; }
+    public required ArticleStatusEnum Status { get; set; }
     public string? Content { get; set; }
     public string? ContentSourceMDFileName { get; set; }
     public string? ContentSourceMDCDNUrl { get; set; }
@@ -21,7 +21,8 @@ public class ArticleModel : KeyedModel
     public int? Hearts { get; set; }
     public int? Views { get; set; }
     public bool? IsFeatured { get; set; }
-    public required string? MetaDescription { get; set; }
+    public string? MetaDescription { get; set; }
+    public string? ArticleOverview { get; set; }
     public string? CanonicalUrl { get; set; }
     public List<string>? MetaKeywords { get; set; } = [];
     public List<string>? Tags { get; set; } = [];

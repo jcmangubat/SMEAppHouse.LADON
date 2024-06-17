@@ -73,6 +73,9 @@ public class MappingProfile : Profile
         CreateMap<ArticleCommentModel, ArticleComment>().ReverseMap();
         CreateMap<ArticleImageModel, ArticleImage>().ReverseMap();
         CreateMap<ArticleAssociationModel, ArticleAssociation>().ReverseMap();
+        CreateMap<ArticleMetricModel, ArticleMetric>().ReverseMap();
+        CreateMap<ClientTestimonyModel, ClientTestimony>().ReverseMap();
+
     }
 }
 

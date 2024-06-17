@@ -12,6 +12,7 @@ using SMEAppHouse.Ladon.Application.Mappings;
 using SMEAppHouse.Ladon.Application.Models;
 using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Application.Models.Validators;
+using SMEAppHouse.Ladon.Application.Services;
 using SMEAppHouse.Ladon.Domain.Repositories;
 using SMEAppHouse.Ladon.Infrastructure.Interfaces;
 using SMEAppHouse.Ladon.Infrastructure.Persistence;
@@ -182,6 +183,11 @@ public class Startup(IConfiguration configuration)
         services.AddSingleton(resolver =>
             resolver.GetRequiredService<IOptions<SMTPSettings>>().Value);
 
+        // OpenAI
+        services.Configure<OpenAICredentials>(Configuration.GetSection("OpenAI"));
+        services.AddSingleton(resolver =>
+            resolver.GetRequiredService<IOptions<OpenAICredentials>>().Value);
+
         // Cloudinary
         services.Configure<CloudinaryCredentials>(Configuration.GetSection("Cloudinary"));
         services.AddSingleton(resolver =>
@@ -198,9 +204,8 @@ public class Startup(IConfiguration configuration)
         services.AddSingleton(resolver =>
             resolver.GetRequiredService<IOptions<ApplicationSettings>>().Value);
 
-        services.AddTransient<MarkdownService>();
-
         // Application Services
+        services.AddTransient<IMarkdownService, MarkdownService>();
         services.AddScoped<IAuthMembershipService, AuthMembershipService>();
         services.AddSingleton<IHangfireJobChecker, HangfireJobChecker>();
         services.AddScoped<IHangfireJobService, HangfireJobService>();
@@ -213,7 +218,9 @@ public class Startup(IConfiguration configuration)
         services.AddSingleton<ICloudinaryUploadService, CloudinaryUploadService>();
         services.AddSingleton<IImageKitUploadService, ImageKitUploadService>();
         services.AddScoped<IArticleService, ArticleService>();
+        services.AddScoped<IArticleMetricsService, ArticleMetricsService>();
         services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
+        services.AddScoped<IClientTestimonialsService, ClientTestimonialsService>();
 
         // Add MVC and Razor Pages
         services.AddControllersWithViews()
@@ -256,15 +263,15 @@ public class Startup(IConfiguration configuration)
         {
             pipeline.MinifyJsFiles("js/main.js");
 
+            //pipeline.MinifyCssFiles("css/**/*.css");
+            //pipeline.AddCssBundle("/css/bundle.css", "/css/site.css", "/css/**/*.css");
+
             var cssFiles = Directory.GetFiles("wwwroot/css", "*.css", SearchOption.AllDirectories)
                             .Where(file => !file.EndsWith("quoterequest.css"))
                             .Select(file => file.Replace("wwwroot/", "/"));
-
             pipeline.MinifyCssFiles(cssFiles.ToArray());
             pipeline.AddCssBundle("/css/bundle.css", cssFiles.ToArray());
 
-            //pipeline.MinifyCssFiles("css/**/*.css");
-            //pipeline.AddCssBundle("/css/bundle.css", "/css/site.css", "/css/**/*.css");
             pipeline.AddJavaScriptBundle("/js/site.js", "/js/chat/*.js");
         });
 

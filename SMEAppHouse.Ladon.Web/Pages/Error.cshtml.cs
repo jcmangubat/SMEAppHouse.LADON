@@ -7,19 +7,14 @@ namespace SMEAppHouse.Ladon.Web.Pages
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     [IgnoreAntiforgeryToken]
-    public class ErrorModel : BasePageModel
+    public class ErrorModel(ILogger<ErrorModel> logger, ApplicationSettings applicationSettings) 
+        : BasePageModel(applicationSettings)
     {
         public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-        private readonly ILogger<ErrorModel> _logger;
-
-        public ErrorModel(ILogger<ErrorModel> logger, ApplicationSettings applicationSettings)
-            : base(applicationSettings)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<ErrorModel> _logger = logger;
 
         public void OnGet()
         {

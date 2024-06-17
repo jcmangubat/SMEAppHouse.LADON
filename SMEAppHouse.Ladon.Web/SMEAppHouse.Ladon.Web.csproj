@@ -52,6 +52,8 @@
 	  <Content Remove="Areas\Article\Pages\BlogsIndexOLD.cshtml" />
 	  <Content Remove="Areas\Identity\Pages\Account\Login_Old.cshtml" />
 	  <Content Remove="Pages\Home\PartialViews\Testimonials_OLD.cshtml" />
+	  <Content Remove="Pages\Home\PartialViews\_BlogsAndNews_OLD.cshtml" />
+	  <Content Remove="Pages\Home\PartialViews\_Services-old.cshtml" />
 	  <Content Remove="Pages\Home\_Login.cshtml" />
 	  <Content Remove="Pages\QuoteRequest - Copy.cshtml" />
 	  <Content Remove="Pages\Shared\_LoginPartial.cshtml" />
@@ -104,7 +106,7 @@
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>
-	  <Content Update="Pages\Home\PartialViews\_BlogsAndNews.cshtml">
+	  <Content Update="Pages\Home\PartialViews\_Blogs.cshtml">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>

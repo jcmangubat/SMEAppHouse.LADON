@@ -2,6 +2,8 @@
 @{
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+@using SMEAppHouse.Ladon.Web.Areas.Article.Pages
+@model ArticlePageModel
 @{
     ViewData["Title"] = Model.Article.Title;
     ViewData["Description"] = Model.Article.MetaDescription;
@@ -17,19 +19,21 @@
             articleImgUrl = activeArticleImg.ImageCDNUrl;
     }
 
-    var categories = string.Empty;
+    var categories = new List<(string Id, string Name)>();
     if (Model.Article.ArticleCategories != null && Model.Article.ArticleCategories.Any())
     {
-        var cats = Model.Article.ArticleCategories.Select(c => c.Name).ToList();
-        categories = string.Join(",</br>", cats);
+        categories = Model.Article.ArticleCategories.Select(c => (
+                                        string.Join("-", c.Name.Split(" ")
+                                                                .Select(c => c.ToLower().Trim())
+                                                                .Where(s => !string.IsNullOrEmpty(s))),
+                                        c.Name
+                                    )).ToList();
     }
 
     var authAvatarCDNUrl = "https://bootdey.com/img/Content/avatar/avatar1.png";
     if (!string.IsNullOrEmpty(Model.Article.AuthorAvatarImageCDNUrl))
         authAvatarCDNUrl = Model.Article.AuthorAvatarImageCDNUrl;
 }
-@using SMEAppHouse.Ladon.Web.Areas.Article.Pages
-@model ArticleModel
 
 @section Styles {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -49,7 +53,12 @@
                                 <img src="@articleImgUrl" title="" alt="">
                             </div>
                             <div class="article-title">
-                                <h6><a href="#">@categories</a></h6>
+                                <h6>
+                                    @foreach (var category in categories)
+                                    {
+                                        <a href="#@category.Id">@category.Name</a>
+                                    }
+                                </h6>
                                 <h2>@Model.Article.Title</h2>
                                 <div class="media">
                                     <div class="avatar">
@@ -119,24 +128,27 @@
                         </div>
                     </div>
                     <div class="col-lg-4 m-15px-tb blog-aside">
-                        <!-- Author -->
+
+                        @*<!-- Author -->
                         <div class="widget widget-author">
-                            <div class="widget-title">
-                                <h3>Author</h3>
-                            </div>
-                            <div class="widget-body">
-                                <div class="media align-items-center">
-                                    <div class="avatar">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <h6>Hello, I'm<br> Rachel Roth</h6>
-                                    </div>
-                                </div>
-                                <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
-                            </div>
+                        <div class="widget-title">
+                        <h3>Author</h3>
+                        </div>
+                        <div class="widget-body">
+                        <div class="media align-items-center">
+                        <div class="avatar">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
+                        </div>
+                        <div class="media-body">
+                        <h6>Hello, I'm<br> Rachel Roth</h6>
+                        </div>
+                        </div>
+                        <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
+                        </div>
                         </div>
                         <!-- End Author -->
+                        *@
+
                         <!-- Trending Post -->
                         <div class="widget widget-post">
                             <div class="widget-title">

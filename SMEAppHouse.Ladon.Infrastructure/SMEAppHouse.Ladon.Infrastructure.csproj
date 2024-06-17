@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\ArticleGeneratorService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="EmailTemplates\ContactUsMessageTemplate.html" />
     <None Remove="EmailTemplates\QuoteRequestMessageTemplate.html" />
   </ItemGroup>
@@ -35,20 +39,62 @@
 
   <ItemGroup>
     <Folder Include="Identity\" />
-    <Folder Include="Persistence\Migrations\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="SeedData\Articles\build-your-dreams-with-ladon-construction-services.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\build-your-dreams-with-ladon-construction-services.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\certified-vs-self-claimed-experienced-builders-why-certification-matters.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\certified-vs-self-claimed-experienced-builders-why-certification-matters.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="SeedData\Articles\lcs-Secures-Major-Contract.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\manifest.xml">
+    <None Update="SeedData\Articles\lcs-New-Industry-Leader.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs-Small-Residence-Projects-Sustainability.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs-Small-Residence-Projects-Sustainability.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs-expands-focus-small-house-projects.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs-expands-focus-small-house-projects.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs-sustainable-solutions.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Articles\lcs-Secures-Major-Contract.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="SeedData\Articles\lcs-New-Industry-Leader.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\sustainable-solutions.md">
+    <None Update="SeedData\Articles\lcs-sustainable-solutions.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

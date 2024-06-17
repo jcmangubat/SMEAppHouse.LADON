@@ -1,0 +1,30 @@
+﻿@using SMEAppHouse.Ladon.Application.Models.Data
+@model IEnumerable<ArticleModel>
+@{
+    var blogs = Model.ToArray();
+}
+
+@for (int i = 0; i < blogs.Count(); i++)
+{
+    var blog = blogs[i];
+    <div class='item'>
+        <div class="blog-item">
+            <div class="blog-img">
+                <img src="@blog.Images.FirstOrDefault()?.ImageCDNUrl" alt="Image">
+            </div>
+            <div class="blog-title">
+                <span>@blog.Title</span>
+                <a class="btn" href="/articles/{@blog.Slug}">+</a>
+            </div>
+            <div class="blog-meta">
+                <p>By<a href="">@blog.AuthorName</a></p><br />
+                <p>In<a href="">@blog.ArticleCategories.FirstOrDefault()?.Name</a></p>
+            </div>
+            <div class="blog-text">
+                <p>
+                    @blog.MetaDescription
+                </p>
+            </div>
+        </div>
+    </div>
+}

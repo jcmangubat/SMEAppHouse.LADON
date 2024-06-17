@@ -13,7 +13,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="keywords" content="@ViewData["Keywords"]" />
     <meta name="description" content="@ViewData["Description"]" />
@@ -54,16 +53,15 @@
           referrerpolicy="no-referrer" />
 
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="~/css/bundle.css" />
     <link href="~/css/common.css" rel="stylesheet" />
+
+    @* <link rel="stylesheet" href="~/css/bundle.css" /> *@
 
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
-    <section id="home">
-    </section>
+    <section id="home"></section>
     <div class="wrapper">
-        <section id="home"></section>
         <!-- Ads Banner Bar -->
         <partial name="~/pages/home/partialviews/_adsbanner.cshtml" />
 
@@ -184,7 +182,7 @@
                                 <div class="other-site-features dropdown-menu">
                                     @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Articles && p.Value == true))
                                     {
-                                          <a href="#blogs" class="dropdown-item">Blogs</a>
+                                        <a href="#blogs" class="dropdown-item">Blogs</a>
                                     }
 
                                     @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.FAQs && p.Value == true))
@@ -267,25 +265,25 @@
                         </div>
                     </div>
                     @* <div class="col-md-6 col-lg-3">
-                        <div class="footer-link">
-                            <h2>Services Areas</h2>
-                            <a href="">Residential Construction</a>
-                            <a href="">Commercial Construction</a>
-                            <a href="">New Construction</a>
-                            <a href="">Renovation and Remodeling</a>
-                            <a href="">Interior Fit-out Works</a>
-                            <a href="">Exterior & Interior Landscaping</a>
-                            <a href="">Restoration, Renovation and Preservation Works</a>
-                            <a href="">Structural Engineering & Planning</a>
-                            <a href="">Architectural Design and Planning</a>
-                            <a href="">HVAC Installation and Maintenance</a>
-                            <a href="">Plumbing and Piping Services</a>
-                            <a href="">Electrical Systems Installation and Maintenance</a>
-                            <a href="">Flooring Installation and Restoration</a>
-                            <a href="">Painting</a>
-                            <a href="">Roofing and Waterproofing</a>
-                            <a href="">Telecommunications Infrastructure / Private Branch Exchange (PBX) Installation</a>
-                        </div>
+                    <div class="footer-link">
+                    <h2>Services Areas</h2>
+                    <a href="">Residential Construction</a>
+                    <a href="">Commercial Construction</a>
+                    <a href="">New Construction</a>
+                    <a href="">Renovation and Remodeling</a>
+                    <a href="">Interior Fit-out Works</a>
+                    <a href="">Exterior & Interior Landscaping</a>
+                    <a href="">Restoration, Renovation and Preservation Works</a>
+                    <a href="">Structural Engineering & Planning</a>
+                    <a href="">Architectural Design and Planning</a>
+                    <a href="">HVAC Installation and Maintenance</a>
+                    <a href="">Plumbing and Piping Services</a>
+                    <a href="">Electrical Systems Installation and Maintenance</a>
+                    <a href="">Flooring Installation and Restoration</a>
+                    <a href="">Painting</a>
+                    <a href="">Roofing and Waterproofing</a>
+                    <a href="">Telecommunications Infrastructure / Private Branch Exchange (PBX) Installation</a>
+                    </div>
                     </div> *@
                     <div class="col-md-6 col-lg-4">
                         <div class="footer-link">
@@ -339,7 +337,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
             integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
             crossorigin="anonymous"
