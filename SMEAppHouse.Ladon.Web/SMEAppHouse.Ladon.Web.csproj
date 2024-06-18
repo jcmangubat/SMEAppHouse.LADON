@@ -203,8 +203,4 @@
 	  <ProjectReference Include="..\SMEAppHouse.Ladon.Infrastructure\SMEAppHouse.Ladon.Infrastructure.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Pages\Blogs\" />
-	</ItemGroup>
-
 </Project>

@@ -2,7 +2,7 @@
 @using SMEAppHouse.Ladon.Web.Pages.Common
 @model BasePageModel
 @{
-    var isAuthenticated = User.Identity.IsAuthenticated.ToString().ToLower();
+    var isAuthenticated = User.Identity?.IsAuthenticated.ToString().ToLower();
     var hasClientRole = User.IsInRole("Client").ToString().ToLower();
 
     var siteSectionOptions = Model.ApplicationSettings.SiteSectionOptions;
@@ -16,6 +16,9 @@
 
     <meta name="keywords" content="@ViewData["Keywords"]" />
     <meta name="description" content="@ViewData["Description"]" />
+    
+    @await RenderSectionAsync("MetaTags", required: false)
+
     <title>@ViewData["Title"]</title>
 
     <link rel="preload" href="~/css/bundle.css" as="style" />

@@ -1,10 +1,15 @@
 ﻿.main-body {
-    padding-top: 35px;
+    padding-top: 15px;
+    margin-bottom: 15px;
 }
 
 .blog-listing {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.blog-aside {
+    margin-top: 30px;
 }
 
 .gray-bg {
@@ -201,8 +206,7 @@
     }
 
 .blog-single {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 
 .article {
@@ -211,7 +215,6 @@
     overflow: hidden;
     background: #ffffff;
     padding: 15px;
-    margin: 15px 0 30px;
 }
 
 .article-content p {
@@ -236,6 +239,7 @@
         color: #3a3a74;
         font-weight: 600;
         font-size: 2rem;
+        margin-bottom: 5px;
     }
 
     .article .article-title h6 {
@@ -294,6 +298,7 @@
     color: #3a3a74;
     font-weight: 600;
     font-size: 2rem;
+    margin-bottom: 25px;
 }
 
 .article .article-content h3 {
@@ -494,3 +499,58 @@ img {
             -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
         }
+
+.back-to-blogs {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: x-large;
+    color: #191b94;
+    font-weight: bolder;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+    .back-to-blogs:hover {
+        color: #ed8629;
+    }
+
+    .back-to-blogs p {
+        font-size: small;
+        margin: unset;
+        line-height: 2;
+        margin-left: 10px;
+    }
+
+.interaction-buttons {
+    display: flex;
+    justify-content: left;
+    box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+    border-radius: 5px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+    .interaction-buttons i::before {
+        color: #118ced;
+        font-size: larger;
+    }
+
+    .interaction-buttons .hover-red {
+        color: inherit;
+        transition: color 0.3s ease;
+    }
+
+        /*.interaction-buttons .hover-red:hover {
+            color: red;
+        }*/
+
+        .interaction-buttons .hover-red i:hover::before {
+            color: red;
+        }
+
+    .interaction-buttons .btn i span {
+        font-family: system-ui;
+        font-weight: 500;
+        margin-left: 5px;
+    }

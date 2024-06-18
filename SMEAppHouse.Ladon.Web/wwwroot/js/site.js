@@ -308,5 +308,11 @@ $.when(
 
     "use strict";
 
-    
+    $('.owl-carousel').on('click', '.owl-item .blog-item .blog-title > span', function (e) {
+        e.preventDefault();
+        var href = $(this).siblings('a').attr('href');
+        if (href) {
+            window.location.href = href;
+        }
+    });
 });

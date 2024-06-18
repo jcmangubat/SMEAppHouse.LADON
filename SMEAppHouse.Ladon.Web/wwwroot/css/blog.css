@@ -55,6 +55,11 @@
         .blog .blog-title span {
             font-weight: bold;
             color: #fdbe33;
+            cursor: pointer;
+        }
+
+        .blog .blog-title span:hover {
+            text-decoration: underline;
         }
 
         .blog .blog-title h3 {

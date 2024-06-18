@@ -3,6 +3,7 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 @using SMEAppHouse.Ladon.Web.Areas.Article.Pages
+@using Microsoft.AspNetCore.Http
 @model ArticlePageModel
 @{
     ViewData["Title"] = Model.Article.Title;
@@ -33,6 +34,22 @@
     var authAvatarCDNUrl = "https://bootdey.com/img/Content/avatar/avatar1.png";
     if (!string.IsNullOrEmpty(Model.Article.AuthorAvatarImageCDNUrl))
         authAvatarCDNUrl = Model.Article.AuthorAvatarImageCDNUrl;
+
+    var baseUrl = Url.Content("~");
+    var articleUrl = $"{baseUrl}/articles/{Model.Article.Slug}";
+    var siteName = PageContext.HttpContext.Request.Host.Host;
+}
+
+@section MetaTags {
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="@Model.Article.Title">
+    <meta property="og:description" content="@Model.Article.MetaDescription">
+    <meta property="og:image" content="@Model.Article.Images?.FirstOrDefault()?.ImageCDNUrl">
+    <meta property="og:url" content="@articleUrl">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="@siteName">
+    <meta property="article:author" content="@Model.Article.AuthorName">
+    <meta property="article:published_time" content="@((Model.Article.PublishedDate ?? DateTime.Now).ToString("yyyy-MM-ddTHH:mm:sszzz"))">
 }
 
 @section Styles {
@@ -48,6 +65,10 @@
             <div class="container">
                 <div class="row align-items-start">
                     <div class="col-lg-8 m-15px-tb">
+                        <a href="/articles" class="back-to-blogs">
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            <p>Back to Blogs Index</p>
+                        </a>
                         <article class="article">
                             <div class="article-img">
                                 <img src="@articleImgUrl" title="" alt="">
@@ -72,23 +93,32 @@
                                         }
                                     </div>
                                 </div>
+                                <div class="interaction-buttons">
+                                    <button class="btn btn-like hover-red" style="margin-right: 10px;">
+                                        <i class="fas fa-thumbs-up" aria-hidden="true"><span>Like</span></i>
+                                    </button>
+                                    <button class="btn btn-heart hover-red" style="margin-right: 10px;">
+                                        <i class="fas fa-heart" aria-hidden="true"><span>Heart</span></i>
+                                    </button>
+
+                                    <button class="btn btn-share hover-red">
+                                        <i class="fab fa-facebook-f" aria-hidden="true"><span>Facebook</span></i>
+                                    </button>
+                                    <button class="btn btn-share hover-red">
+                                        <i class="fa-brands fa-twitter" aria-hidden="true"><span>Twitter</span></i>
+                                    </button>
+                                    <button class="btn btn-share hover-red">
+                                        <i class="fa-brands fa-linkedin" aria-hidden="true">
+                                            <span>Linkedin</span>
+                                        </i>
+                                    </button>
+                                </div>
                             </div>
                             <div class="article-content">
                                 <p>
                                     @Html.Raw(Model.Article.Content)
                                 </p>
                             </div>
-                            @* <div class="article-content">
-                            <p>Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem. Adipiscing veni amet luctus enim sem libero tellus viverra venenatis aliquam. Commodo natoque quam pulvinar elit.</p>
-                            <p>Eget aenean tellus venenatis. Donec odio tempus. Felis arcu pretium metus nullam quam aenean sociis quis sem neque vici libero. Venenatis nullam fringilla pretium magnis aliquam nunc vulputate integer augue ultricies cras. Eget viverra feugiat cras ut. Sit natoque montes tempus ligula eget vitae pede rhoncus maecenas consectetuer commodo condimentum aenean.</p>
-                            <h4>What are my payment options?</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                            <p class="blockquote-footer">Someone famous in <cite title="Source Title">Dick Grayson</cite></p>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div> *@
                             @if (Model.Article.Tags != null && Model.Article.Tags.Any())
                             {
                                 <div class="nav tag-cloud">
@@ -99,6 +129,23 @@
                                 </div>
                             }
                         </article>
+                        <div class="interaction-buttons">
+                            <button class="btn btn-like hover-red" style="margin-right: 10px;">
+                                <i class="fas fa-thumbs-up" aria-hidden="true"><span>Like</span></i>
+                            </button>
+                            <button class="btn btn-heart hover-red" style="margin-right: 10px;">
+                                <i class="fas fa-heart" aria-hidden="true"><span>Heart</span></i>
+                            </button>
+                            <button class="btn btn-share hover-red">
+                                <i class="fab fa-facebook-f" aria-hidden="true"><span>Facebook</span></i>
+                            </button>
+                            <button class="btn btn-share hover-red">
+                                <i class="fa-brands fa-twitter" aria-hidden="true"><span>Twitter</span></i>
+                            </button>
+                            <button class="btn btn-share hover-red">
+                                <i class="fa-brands fa-linkedin" aria-hidden="true"><span>Linkedin</span></i>
+                            </button>
+                        </div>
                         <div class="contact-form article-comment">
                             <h4>Leave a Reply</h4>
                             <form id="contact-form" method="POST">
@@ -148,16 +195,6 @@
                         </div>
                         <!-- End Author -->
                         *@
-
-                        <!-- Trending Post -->
-                        <div class="widget widget-post">
-                            <div class="widget-title">
-                                <h3>Trending Now</h3>
-                            </div>
-                            <div class="widget-body">
-                            </div>
-                        </div>
-                        <!-- End Trending Post -->
                         <!-- Latest Post -->
                         <div class="widget widget-latest-post">
                             <div class="widget-title">
@@ -227,6 +264,15 @@
                             </div>
                         </div>
                         <!-- End Latest Post -->
+                        <!-- Trending Post -->
+                        <div class="widget widget-post">
+                            <div class="widget-title">
+                                <h3>Trending Now</h3>
+                            </div>
+                            <div class="widget-body">
+                            </div>
+                        </div>
+                        <!-- End Trending Post -->
                         <!-- widget Tags -->
                         <div class="widget widget-tags">
                             <div class="widget-title">
@@ -254,6 +300,8 @@
 </div>
 
 @section Scripts {
+
+    <script src="~/js/article.js"></script>
 
     <script type="application/ld+json">
         {

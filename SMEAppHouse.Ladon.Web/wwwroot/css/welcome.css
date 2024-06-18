@@ -4,8 +4,13 @@
 .welcome {
     position: relative;
     width: 100%;
-    padding: 45px 0 0;
     background-color: white;
+    background-color: white;
+    background: linear-gradient(rgb(130 132 136 / 64%), rgb(233 236 244 / 86%)), url(https://ik.imagekit.io/yt1tgrjzh/LADONCO/Originals/2024%20LCS_ladon_26.png);
+    background-attachment: local;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
     .welcome .section-header {
