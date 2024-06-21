@@ -9,7 +9,7 @@ public class ArticleModel : KeyedModel
     public new Guid? Id { get; set; }
     public required string Title { get; set; }
     public required ArticleTypesEnum ArticleType { get; set; }
-    public required ArticleStatusEnum Status { get; set; }
+    public required ArticleStatusEnum ArticleStatus { get; set; }
     public string? Content { get; set; }
     public string? ContentSourceMDFileName { get; set; }
     public string? ContentSourceMDCDNUrl { get; set; }

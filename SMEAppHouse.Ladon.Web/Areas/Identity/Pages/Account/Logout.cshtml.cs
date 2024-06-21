@@ -8,16 +8,11 @@ using SMEAppHouse.Ladon.Infrastructure.Interfaces;
 
 namespace SMEAppHouse.Ladon.Web.Areas.Identity.Pages.Account
 {
-    public class LogoutModel : PageModel
+    public class LogoutModel(IAuthMembershipService userManager, ILogger<LogoutModel> logger)
+        : PageModel
     {
-        private readonly IAuthMembershipService _authService;
-        private readonly ILogger<LogoutModel> _logger;
-
-        public LogoutModel(IAuthMembershipService userManager, ILogger<LogoutModel> logger)
-        {
-            _authService = userManager;
-            _logger = logger;
-        }
+        private readonly IAuthMembershipService _authService = userManager;
+        private readonly ILogger<LogoutModel> _logger = logger;
 
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {

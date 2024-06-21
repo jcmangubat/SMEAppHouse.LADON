@@ -7,7 +7,27 @@
 }
 
 @section CritialPreLoads {
-    <link rel="preload" href="~/js/site.js" as="script" />
+    <environment include="Development">
+        <link rel="preload" href="~/css/carousel.css" as="stylesheet" />
+        <link rel="preload" href="~/css/feature.css" as="stylesheet" />
+        <link rel="preload" href="~/css/welcome.css" as="stylesheet" />
+        <link rel="preload" href="~/css/about.css" as="stylesheet" />
+        <link rel="preload" href="~/css/fact.css" as="stylesheet" />
+        <link rel="preload" href="~/css/service.css" as="stylesheet" />
+        <link rel="preload" href="~/css/video.css" as="stylesheet" />
+        <link rel="preload" href="~/css/team.css" as="stylesheet" />
+        <link rel="preload" href="~/css/faq.css" as="stylesheet" />
+        <link rel="preload" href="~/css/testimonial.css" as="stylesheet" />
+        <link rel="preload" href="~/css/blog.css" as="stylesheet" />
+        <link rel="preload" href="~/css/contact.css" as="stylesheet" />
+        <link rel="preload" href="~/css/site.css" as="stylesheet" />
+        <link rel="preload" href="~/js/site.js" as="script" />
+    </environment>
+
+    <environment exclude="Development">
+        <link rel="preload" href="~/css/dist/styles.min.css" as="stylesheet" />
+        <link rel="preload" href="~/js/dist/site.min.js" as="script" />
+    </environment>
 }
 
 @section Styles {
@@ -16,19 +36,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="~/css/carousel.css" rel="stylesheet" />
-    <link href="~/css/feature.css" rel="stylesheet" />
-    <link href="~/css/welcome.css" rel="stylesheet" />
-    <link href="~/css/about.css" rel="stylesheet" />
-    <link href="~/css/fact.css" rel="stylesheet" />
-    <link href="~/css/service.css" rel="stylesheet" />
-    <link href="~/css/video.css" rel="stylesheet" />
-    <link href="~/css/team.css" rel="stylesheet" />
-    <link href="~/css/faq.css" rel="stylesheet" />
-    <link href="~/css/testimonial.css" rel="stylesheet" />
-    <link href="~/css/blog.css" rel="stylesheet" />
-    <link href="~/css/contact.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <environment include="Development">
+        <link href="~/css/carousel.css" rel="stylesheet" />
+        <link href="~/css/feature.css" rel="stylesheet" />
+        <link href="~/css/welcome.css" rel="stylesheet" />
+        <link href="~/css/about.css" rel="stylesheet" />
+        <link href="~/css/fact.css" rel="stylesheet" />
+        <link href="~/css/service.css" rel="stylesheet" />
+        <link href="~/css/video.css" rel="stylesheet" />
+        <link href="~/css/team.css" rel="stylesheet" />
+        <link href="~/css/faq.css" rel="stylesheet" />
+        <link href="~/css/testimonial.css" rel="stylesheet" />
+        <link href="~/css/blog.css" rel="stylesheet" />
+        <link href="~/css/contact.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+
+    <environment exclude="Development">
+        <link href="~/css/dist/styles.min.css" rel="stylesheet" />
+    </environment>
 }
 
 <!-- Carousel -->
@@ -313,6 +339,11 @@
     </script>
 
     <!-- Application Javascript -->
-    <script src="~/js/site.js"></script>
+    <environment include="Development">
+        <script src="~/js/site.js"></script>
+    </environment>
 
+    <environment exclude="Development">
+        <script src="~/js/dist/site.min.js"></script>
+    </environment>
 }

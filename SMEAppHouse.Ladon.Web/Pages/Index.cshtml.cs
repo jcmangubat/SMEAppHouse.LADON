@@ -32,7 +32,7 @@ namespace SMEAppHouse.Ladon.Web.Pages
 
         public async Task<IActionResult> OnGetLatestBlogArticlesAsync()
         {
-            var blogs = await _articleService.GetBlogsAsync(10);
+            var blogs = await _articleService.GetArticlesAsync(10);
 
             return Partial("~/Pages/Home/PartialViews/_Blogs.cshtml", blogs);
         }

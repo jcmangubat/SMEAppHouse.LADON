@@ -391,6 +391,10 @@ main {
     background: #f8f9fa;
 }
 
+.nav-bar .other-site-features .dropdown-divider {
+    border-top: 1px solid #d1d4d7;
+}
+
 .nav-bar .btn {
     color: #ffffff;
     border: 2px solid #ffffff;
@@ -785,3 +789,64 @@ main {
         text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
     }
 }
+
+/* User drop down menu styles */
+.usr-menu-dropdown {
+    background-color: yellowgreen;
+    border-radius: 10px;
+    box-shadow: rgb(40 120 205 / 60%) 0px 54px 55px, rgb(93 217 172 / 60%) 0px -12px 30px, rgb(211 32 196 / 37%) 0px 4px 6px, rgb(201 73 143 / 52%) 0px 12px 13px, rgb(187 38 38 / 80%) 0px -3px 5px;
+    margin-top: 10px;
+}
+
+    .usr-menu-dropdown .dropdown-item {
+        color: #212529;
+        cursor: pointer;
+    }
+
+    .usr-menu-dropdown .usr-menu-dropdown-profile {
+        padding: 10px;
+        background-color: whitesmoke;
+        margin-top: -10px;
+        border-radius: 20px 20px 0 0;
+        align-content: center;
+        text-align: center;
+    }
+
+        .usr-menu-dropdown .usr-menu-dropdown-profile .thumbnail {
+            border-radius: 100px;
+            height: 100px;
+        }
+
+        .usr-menu-dropdown .usr-menu-dropdown-profile .name {
+            margin-top: 5px;
+            color: #00658d;
+        }
+
+        .usr-menu-dropdown .usr-menu-dropdown-profile .title {
+            color: #00658d;
+            margin-bottom: 0;
+            font-size: small;
+        }
+
+    .usr-menu-dropdown.on-top {
+        margin-left: -92px;
+    }
+
+    .usr-menu-dropdown.not-on-top {
+        margin-left: -166px;
+    }
+
+.btn-usr a:hover {
+    color: #fdbe33;
+    cursor: pointer;
+}
+
+.user-access {
+    color: #FFFFFF !important;
+    cursor: pointer;
+}
+
+    .user-access:hover {
+        color: #FFC312 !important;
+        cursor: pointer;
+    }

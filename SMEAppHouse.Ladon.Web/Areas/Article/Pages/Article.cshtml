@@ -2,6 +2,8 @@
 @{
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+@using SMEAppHouse.Core.CodeKits.Helpers
+@using SMEAppHouse.Ladon.Domain.Constants
 @using SMEAppHouse.Ladon.Web.Areas.Article.Pages
 @using Microsoft.AspNetCore.Http
 @model ArticlePageModel
@@ -38,6 +40,16 @@
     var baseUrl = Url.Content("~");
     var articleUrl = $"{baseUrl}/articles/{Model.Article.Slug}";
     var siteName = PageContext.HttpContext.Request.Host.Host;
+
+    var latestArticles = Model.LatestArticles;
+    var latestTags = latestArticles.SelectMany(a => a.Tags ?? [])
+                                    .Select(tag => tag).Order().Distinct().ToList();
+
+    var comments = Model.Article.Comments == null ? 0 : Model.Article.Comments.Count;
+    var commentsInf = comments > 0 ? $"{comments} {(comments > 1 ? "Comment".Pluralize() : "Comment")}" : "Comment";
+    var likesInf = Model.Article.Likes > 0 ? $"{Model.Article.Likes} {(Model.Article.Likes > 1 ? "Like".Pluralize() : "Like")}" : "Like";
+    var heartsInf = Model.Article.Hearts > 0 ? $"{Model.Article.Hearts} {(Model.Article.Hearts > 1 ? "Heart".Pluralize() : "Heart")}" : "Heart";
+
 }
 
 @section MetaTags {
@@ -80,7 +92,7 @@
                                         <a href="#@category.Id">@category.Name</a>
                                     }
                                 </h6>
-                                <h2>@Model.Article.Title</h2>
+                                <h1>@Model.Article.Title</h1>
                                 <div class="media">
                                     <div class="avatar">
                                         <img src="@authAvatarCDNUrl" title="" alt="">
@@ -94,23 +106,28 @@
                                     </div>
                                 </div>
                                 <div class="interaction-buttons">
-                                    <button class="btn btn-like hover-red" style="margin-right: 10px;">
-                                        <i class="fas fa-thumbs-up" aria-hidden="true"><span>Like</span></i>
-                                    </button>
-                                    <button class="btn btn-heart hover-red" style="margin-right: 10px;">
-                                        <i class="fas fa-heart" aria-hidden="true"><span>Heart</span></i>
-                                    </button>
+                                    <form id="like-form" async-call="@Url.Page("/article", new { handler = "Reaction", articleId = Model.Article.Id.Value, reaction = Rules.ReaderReactionsEnum.Like })">
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn btn-like hover-red" style="margin-right: 10px;">
+                                            <i class="fas fa-thumbs-up" aria-hidden="true"><span>@likesInf</span></i>
+                                        </button>
+                                    </form>
 
-                                    <button class="btn btn-share hover-red">
+                                    <form id="heart-form" async-call="@Url.Page("/article", new { handler = "Reaction", articleId = Model.Article.Id.Value, reaction = Rules.ReaderReactionsEnum.Heart })">
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn btn-heart hover-red" style="margin-right: 10px;">
+                                            <i class="fas fa-heart" aria-hidden="true"><span>@heartsInf</span></i>
+                                        </button>
+                                    </form>
+
+                                    <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Facebook">
                                         <i class="fab fa-facebook-f" aria-hidden="true"><span>Facebook</span></i>
                                     </button>
-                                    <button class="btn btn-share hover-red">
+                                    <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Twitter">
                                         <i class="fa-brands fa-twitter" aria-hidden="true"><span>Twitter</span></i>
                                     </button>
-                                    <button class="btn btn-share hover-red">
-                                        <i class="fa-brands fa-linkedin" aria-hidden="true">
-                                            <span>Linkedin</span>
-                                        </i>
+                                    <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Linkedin">
+                                        <i class="fa-brands fa-linkedin" aria-hidden="true"><span>Linkedin</span></i>
                                     </button>
                                 </div>
                             </div>
@@ -129,49 +146,140 @@
                                 </div>
                             }
                         </article>
-                        <div class="interaction-buttons">
-                            <button class="btn btn-like hover-red" style="margin-right: 10px;">
-                                <i class="fas fa-thumbs-up" aria-hidden="true"><span>Like</span></i>
-                            </button>
-                            <button class="btn btn-heart hover-red" style="margin-right: 10px;">
-                                <i class="fas fa-heart" aria-hidden="true"><span>Heart</span></i>
-                            </button>
-                            <button class="btn btn-share hover-red">
+                        <div class="interaction-buttons mt-2">
+                            <form id="like-form" async-call="@Url.Page("/article", new { handler = "Like", articleId = Model.Article.Id.Value })">
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-like hover-red" style="margin-right: 10px;">
+                                    <i class="fas fa-thumbs-up" aria-hidden="true"><span>@likesInf</span></i>
+                                </button>
+                            </form>
+
+                            <form id="heart-form" async-call="@Url.Page("/article", new { handler = "Heart", articleId = Model.Article.Id.Value })">
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-heart hover-red" style="margin-right: 10px;">
+                                    <i class="fas fa-heart" aria-hidden="true"><span>@heartsInf</span></i>
+                                </button>
+                            </form>
+
+                            <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Facebook">
                                 <i class="fab fa-facebook-f" aria-hidden="true"><span>Facebook</span></i>
                             </button>
-                            <button class="btn btn-share hover-red">
+                            <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Twitter">
                                 <i class="fa-brands fa-twitter" aria-hidden="true"><span>Twitter</span></i>
                             </button>
-                            <button class="btn btn-share hover-red">
+                            <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Linkedin">
                                 <i class="fa-brands fa-linkedin" aria-hidden="true"><span>Linkedin</span></i>
                             </button>
                         </div>
-                        <div class="contact-form article-comment">
-                            <h4>Leave a Reply</h4>
-                            <form id="contact-form" method="POST">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
+                        <div class="panel contact-form article-comment mt-2">
+                            <div class="panel-body">
+                                <h4>Leave a Comment</h4>
+                                <div class="cred-notice mb-4">
+                                    <span>
+                                        Please <a href="#">sign-in</a> or <a href="#">sign-up</a> to not always require your name and email address when leaving a comment.
+                                    </span>
+                                </div>
+                                <form id="contact-form" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control" style="height: 66px;"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="mar-top clearfix">
+                                                <button class="btn btn-sm btn-primary pull-right" type="submit">
+                                                    <i class="fa fa-pencil fa-fw"></i> Share
+                                                </button>
+                                                <!-- Do not remove. Intended for future feature
+                                                <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
+                                                <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
+                                                <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a>-->
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
+                                </form>
+
+                                <!-- Newsfeed Content -->
+                                <!--===================================================-->
+                                <!--===================================================-->
+                                <!-- End Newsfeed Content -->
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="media-block">
+                                    <a class="media-left" href="#"><img class="img-circle img-sm" alt="Profile Picture" src="https://bootdey.com/img/Content/avatar/avatar1.png"></a>
+                                    <div class="media-body">
+                                        <div class="mar-btm">
+                                            <a href="#" class="btn-link text-semibold media-heading box-inline">Lisa D.</a>
+                                            <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - From Mobile - 11 min ago</p>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
+                                        <p class="media-comments">consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                        <div class="pad-ver">
+                                            <div class="btn-group">
+                                                <a class="btn btn-sm btn-default btn-hover-success" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                                <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+                                            </div>
+                                            <a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="send">
-                                            <button class="px-btn theme"><span>Submit</span> <i class="arrow"></i></button>
+                                        <hr>
+
+                                        <!-- Comments -->
+                                        <div>
+                                            <div class="media-block">
+                                                <a class="media-left" href="#"><img class="img-circle img-sm" alt="Profile Picture" src="https://bootdey.com/img/Content/avatar/avatar2.png"></a>
+                                                <div class="media-body">
+                                                    <div class="mar-btm">
+                                                        <a href="#" class="btn-link text-semibold media-heading box-inline">Bobby Marz</a>
+                                                        <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - From Mobile - 7 min ago</p>
+                                                    </div>
+                                                    <p class="media-comments">Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                                    <div class="pad-ver">
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-sm btn-default btn-hover-success active" href="#"><i class="fa fa-thumbs-up"></i> You Like it</a>
+                                                            <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+                                                        </div>
+                                                        <a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                            </div>
+
+                                            <div class="media-block">
+                                                <a class="media-left" href="#">
+                                                    <img class="img-circle img-sm" alt="Profile Picture" src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                                                </a>
+                                                <div class="media-body">
+                                                    <div class="mar-btm">
+                                                        <a href="#" class="btn-link text-semibold media-heading box-inline">Lucy Moon</a>
+                                                        <p class="text-muted text-sm"><i class="fa fa-globe fa-lg"></i> - From Web - 2 min ago</p>
+                                                    </div>
+                                                    <p class="media-comments">Duis autem vel eum iriure dolor in hendrerit in vulputate ?</p>
+                                                    <div class="pad-ver">
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-sm btn-default btn-hover-success" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                                            <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+                                                        </div>
+                                                        <a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 m-15px-tb blog-aside">
@@ -201,66 +309,33 @@
                                 <h3>Latest Post</h3>
                             </div>
                             <div class="widget-body">
-                                <div class="latest-post-aside media">
-                                    <div class="lpa-left media-body">
-                                        <div class="lpa-title">
-                                            <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
+                                @foreach (var article in latestArticles)
+                                {
+                                    <div class="latest-post-aside media">
+                                        <div class="lpa-left media-body">
+                                            <div class="lpa-title">
+                                                <h5><a href="@($"/articles/{article.Slug}")">@article.Title</a></h5>
+                                            </div>
+                                            <div class="lpa-meta">
+                                                <a class="name" href="#" )">
+                                                    @article.AuthorName
+                                                </a>
+                                                <a class="date" href="#">
+                                                    @(article.PublishedDate.HasValue ? article.PublishedDate.Value.ToString("dd MMMM yyyy") : string.Empty)
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="lpa-meta">
-                                            <a class="name" href="#">
-                                                Rachel Roth
-                                            </a>
-                                            <a class="date" href="#">
-                                                26 FEB 2020
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="lpa-right">
-                                        <a href="#">
-                                            <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="latest-post-aside media">
-                                    <div class="lpa-left media-body">
-                                        <div class="lpa-title">
-                                            <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                        </div>
-                                        <div class="lpa-meta">
-                                            <a class="name" href="#">
-                                                Rachel Roth
-                                            </a>
-                                            <a class="date" href="#">
-                                                26 FEB 2020
+                                        <div class="lpa-right">
+                                            <a href="@($"/articles/{article.Slug}")">
+                                                <img src="@(article.Images==null || !article.Images.Any() ?
+                                                            "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/000000?updatedAt=1718763727572" :
+                                                            article.Images.FirstOrDefault()?.ImageCDNUrl)"
+                                                     title="@($"{article.Slug}_img")"
+                                                     alt="" />
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="lpa-right">
-                                        <a href="#">
-                                            <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="latest-post-aside media">
-                                    <div class="lpa-left media-body">
-                                        <div class="lpa-title">
-                                            <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                        </div>
-                                        <div class="lpa-meta">
-                                            <a class="name" href="#">
-                                                Rachel Roth
-                                            </a>
-                                            <a class="date" href="#">
-                                                26 FEB 2020
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="lpa-right">
-                                        <a href="#">
-                                            <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                        </a>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
                         <!-- End Latest Post -->
@@ -280,13 +355,10 @@
                             </div>
                             <div class="widget-body">
                                 <div class="nav tag-cloud">
-                                    <a href="#">Design</a>
-                                    <a href="#">Development</a>
-                                    <a href="#">Travel</a>
-                                    <a href="#">Web Design</a>
-                                    <a href="#">Marketing</a>
-                                    <a href="#">Research</a>
-                                    <a href="#">Managment</a>
+                                    @foreach (var tag in latestTags)
+                                    {
+                                        <a href="#">@tag</a>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -304,22 +376,22 @@
     <script src="~/js/article.js"></script>
 
     <script type="application/ld+json">
-        {
-            "@@context": "https://schema.org",
-            "@@type": "BlogPosting",
-            "headline": "@Model.Article.Title",
-            "description": "@Model.Article.MetaDescription",
+                {
+                    "@@context": "https://schema.org",
+                    "@@type": "BlogPosting",
+                    "headline": "@Model.Article.Title",
+                    "description": "@Model.Article.MetaDescription",
 
         @if (publishedDate != null)
         {
             <text>"datePublished": "@publishedDate",</text>
         }
 
-            "author": {
-                "@@type": "Person",
-                "name": "@Model.Article.AuthorName"
-            }
-        }
+                    "author": {
+                        "@@type": "Person",
+                        "name": "@Model.Article.AuthorName"
+                    }
+                }
     </script>
 
 }

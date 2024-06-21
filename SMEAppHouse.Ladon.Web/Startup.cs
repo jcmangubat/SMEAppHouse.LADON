@@ -258,22 +258,22 @@ public class Startup(IConfiguration configuration)
             options.Cookie.Expiration = TimeSpan.FromHours(24);
         });
 
-        // Web Optimizer
-        services.AddWebOptimizer(pipeline =>
-        {
-            pipeline.MinifyJsFiles("js/main.js");
+        //// Web Optimizer
+        //services.AddWebOptimizer(pipeline =>
+        //{
+        //    pipeline.MinifyJsFiles("js/main.js");
 
-            //pipeline.MinifyCssFiles("css/**/*.css");
-            //pipeline.AddCssBundle("/css/bundle.css", "/css/site.css", "/css/**/*.css");
+        //    //pipeline.MinifyCssFiles("css/**/*.css");
+        //    //pipeline.AddCssBundle("/css/bundle.css", "/css/site.css", "/css/**/*.css");
 
-            var cssFiles = Directory.GetFiles("wwwroot/css", "*.css", SearchOption.AllDirectories)
-                            .Where(file => !file.EndsWith("quoterequest.css"))
-                            .Select(file => file.Replace("wwwroot/", "/"));
-            pipeline.MinifyCssFiles(cssFiles.ToArray());
-            pipeline.AddCssBundle("/css/bundle.css", cssFiles.ToArray());
+        //    var cssFiles = Directory.GetFiles("wwwroot/css", "*.css", SearchOption.AllDirectories)
+        //                    .Where(file => !file.EndsWith("quoterequest.css"))
+        //                    .Select(file => file.Replace("wwwroot/", "/"));
+        //    pipeline.MinifyCssFiles(cssFiles.ToArray());
+        //    pipeline.AddCssBundle("/css/bundle.css", cssFiles.ToArray());
 
-            pipeline.AddJavaScriptBundle("/js/site.js", "/js/chat/*.js");
-        });
+        //    pipeline.AddJavaScriptBundle("/js/site.js", "/js/chat/*.js");
+        //});
 
         services.AddResponseCompression(options => options.EnableForHttps = true);
         services.ConfigureOptions<CustomResponseCompressionConfigurer>();
@@ -312,7 +312,7 @@ public class Startup(IConfiguration configuration)
         app.UseSerilogRequestLogging();
 
         app.UseRouting();
-        app.UseWebOptimizer();
+        //app.UseWebOptimizer();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseErrorLoggingMiddleware();

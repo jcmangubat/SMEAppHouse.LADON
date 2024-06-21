@@ -16,13 +16,18 @@
 
     <meta name="keywords" content="@ViewData["Keywords"]" />
     <meta name="description" content="@ViewData["Description"]" />
-    
+
     @await RenderSectionAsync("MetaTags", required: false)
 
     <title>@ViewData["Title"]</title>
 
-    <link rel="preload" href="~/css/bundle.css" as="style" />
-    <link rel="preload" href="~/js/common.js" as="script" />
+    <environment include="Development">
+        <link rel="preload" href="~/js/common.js" as="script" />
+    </environment>
+
+    <environment exclude="Development">
+        <link rel="preload" href="~/js/dist/common.min.js" as="script" />
+    </environment>
 
     <!-- CritialPreLoads -->
     @await RenderSectionAsync("CritialPreLoads", required: false)
@@ -56,9 +61,13 @@
           referrerpolicy="no-referrer" />
 
     <!-- Custom Stylesheet -->
-    <link href="~/css/common.css" rel="stylesheet" />
+    <environment include="Development">
+        <link href="~/css/common.css" rel="stylesheet" />
+    </environment>
 
-    @* <link rel="stylesheet" href="~/css/bundle.css" /> *@
+    <environment exclude="Development">
+        <link href="~/css/dist/common.min.css" rel="stylesheet" />
+    </environment>
 
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -121,7 +130,8 @@
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <a class="btn-usr user-access" id="top-bar-user-access"
-                           asp-area="Identity" asp-page="/Account/Login">
+                           asp-area="Identity" asp-page="/Account/Login"
+                           asp-route-returnUrl="@Context.Request.Path">
                             <span>
                                 <svg viewBox="0 0 24 24" fill="currentColor" width="40px" height="40px" data-ux="UtilitiesMenuIcon" data-typography="NavAlpha" class="x-el x-el-svg c1-1 c1-1m c1-2j c1-1n c1-41 c1-42 c1-24 c1-2l c1-2m c1-2n c1-2o c1-2e c1-g c1-3j c1-b c1-c c1-16 c1-20 c1-3g">
                                     <path fill-rule="evenodd" d="M19.62 19.29l.026.71h-2.421l-.028-.658c-.119-2.71-2.48-4.833-5.374-4.833-2.894 0-5.254 2.123-5.373 4.833L6.421 20H4l.027-.71c.098-2.56 1.658-4.896 4.04-6.135-1.169-.99-1.848-2.402-1.848-3.9C6.219 6.357 8.733 4 11.823 4c3.09 0 5.605 2.357 5.605 5.255 0 1.497-.68 2.909-1.85 3.9 2.383 1.239 3.944 3.574 4.041 6.135zM11.822 6.273c-1.754 0-3.18 1.338-3.18 2.982 0 1.645 1.426 2.982 3.18 2.982 1.754 0 3.18-1.337 3.18-2.982 0-1.644-1.426-2.982-3.18-2.982z"></path>
@@ -186,6 +196,8 @@
                                     @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Articles && p.Value == true))
                                     {
                                         <a href="#blogs" class="dropdown-item">Blogs</a>
+                                        <a href="/articles" no-handle class="dropdown-item">Articles Catalog</a>
+                                        <div class="dropdown-divider"></div>
                                     }
 
                                     @if (siteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.FAQs && p.Value == true))
@@ -216,7 +228,8 @@
                                 @if (!User.Identity.IsAuthenticated)
                                 {
                                     <a class="btn-usr user-access" id="user-access"
-                                       asp-area="Identity" asp-page="/Account/Login">
+                                       asp-area="Identity" asp-page="/Account/Login"
+                                       asp-route-returnUrl="@Context.Request.Path">
                                         <span>
                                             <svg viewBox="0 0 24 24" fill="currentColor" width="40px" height="40px">
                                                 <path fill-rule="evenodd" d="M19.62 19.29l.026.71h-2.421l-.028-.658c-.119-2.71-2.48-4.833-5.374-4.833-2.894 0-5.254 2.123-5.373 4.833L6.421 20H4l.027-.71c.098-2.56 1.658-4.896 4.04-6.135-1.169-.99-1.848-2.402-1.848-3.9C6.219 6.357 8.733 4 11.823 4c3.09 0 5.605 2.357 5.605 5.255 0 1.497-.68 2.909-1.85 3.9 2.383 1.239 3.944 3.574 4.041 6.135zM11.822 6.273c-1.754 0-3.18 1.338-3.18 2.982 0 1.645 1.426 2.982 3.18 2.982 1.754 0 3.18-1.337 3.18-2.982 0-1.644-1.426-2.982-3.18-2.982z"></path>
@@ -346,7 +359,14 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
 
-    <script src="~/js/common.js"></script>
+    <environment include="Development">
+        <script src="~/js/common.js"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <script src="~/js/dist/common.min.js"></script>
+    </environment>
+
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>

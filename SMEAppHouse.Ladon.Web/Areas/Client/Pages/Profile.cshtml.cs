@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using SMEAppHouse.Ladon.Application.Models;
+using SMEAppHouse.Ladon.Web.Pages.Common;
 
 namespace SMEAppHouse.Ladon.Web.Areas.Client.Pages;
 
 
 [Authorize(Policy = "ClientOrAdmin")]
-public class ProfileModel : PageModel
+public class ProfilePageModel(ApplicationSettings applicationSettings) 
+    : BasePageModel(applicationSettings)
 {
     public void OnGet()
     {

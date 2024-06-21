@@ -3,10 +3,14 @@ const handleAnchorClick = (e) => {
     e.preventDefault();
 
     var hrefAttrib = e.target.getAttribute('href');
-    //if (!hrefAttrib || !hrefAttrib.startsWith('#') || hrefAttrib.length <= 1) {
-    //    window.location.href = '/';
-    //    return;
-    //}
+
+    if (hrefAttrib === "#")
+        return;
+
+    if (e.target.hasAttribute('no-handle')) {
+        window.location.href = hrefAttrib;
+        return;
+    }
 
     if (window.location.pathname === '/') {
         var targetElement = document.querySelector(hrefAttrib);
@@ -74,4 +78,43 @@ $.when(
             $('.carousel, .page-header').css("margin-top", "0");
         }
     });
+
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+/* 
+Scripts involving operations inside the user panel 
+*/
+$.when(
+    $.ready
+).done(function (data) { // Document is ready.
+    "use strict";
+
+    //$('#user-sign-out').on('click', function () {
+    //    // Send an AJAX request to the server to logout
+    //    $.ajax({
+    //        url: '/Account/Logout', // URL of the logout action method
+    //        method: 'POST', // Use POST method to send the request
+    //        success: function (data) {
+    //            // Redirect to the home page after successful logout
+    //            window.location.href = '/';
+    //        },
+    //        error: function (xhr, status, error) {
+    //            // Handle error if logout request fails
+    //            console.error('Error occurred while signing out:', error);
+    //        }
+    //    });
+    //});
+
+    /*$('#user-sign-out').on("click", function (event) {
+        event.preventDefault(); // Prevent the default action of the link
+
+        // Submit the form when the link is clicked
+        $(this).closest('form').trigger("submit");
+    });*/
+
+    // Hide the usr-menu-dropdown when scrolled or hovered out of it.
+    /*$(window).on('scroll', function () {
+        $('.usr-menu-dropdown').dropdown('hide');
+    });*/
 });

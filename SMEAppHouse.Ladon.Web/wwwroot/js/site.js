@@ -86,106 +86,6 @@ $.when(
     $(window).resize(toggleNavbarMethod);
 });
 
-/* 
-    Scripts involving operations inside the user panel 
-*/
-$.when(
-    $.ready
-).done(function (data) { // Document is ready.
-    "use strict";
-
-    //$('#user-sign-out').on('click', function () {
-    //    // Send an AJAX request to the server to logout
-    //    $.ajax({
-    //        url: '/Account/Logout', // URL of the logout action method
-    //        method: 'POST', // Use POST method to send the request
-    //        success: function (data) {
-    //            // Redirect to the home page after successful logout
-    //            window.location.href = '/';
-    //        },
-    //        error: function (xhr, status, error) {
-    //            // Handle error if logout request fails
-    //            console.error('Error occurred while signing out:', error);
-    //        }
-    //    });
-    //});
-
-    $('#user-sign-out').on("click", function (event) {
-        event.preventDefault(); // Prevent the default action of the link
-
-        // Submit the form when the link is clicked
-        $(this).closest('form').trigger("submit");
-    });
-
-    // Hide the usr-menu-dropdown when scrolled or hovered out of it.
-    /*$(window).on('scroll', function () {
-        $('.usr-menu-dropdown').dropdown('hide');
-    });*/
-});
-
-$.when(
-    $.ready
-).done(function (data) { // Document is ready.
-    "use strict";
-
-    /*$('#loginForm').on('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
-        console.log("loginForm:", $(this).serialize());
-        $.ajax({
-            url: $(this).attr('action'),
-            method: 'POST',
-            data: $(this).serialize(),
-            success: function (data) {
-                if (data.success) {
-                    window.location.href = data.redirectUrl; // Redirect on successful login
-                } else {
-                    if (data.errors) {
-                        $('#email-validation').text(data.errors.find(function (error) {
-                            return error.includes("Email");
-                        }) || "");
- 
-                        $('#password-validation').text(data.errors.find(function (error) {
-                            return error.includes("Password");
-                        }) || "");
- 
-                        $('#login-validation').text(data.errors.find(function (error) {
-                            return error.includes('');
-                        }) || "");
-                    }
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('There was a problem with the AJAX request:', error);
-            }
-        });
-    });*/
-
-    /*$('#loginModal').on('show.bs.modal', function (e) {
-        $('#email').val('');
-        $('#password').val('');
-        $('#rememberMe').prop('checked', false);
-        $('#email-validation').text('');
-        $('#password-validation').text('');
-        $('#login-validation').text('');
-    });*/
-
-
-
-    //$('#user-sign-in').on('click', function () {
-    //    $('#loginModal').modal('show');
-    //});
-
-    /*$('.user-access').on('click', function () {
-        $('.usr-menu-dropdown').attr('aria-labelledby', $(this).attr('id'));
-        $('.dropdown-toggle').dropdown('toggle');
-    });*/
-
-    //$('#top-bar-user-access').on('click', function () {
-    //    var $dropdownMenu = $($(this).data('target'));
-    //    $('.user-access').toggle();
-    //});
-});
-
 $.when(
     $.ready
 ).done(function (data) {
@@ -265,20 +165,6 @@ $.when(
                         $('#content-validation').text(errors.join(", "));
                     }
                 }
-                /*errorData.errors.forEach(function (error) {
-                    if (error.includes("Name")) {
-                        $('#name-validation').text(error);
-                    }
-                    if (error.includes("EmailAddress")) {
-                        $('#emailaddress-validation').text(error);
-                    }
-                    if (error.includes("Subject")) {
-                        $('#subject-validation').text(error);
-                    }
-                    if (error.includes("Content")) {
-                        $('#content-validation').text(error);
-                    }
-                });*/
             }
         });
 

@@ -1,0 +1,62 @@
+[
+  {
+    "outputFileName": "wwwroot/css/dist/common.min.css",
+    "inputFiles": [
+      "wwwroot/css/common.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/dist/articles.min.css",
+    "inputFiles": [
+      "wwwroot/css/articles.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/dist/article.min.css",
+    "inputFiles": [
+      "wwwroot/css/article.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/dist/styles.min.css",
+    "inputFiles": [
+      "wwwroot/css/carousel.css",
+      "wwwroot/css/feature.css",
+      "wwwroot/css/welcome.css",
+      "wwwroot/css/about.css",
+      "wwwroot/css/fact.css",
+      "wwwroot/css/service.css",
+      "wwwroot/css/video.css",
+      "wwwroot/css/team.css",
+      "wwwroot/css/faq.css",
+      "wwwroot/css/testimonial.css",
+      "wwwroot/css/blog.css",
+      "wwwroot/css/contact.css",
+      "wwwroot/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/dist/common.min.js",
+    "inputFiles": [
+      "wwwroot/js/common.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/dist/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/site.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/dist/article.min.js",
+    "inputFiles": [
+      "wwwroot/js/article.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/dist/quoterequest.min.js",
+    "inputFiles": [
+      "wwwroot/js/quoterequest.js"
+    ]
+  }
+]

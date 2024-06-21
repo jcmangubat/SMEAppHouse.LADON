@@ -337,7 +337,8 @@ public class Rules
         FromServiceQuoteRequest = 1
     }
 
-    public enum SiteSectionsEnum {
+    public enum SiteSectionsEnum
+    {
         Carousel,
         Feature,
         Welcome,
@@ -353,7 +354,8 @@ public class Rules
         FAQs,
     }
 
-    public enum ArticleTypesEnum { 
+    public enum ArticleTypesEnum
+    {
         News,
         Blog,
         PressRelease,
@@ -367,5 +369,11 @@ public class Rules
         Tutorial,
         Report,
         Event
+    }
+
+    public enum ReaderReactionsEnum
+    {
+        Like,
+        Heart
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SMEAppHouse.Ladon.Application.Interfaces;
 using SMEAppHouse.Ladon.Domain.Repositories;
+using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
 namespace SMEAppHouse.Ladon.Application.Services;
 
@@ -18,13 +19,17 @@ public class ArticleMetricsService(IArticleRepository articleRepository)
         }
     }
 
-    public async Task TrackLikeAsync(Guid articleId)
+    public async Task TrackReactionAsync(Guid articleId, ReaderReactionsEnum reaction)
     {
         var article = await _articleRepository.FindAsync(articleId);
         if (article != null)
         {
-            article.Likes++;
+            if (reaction == ReaderReactionsEnum.Like)
+                article.Likes++;
+            else article.Hearts++;
+
             await _articleRepository.UpdateAsync(article);
+            await _articleRepository.CommitAsync();
         }
     }
 }

@@ -54,13 +54,26 @@ public class ArticleService(IMapper mapper,
         }
     }
 
-    public async Task<IEnumerable<ArticleModel>> GetArticlesAsync(Expression<Func<ArticleModel, bool>> modelFilter,
+    public async Task<IEnumerable<ArticleModel>> GetArticlesAsync(Expression<Func<ArticleModel, bool>>? filter = null,
                                                                     int? articleCount = 0)
     {
         try
         {
-            Expression<Func<Article, bool>> efModelFilter = ExpressionConverter.Convert<Article, ArticleModel>(modelFilter);
-            var articles = await _articleRepository.GetListAsync(efModelFilter, fetchSize: articleCount ?? 0);
+            Expression<Func<Article, bool>> efModelFilter = p => p.IsActive ?? false &&
+                                p.ArticleStatus == Domain.Constants.Rules.ArticleStatusEnum.Published;
+
+            if (filter != null)
+                efModelFilter = ExpressionConverter.Convert<Article, ArticleModel>(filter);
+
+            var articles = await _articleRepository.GetListAsync(efModelFilter,
+                                                                    fetchSize: articleCount ?? 0,
+                                                                    orderBy: q => q.OrderBy(a => a.PublishedDate),
+                                                                    include: b => b.Include(p => p.Images)
+                                                                                    .Include(p => p.Comments)
+                                                                                    .Include(p => p.RelatedPostsFrom)
+                                                                                    .Include(p => p.RelatedPostsTo)
+                                                                                    .Include(p => p.ArticleCategories)
+                                                                                    .Include(p => p.AuthorUserProfile));
             return _mapper.Map<List<ArticleModel>>(articles);
         }
         catch (Exception ex)
@@ -74,8 +87,10 @@ public class ArticleService(IMapper mapper,
     {
         try
         {
-            var articles = await _articleRepository.GetListAsync(filter: p => p.ArticleType == Domain.Constants.Rules.ArticleTypesEnum.News &&
-                                                                        p.ArticleStatus == Domain.Constants.Rules.ArticleStatusEnum.Published,
+            var articles = await _articleRepository.GetListAsync(filter: p =>
+                                                                        p.IsActive ?? false &&
+                                                                        p.ArticleStatus == Domain.Constants.Rules.ArticleStatusEnum.Published &&
+                                                                        p.ArticleType == Domain.Constants.Rules.ArticleTypesEnum.News,
                                                                 fetchSize: articleCount ?? 0,
                                                                 orderBy: q => q.OrderBy(a => a.PublishedDate),
                                                                 include: b => b.Include(p => p.Images)
@@ -93,7 +108,7 @@ public class ArticleService(IMapper mapper,
         }
     }
 
-    public async Task<IEnumerable<ArticleModel>> GetBlogsAsync(int? articleCount = 3)
+    public async Task<IEnumerable<ArticleModel>> GetArticlesAsync(int? articleCount = 3)
     {
         try
         {
