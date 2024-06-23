@@ -1,5 +1,4 @@
 ﻿using SMEAppHouse.Ladon.Application.Models.Base;
-using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 
 namespace SMEAppHouse.Ladon.Application.Models.Data;
 

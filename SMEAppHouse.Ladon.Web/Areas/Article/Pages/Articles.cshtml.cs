@@ -3,15 +3,16 @@ using SMEAppHouse.Ladon.Application.Interfaces;
 using SMEAppHouse.Ladon.Application.Models;
 using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Web.Pages.Common;
-using static SMEAppHouse.Core.CodeKits.Helpers.ExpressionBuilder;
 
 namespace SMEAppHouse.Ladon.Web.Areas.Article.Pages;
 
-public class ArticlesModel(ApplicationSettings applicationSettings,
+public class ArticlesPageModel(ApplicationSettings applicationSettings,
+                                IWebHostEnvironment environment,
                                 IArticleService articleService)
     : BasePageModel(applicationSettings)
 {
     private readonly IArticleService _articleService = articleService;
+    private readonly IWebHostEnvironment _environment = environment;
 
     public ArticleModel TopNews { get; private set; }
     public List<ArticleModel> SideNews { get; private set; } = [];

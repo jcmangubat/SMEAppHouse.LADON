@@ -338,20 +338,29 @@ main {
 /*********** Nav Bar CSS **********/
 /**********************************/
 .nav-bar {
-    position: relative;
-    background: #030f27;
-    transition: .3s;
+    position: absolute;
+    top: 90px;
+    z-index: 999;
+    width: 100%;
+    --tw-shadow: 0 20px 25px -5px rgb(79 113 122 / 81%), 0 8px 10px -6px rgb(27 95 106 / 36%);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    --tw-backdrop-blur: blur(12px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    background-color: hsl(0deg 0% 0% / 48%);
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 1px 8px 0px rgb(42 26 30 / 49%);
 }
 
     .nav-bar .container-fluid {
         padding: 0;
+        background: transparent;
     }
 
     .nav-bar.nav-sticky {
         position: fixed;
         top: 0;
         width: 100%;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
         z-index: 999;
     }
 
@@ -362,12 +371,11 @@ main {
             right: 0px;
             bottom: 0px;
             left: 0px;
-            background-color: rgb(20 20 20 / 63%);
+            backdrop-filter: blur(5px);
         }
 
     .nav-bar .navbar {
         height: 100%;
-        background: #030f27 !important;
     }
 
 .navbar-dark .navbar-nav .nav-link,

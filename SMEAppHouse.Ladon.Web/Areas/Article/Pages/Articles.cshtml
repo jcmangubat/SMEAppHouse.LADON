@@ -3,7 +3,7 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 @using SMEAppHouse.Ladon.Web.Areas.Article.Pages
-@model ArticlesModel
+@model ArticlesPageModel
 @{
     ViewData["Title"] = "News & Blogs";
     var readMoreOnTopNews = $"/articles/{@Model.TopNews.Slug}";
@@ -11,26 +11,28 @@
 
 @section Styles {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-    <link href="~/css/articles.css" rel="stylesheet" />
-    <style>
-        .main-body {
-            padding-top: 35px;
-        }
-    </style>
+
+    <environment include="Development">
+        <link href="~/css/articles.css" rel="stylesheet" />
+    </environment>
+
+    <environment exclude="Development">
+        <link href="~/css/dist/articles.min.css" rel="stylesheet" />
+    </environment>
 }
 
 <div class="container">
     <div class="main-body">
 
-        <div style="background-color: #edf2f7;">
+        <div class="articles">
 
-            <!-- featured section -->
+            <!-- header section -->
             <div class="flex mt-1 px-4 lg:px-0 items-center p-3 justify-between" style="background-color: #edf2f7;padding-bottom: unset!important;">
                 <h1 style="color: #28619b;" class="font-bold text-4xl">
                     News &amp; Blogs
                 </h1>
             </div>
-            <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 pt-3" style="background-color: #edf2f7;">
+            <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 pt-3" style="background-color: #ffffff;">
                 <!-- main post -->
                 <div class="mb-4 lg:mb-0  p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
                     <img src="@Model.TopNews.Images.FirstOrDefault()?.ImageCDNUrl" class="rounded-md object-cover w-full h-64">
@@ -61,7 +63,7 @@
                     </a>
                 </div>
 
-                <!-- sub-main posts -->
+                <!-- side-panel sub-main posts -->
                 <div class="w-full md:w-4/7">
 
                     @foreach (var sideNews in Model.SideNews)
@@ -88,7 +90,7 @@
             </div>
             <!-- end featured section -->
             <!-- subscribe -->
-            <div class="rounded flex md:shadow ml-3 mr-3 mt-2 mb-3" style="padding: 10px;">
+            <div class="rounded flex md:shadow ml-3 mr-3 mt-2 mb-3" style="padding: 10px; background:#9b97a5;">
                 <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60" class="w-0 md:w-1/4 object-cover rounded-l">
                 <div class="px-4 py-2">
                     <h3 class="text-3xl text-gray-800 font-bold">Subscribe to newsletter</h3>
@@ -99,21 +101,21 @@
                             Subscribe
                             <i class="bx bx-right-arrow-alt"></i>
                         </button>
-                        <p class="text-green-900 opacity-50 text-sm mt-1" style="color: black;">No spam. We promise</p>
+                        <p class="text-green-900 opacity-50 text-sm mt-1" style="color: #ffffff;">No spam. We promise</p>
                     </form>
                 </div>
             </div>
             <!-- end subscribe section -->
             <!-- latest blogs -->
-            <div class="flex mt-1 px-4 lg:px-0 items-center p-3 justify-between" style="background-color: grey;">
-                <h2 class="font-bold text-3xl" style="color: #044f9d;">
+            <div class="flex mt-1 px-4 lg:px-0 items-center p-3 justify-between" style="background-color: #5c638b;">
+                <h2 class="font-bold text-3xl" style="color: #edeff1;">
                     Latest Posts
                 </h2>
                 @* <a class="bg-gray-200 hover:bg-green-200 text-gray-800 px-3 py-1 rounded cursor-pointer">
                 View all
                 </a> *@
             </div>
-            <div class="block space-x-0 lg:flex p-2 lg:space-x-6" style="background-color: grey;">
+            <div class="block space-x-0 lg:flex p-2 lg:space-x-6" style="background-color: #5c638b;">
 
                 @foreach (var article in Model.LatestNonNewsArticles)
                 {
@@ -134,44 +136,46 @@
             <!-- archived blog posts -->
             @if (Model.ArchivedArticles != null && Model.ArchivedArticles.Any())
             {
-                <div class="flex px-1 lg:px-0 items-center justify-between mt-4 m-3">
-                    <h2 class="font-bold text-3xl" style="color: #28619b;">
+                <div class="flex mt-1 px-4 lg:px-0 items-center p-3 justify-between" style="background-color: #ffffff;">
+                    <h2 class="font-bold text-3xl" style="color: #666666;">
                         Archived Articles
                     </h2>
                 </div>
-            }
 
-            <div class="block space-x-0 lg:flex lg:space-x-6">
-                <div class="col-lg-12 m-15px-tb">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="blog-grid">
-                                <div class="blog-img">
-                                    <div class="date">
-                                        <span>04</span> <label>FEB</label>
-                                    </div>
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-info">
-                                    <h5>
-                                        <a href="#">Prevent 75% of visitors from google analytics</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <div class="btn-bar">
-                                        <a href="#" class="px-btn-arrow">
-                                            <span>Read More</span>
-                                            <i class="arrow"></i>
+                <div class="block space-x-0 lg:flex lg:space-x-6">
+                    <div class="col-lg-12 m-15px-tb">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="blog-grid">
+                                    <div class="blog-img">
+                                        <div class="date">
+                                            <span>04</span> <label>FEB</label>
+                                        </div>
+                                        <a href="#">
+                                            <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
                                         </a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <h5>
+                                            <a href="#">Prevent 75% of visitors from google analytics</a>
+                                        </h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <div class="btn-bar">
+                                            <a href="#" class="px-btn-arrow">
+                                                <span>Read More</span>
+                                                <i class="arrow"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/D3D3D3/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/87CEFA/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/D3D3D3/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/E0FFFF/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/FFF0F5/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-12 mb-6"><ul class="pagination justify-content-center"><li class="page-item disabled"> <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a></li><li class="page-item"><a class="page-link" href="#">1</a></li><li class="page-item active"> <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"> <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li></ul></div>
                         </div>
-                        <div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/D3D3D3/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/87CEFA/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/D3D3D3/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/E0FFFF/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-sm-4"><div class="blog-grid"><div class="blog-img"><div class="date"> <span>04</span> <label>FEB</label></div> <a href="#"> <img src="https://www.bootdey.com/image/400x200/FFF0F5/000000" title="" alt=""> </a></div><div class="blog-info"><h5><a href="#">Prevent 75% of visitors from google analytics</a></h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div></div></div></div><div class="col-12 mb-6"><ul class="pagination justify-content-center"><li class="page-item disabled"> <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a></li><li class="page-item"><a class="page-link" href="#">1</a></li><li class="page-item active"> <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"> <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li></ul></div>
                     </div>
                 </div>
-            </div>
+            }
+
+            
             <!-- end archived blog posts -->
 
         </div>

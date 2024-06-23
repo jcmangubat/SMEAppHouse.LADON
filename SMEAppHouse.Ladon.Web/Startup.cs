@@ -239,12 +239,7 @@ public class Startup(IConfiguration configuration)
         // Register your validators
         services.AddTransient<IValidator<QuoteRequestModel>, QuoteRequestValidator>();
 
-        //// Configure persistent storage for data protection keys
-        //services.AddDataProtection()
-        //    .PersistKeysToFileSystem(new DirectoryInfo(@"\\"))
-        //    .SetApplicationName("SMEAppHouse.Ladon.Web");
-
-        // Register custom IDataProtectionProvider implementation
+        // Configure persistent storage for data protection keys
         services.AddDataProtection().PersistKeysToDbContext<ApplicationDbContext>();
 
         // Antiforgery Configuration
@@ -258,23 +253,6 @@ public class Startup(IConfiguration configuration)
             options.Cookie.Expiration = TimeSpan.FromHours(24);
         });
 
-        //// Web Optimizer
-        //services.AddWebOptimizer(pipeline =>
-        //{
-        //    pipeline.MinifyJsFiles("js/main.js");
-
-        //    //pipeline.MinifyCssFiles("css/**/*.css");
-        //    //pipeline.AddCssBundle("/css/bundle.css", "/css/site.css", "/css/**/*.css");
-
-        //    var cssFiles = Directory.GetFiles("wwwroot/css", "*.css", SearchOption.AllDirectories)
-        //                    .Where(file => !file.EndsWith("quoterequest.css"))
-        //                    .Select(file => file.Replace("wwwroot/", "/"));
-        //    pipeline.MinifyCssFiles(cssFiles.ToArray());
-        //    pipeline.AddCssBundle("/css/bundle.css", cssFiles.ToArray());
-
-        //    pipeline.AddJavaScriptBundle("/js/site.js", "/js/chat/*.js");
-        //});
-
         services.AddResponseCompression(options => options.EnableForHttps = true);
         services.ConfigureOptions<CustomResponseCompressionConfigurer>();
 
@@ -287,9 +265,9 @@ public class Startup(IConfiguration configuration)
             .UseSimpleAssemblyNameTypeSerializer()
             .UseRecommendedSerializerSettings()
             .UseSqlServerStorage(() => new Microsoft.Data.SqlClient.SqlConnection(hangfireConn)));
+
         services.AddHangfireServer();
     }
-
 
 
 
@@ -312,7 +290,6 @@ public class Startup(IConfiguration configuration)
         app.UseSerilogRequestLogging();
 
         app.UseRouting();
-        //app.UseWebOptimizer();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseErrorLoggingMiddleware();

@@ -117,7 +117,20 @@
 @if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurServices && p.Value == true))
 {
     <section id="our-services">
-        <partial name="~/pages/home/partialviews/_services.cshtml" />
+        @* <partial name="~/pages/home/partialviews/_services.cshtml" /> *@
+
+        <div class="service">
+            <div class="container" style="max-width:100%;">
+                <div class="section-header text-center">
+                    <p>Our Services</p>
+                    <h2>We're Here to Help You!</h2>
+                    <h2>Count on Us for your...</h2>
+                </div>
+                <div class="services-container">
+                </div>
+            </div>
+        </div>
+
     </section>
 }
 
@@ -204,19 +217,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="//code.tidio.co/ilyllpftycsrzawxqfzghkbscmkzkt4v.js" async></script>
 
     <script>
 
-        // FAQs
         $.when(
             $.ready
         ).done(function (data) { // Document is ready.
 
             "use strict";
+
+            function loadOfferedServicesAnswers(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "OfferedServices")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('.services-container').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading offered service items:', error);
+                    }
+                });
+            }
+            loadOfferedServicesAnswers();
+
 
             function loadRandomQuestionAnswers(callback) {
                 $.ajax({
@@ -232,7 +260,6 @@
                     }
                 });
             }
-
             loadRandomQuestionAnswers();
 
 
@@ -250,7 +277,6 @@
                     }
                 });
             }
-
             loadLatestBlogArticles(function () {
 
                 // Blogs carousel
@@ -299,7 +325,6 @@
                 });
             }
             loadClientTestimonials(() => {
-                // Testimonial Slider
                 $('.testimonial-slider').slick({
                     infinite: true,
                     autoplay: true,
@@ -307,31 +332,8 @@
                     dots: false,
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    //asNavFor: '.testimonial-slider-nav',
-
                 });
-                /*$('.testimonial-slider-nav').slick({
-                    arrows: false,
-                    dots: false,
-                    focusOnSelect: true,
-                    centerMode: true,
-                    centerPadding: '22px',
-                    slidesToShow: 3,
-                    asNavFor: '.testimonial-slider',
-                    pauseOnHover: true
-                });*/
                 $('.testimonial .slider-nav').css({ "position": "relative", "height": "170px" });
-            });
-
-            var $grid = $('.grid').masonry({
-                itemSelector: '.grid-item',
-                fitWidth: true
-                //, columnWidth: 200
-            });
-
-            // layout Masonry after each image loads
-            $grid.imagesLoaded().progress(function () {
-                $grid.masonry('layout');
             });
 
         });

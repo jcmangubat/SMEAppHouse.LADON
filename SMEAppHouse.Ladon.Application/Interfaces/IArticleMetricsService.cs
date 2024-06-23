@@ -4,7 +4,6 @@ namespace SMEAppHouse.Ladon.Application.Interfaces;
 
 public interface IArticleMetricsService
 {
-
     Task TrackViewAsync(Guid articleId);
 
     Task TrackReactionAsync(Guid articleId, ReaderReactionsEnum reaction);
