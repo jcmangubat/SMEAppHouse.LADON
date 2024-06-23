@@ -8,25 +8,27 @@
 
 @section CritialPreLoads {
     <environment include="Development">
-        <link rel="preload" href="~/css/carousel.css" as="stylesheet" />
-        <link rel="preload" href="~/css/feature.css" as="stylesheet" />
-        <link rel="preload" href="~/css/welcome.css" as="stylesheet" />
-        <link rel="preload" href="~/css/about.css" as="stylesheet" />
-        <link rel="preload" href="~/css/fact.css" as="stylesheet" />
-        <link rel="preload" href="~/css/service.css" as="stylesheet" />
-        <link rel="preload" href="~/css/video.css" as="stylesheet" />
-        <link rel="preload" href="~/css/team.css" as="stylesheet" />
-        <link rel="preload" href="~/css/faq.css" as="stylesheet" />
-        <link rel="preload" href="~/css/testimonial.css" as="stylesheet" />
-        <link rel="preload" href="~/css/blog.css" as="stylesheet" />
-        <link rel="preload" href="~/css/contact.css" as="stylesheet" />
-        <link rel="preload" href="~/css/site.css" as="stylesheet" />
+
+        <link rel="preload" href="~/css/carousel.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/feature.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/welcome.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/about.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/fact.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/service.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/video.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/team.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/faq.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/testimonial.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/blog.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/contact.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/site.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <link rel="preload" href="~/js/site.js" as="script" />
+
     </environment>
 
     <environment exclude="Development">
-        <link rel="preload" href="~/css/dist/styles.min.css" as="stylesheet" />
-        <link rel="preload" href="~/js/dist/site.min.js" as="script" />
+        <link rel="preload" href="~/css/dist/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/js/dist/styles.min.js" as="script" />
     </environment>
 }
 
@@ -37,23 +39,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <environment include="Development">
-        <link href="~/css/carousel.css" rel="stylesheet" />
-        <link href="~/css/feature.css" rel="stylesheet" />
-        <link href="~/css/welcome.css" rel="stylesheet" />
-        <link href="~/css/about.css" rel="stylesheet" />
-        <link href="~/css/fact.css" rel="stylesheet" />
-        <link href="~/css/service.css" rel="stylesheet" />
-        <link href="~/css/video.css" rel="stylesheet" />
-        <link href="~/css/team.css" rel="stylesheet" />
-        <link href="~/css/faq.css" rel="stylesheet" />
-        <link href="~/css/testimonial.css" rel="stylesheet" />
-        <link href="~/css/blog.css" rel="stylesheet" />
-        <link href="~/css/contact.css" rel="stylesheet" />
-        <link href="~/css/site.css" rel="stylesheet" />
+        <noscript>
+            <link rel="stylesheet" href="~/css/carousel.css" />
+            <link rel="stylesheet" href="~/css/feature.css" />
+            <link rel="stylesheet" href="~/css/welcome.css" />
+            <link rel="stylesheet" href="~/css/about.css" />
+            <link rel="stylesheet" href="~/css/fact.css" />
+            <link rel="stylesheet" href="~/css/service.css" />
+            <link rel="stylesheet" href="~/css/video.css" />
+            <link rel="stylesheet" href="~/css/team.css" />
+            <link rel="stylesheet" href="~/css/faq.css" />
+            <link rel="stylesheet" href="~/css/testimonial.css" />
+            <link rel="stylesheet" href="~/css/blog.css" />
+            <link rel="stylesheet" href="~/css/contact.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </noscript>
     </environment>
 
     <environment exclude="Development">
-        <link href="~/css/dist/styles.min.css" rel="stylesheet" />
+        <noscript>
+            <link rel="stylesheet" href="~/css/dist/styles.min.css" />
+        </noscript>
     </environment>
 }
 
@@ -243,7 +249,29 @@
                     }
                 });
             }
-            loadOfferedServicesAnswers();
+            loadOfferedServicesAnswers(function () {
+                $('.service-item').each(function () {
+
+                    var $pElement = $(this).find('.srvc-desc p');
+                    var $srvcDesc = $(this).find('.srvc-desc');
+
+                    var pHeight = $pElement.outerHeight();
+                    var containerHeight = $srvcDesc.outerHeight();
+                    var translateYValue = pHeight-10;
+                    $pElement.data('translateY', translateYValue);
+
+                    $(this).on('mouseenter', function () {
+                        var translateYValue = $pElement.data('translateY');
+                        $pElement.css({
+                            'transform': `translateY(-${translateYValue}px)`
+                        });
+                    }).on('mouseleave', function () {
+                        $pElement.css({
+                            'transform': 'translateY(0)'
+                        });
+                    });
+                });
+            });
 
 
             function loadRandomQuestionAnswers(callback) {

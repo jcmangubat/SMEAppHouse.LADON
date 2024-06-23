@@ -4,122 +4,21 @@
     var offeredServices = Model.ToArray();
 }
 
-
 @foreach (var oSrvc in offeredServices)
 {
+    if (!oSrvc.Show)
+        continue;
+
     <div class="@($"service-item {(oSrvc.PresenterClass.HasValue ? oSrvc.PresenterClass.Value.ToString().ToLower() : string.Empty)}".Trim())">
+        <div class="srvc-desc">
+            <p>@Html.Raw($"{oSrvc.Description} <br/><br/> Please click on the button below to see the details of our procedures.")</p>
+        </div>
         <img src="@oSrvc.ImageCDNUrl" alt="">
         <div class="service-text">
             <h3>@oSrvc.Name</h3>
-            <a class="btn" href="img/service-4.jpg" data-lightbox="service">
+            <a class="btn" href="img/service-4.jpg" data-lightbox="service" data-toggle="tooltip" title="Click to see our procedures">
                 <i class="fa-solid fa-eye"></i>
             </a>
         </div>
     </div>
 }
-
-@* <div class="service-item wide">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975750/ladon_srvc_07_bn4wjq.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item tall">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975747/ladon_srvc_04_qvyfc0.jpg" alt=""><div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-
-            </div>
-            <div class="service-item tall">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975776/2024_LCS_ladon_52_ej5z9n.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item big">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975774/2024_LCS_ladon_48_vdk6qq.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975755/ladon_srvc_12_tkepxp.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item tall">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975756/ladon_srvc_13_eyrzgb.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975768/ladon_srvc_22_rx1ljy.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975749/ladon_srvc_06_rljusp.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975766/ladon_srvc_21_a75c4u.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975753/ladon_srvc_10_zoemiz.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975751/ladon_srvc_09_la1ldi.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975761/ladon_srvc_16_cjy9sb.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975762/ladon_srvc_17_dwz5ya.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975763/ladon_srvc_19_yvhyfb.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="service-item wide">
-                <img src="https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975765/ladon_srvc_20_klhr5w.jpg" alt="">
-                <div class="service-text">
-                    <h3>Interior Design</h3>
-                    <a class="btn" href="img/service-4.jpg" data-lightbox="service"><i class="fa-solid fa-eye"></i></a>
-                </div>
-            </div> *@

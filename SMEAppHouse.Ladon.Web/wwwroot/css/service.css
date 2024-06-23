@@ -40,6 +40,7 @@
         position: relative;
         text-align: center;
         overflow: hidden;
+        background: #0101015c;
     }
 
         .services-container > .service-item > img {
@@ -79,8 +80,10 @@
     }
 
     .services-container .service-item:hover img {
-        -webkit-animation: zoom 5s;
-        animation: zoom 5s;
+        -webkit-animation: srvc-img-zoom 3s;
+        animation: srvc-img-zoom 3s;
+        transform: scale(1.5, 1.5);
+        opacity: 0.4;
     }
 
     .services-container:hover .service-item:not(:hover) {
@@ -144,3 +147,39 @@
     .services-container .service-item.wide .service-text h3 {
         font-size: 27px;
     }
+
+    .services-container .service-item .srvc-desc {
+        top: 0px;
+        height: calc(100% - 70px);
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        padding-bottom: 10px;
+        z-index: 999;
+        overflow: hidden;
+    }
+
+        .services-container .service-item .srvc-desc p {
+            position: absolute;
+            top: 100%; /* Start from below the container */
+            height: auto;
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin: 0;
+            transform: translateY(0);
+            transition: transform 15s linear;
+        }
+
+@keyframes srvc-img-zoom {
+    from {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.5, 1.5);
+        opacity: .4;
+    }
+}

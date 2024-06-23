@@ -16,6 +16,9 @@ public class ServiceItem
     [JsonProperty("class")]
     public PresenterClassesEnum? PresenterClass { get; set; }
 
+    [JsonProperty("show")]
+    public bool Show { get; set; }
+
     public enum PresenterClassesEnum
     {
         Tall,
