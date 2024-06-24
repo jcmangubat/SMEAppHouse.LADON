@@ -1,5 +1,13 @@
+main {
+    background: linear-gradient(rgb(3 15 39 / 70%), rgb(137 141 149 / 90%)), url(https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/pattern-4u7ed6koskqhcez1.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
 .main-body {
-    padding: 10px 0px 15px 0px;
+    padding: 90px 0 15px 0;
 }
 
 .articles {
