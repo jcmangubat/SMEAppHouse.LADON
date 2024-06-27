@@ -12,6 +12,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Seeder\Data\featureProjectsSeed.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Seeder\Data\featureProjectsSeed.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
     <PackageReference Include="Imagekit" Version="4.0.2" />
     <PackageReference Include="Markdig" Version="0.37.0" />
@@ -31,58 +43,58 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="SeedData\Articles\build-your-dreams-with-ladon-construction-services.md">
+    <None Update="Seeder\Data\Articles\build-your-dreams-with-ladon-construction-services.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\build-your-dreams-with-ladon-construction-services.xml">
+    <None Update="Seeder\Data\Articles\build-your-dreams-with-ladon-construction-services.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\certified-vs-self-claimed-experienced-builders-why-certification-matters.md">
+    <None Update="Seeder\Data\Articles\certified-vs-self-claimed-experienced-builders-why-certification-matters.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\certified-vs-self-claimed-experienced-builders-why-certification-matters.xml">
+    <None Update="Seeder\Data\Articles\certified-vs-self-claimed-experienced-builders-why-certification-matters.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.md">
+    <None Update="Seeder\Data\Articles\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.xml">
+    <None Update="Seeder\Data\Articles\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-Secures-Major-Contract.md">
+    <None Update="Seeder\Data\Articles\lcs-Secures-Major-Contract.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-New-Industry-Leader.xml">
+    <None Update="Seeder\Data\Articles\lcs-New-Industry-Leader.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-Small-Residence-Projects-Sustainability.md">
+    <None Update="Seeder\Data\Articles\lcs-Small-Residence-Projects-Sustainability.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-Small-Residence-Projects-Sustainability.xml">
+    <None Update="Seeder\Data\Articles\lcs-Small-Residence-Projects-Sustainability.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-expands-focus-small-house-projects.md">
+    <None Update="Seeder\Data\Articles\lcs-expands-focus-small-house-projects.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-expands-focus-small-house-projects.xml">
+    <None Update="Seeder\Data\Articles\lcs-expands-focus-small-house-projects.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.md">
+    <None Update="Seeder\Data\Articles\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.xml">
+    <None Update="Seeder\Data\Articles\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-sustainable-solutions.xml">
+    <None Update="Seeder\Data\Articles\lcs-sustainable-solutions.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-Secures-Major-Contract.xml">
+    <None Update="Seeder\Data\Articles\lcs-Secures-Major-Contract.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-New-Industry-Leader.md">
+    <None Update="Seeder\Data\Articles\lcs-New-Industry-Leader.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SeedData\Articles\lcs-sustainable-solutions.md">
+    <None Update="Seeder\Data\Articles\lcs-sustainable-solutions.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

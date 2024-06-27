@@ -46,7 +46,7 @@ public class QuoteRequestAttachmentService(ILogger<QuoteRequestAttachmentService
         }
     }
 
-    public async Task<QuoteRequestAttachmentModel?> SaveAttachmentAsync(QuoteRequestAttachmentModel quoteRequestAttachment)
+    public async Task<QuoteRequestAttachmentModel?> AddAttachmentAsync(QuoteRequestAttachmentModel quoteRequestAttachment)
     {
         try
         {

@@ -8,6 +8,6 @@ public interface IQuoteRequestService
     Task<QuoteRequestModel> GetQuoteRequestAsync(Guid id);
     Task<IEnumerable<QuoteRequestModel>> GetQuoteRequestsAsync();
     Task<MessageModel?> GetMessageFromQuoteRequestAsync(Guid id);
-    Task<QuoteRequestModel> SaveQuoteRequestAsync(QuoteRequestModel message);
+    Task<QuoteRequestModel> AddQuoteRequestAsync(QuoteRequestModel message);
 
 }

@@ -9,7 +9,7 @@ public interface IQuestionAnswerService
 
     Task<IEnumerable<QuestionAnswerModel>?> GetQuestionAnswersAsync(Expression<Func<QuestionAnswerModel, bool>> modelFilter);
     Task<IEnumerable<QuestionAnswerModel>?> GetBestTenQAsAsync();
-    Task<QuestionAnswerModel?> SaveQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel);
+    Task<QuestionAnswerModel?> AddQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel);
 
     Task UpdateQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel);
 }

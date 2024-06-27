@@ -25,7 +25,7 @@ public class MessageService(IMapper mapper, IMessageRepository messageRepository
         return msgs;
     }
 
-    public async Task SaveMessageAsync(MessageModel message)
+    public async Task AddMessageAsync(MessageModel message)
     {
         if (message.SiteMessageSource == Domain.Constants.Rules.SiteMessageSourcesEnum.FromContactUs)
         {

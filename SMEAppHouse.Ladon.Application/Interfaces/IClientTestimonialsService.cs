@@ -9,7 +9,7 @@ public interface IClientTestimonialsService
 
     Task<IEnumerable<ClientTestimonyModel>?> GetClientTestimonialsAsync(Expression<Func<ClientTestimonyModel, bool>> modelFilter);
     Task<IEnumerable<ClientTestimonyModel>?> GetClientTestimonialsAsync(bool? activesOnly = null);
-    Task<ClientTestimonyModel?> SaveClientTestimonialAsync(ClientTestimonyModel clientTestimonyModel);
+    Task<ClientTestimonyModel?> AddClientTestimonialAsync(ClientTestimonyModel clientTestimonyModel);
 
     Task UpdateClientTestimonialAsync(ClientTestimonyModel clientTestimonyModel);
 }

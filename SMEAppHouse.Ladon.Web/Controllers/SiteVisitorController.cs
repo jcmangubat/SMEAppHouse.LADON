@@ -52,7 +52,7 @@ public class SiteVisitorController( ILogger<SiteVisitorController> logger,
         {
             message.SiteMessageSource = Rules.SiteMessageSourcesEnum.FromContactUs;
             
-            await _messageService.SaveMessageAsync(message);
+            await _messageService.AddMessageAsync(message);
             return Ok(new
             {
                 success = true,

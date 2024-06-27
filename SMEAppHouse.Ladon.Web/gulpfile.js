@@ -30,6 +30,7 @@ gulp.task('minify-index-css', () => {
         'wwwroot/css/testimonial.css',
         'wwwroot/css/blog.css',
         'wwwroot/css/contact.css',
+        'wwwroot/css/projects.css',,
         'wwwroot/css/site.css'
     ])
         .pipe(concat('styles.css')) // Concatenate to a single file
@@ -51,6 +52,15 @@ gulp.task('minify-articles-css', () => {
 gulp.task('minify-article-css', () => {
     return gulp.src('wwwroot/css/article.css')
         .pipe(concat('article.css'))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('wwwroot/css/dist'));
+});
+
+// Minify feature project page CSS files
+gulp.task('minify-featureproject-css', () => {
+    return gulp.src('wwwroot/css/featureproject.css')
+        .pipe(concat('featureproject.css'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(cleanCSS())
         .pipe(gulp.dest('wwwroot/css/dist'));
@@ -88,6 +98,14 @@ gulp.task('minify-quoterequest-js', () => {
         .pipe(gulp.dest('wwwroot/js/dist'));
 });
 
+// Minify featureproject.js
+gulp.task('minify-featureproject-js', () => {
+    return gulp.src('wwwroot/js/featureproject.js')
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify())
+        .pipe(gulp.dest('wwwroot/js/dist'));
+});
+
 // Default task
 gulp.task('default',
     gulp.parallel(
@@ -95,8 +113,10 @@ gulp.task('default',
         'minify-index-css',
         'minify-articles-css',
         'minify-article-css',
+        'minify-featureproject-css',
         'minify-common-js',
         'minify-index-js',
         'minify-article-js',
-        'minify-quoterequest-js'
+        'minify-quoterequest-js',
+        'minify-featureproject-js',
     ));

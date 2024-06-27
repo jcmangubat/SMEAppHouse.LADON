@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SMEAppHouse.Ladon.Domain.Entities.EFModels;
+using SMEAppHouse.Ladon.Infrastructure.Seeder.ManifestModels;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
-namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Seeder;
+namespace SMEAppHouse.Ladon.Infrastructure.Seeder;
 
 public class DataSeeder(ModelBuilder builder)
 {
@@ -52,7 +53,7 @@ public class DataSeeder(ModelBuilder builder)
 
     private readonly ModelBuilder _builder = builder;
 
-    public DataSeeder SeedRolesAndUsers()
+    internal DataSeeder SeedRolesAndUsers()
     {
         // Seed roles
         var adminRole = new IdentityRole<Guid> { Id = Guid.NewGuid(), Name = "Admin", NormalizedName = "ADMIN" };
@@ -167,13 +168,13 @@ public class DataSeeder(ModelBuilder builder)
         return this;
     }
 
-    public DataSeeder SeedArticleCategory()
+    internal DataSeeder SeedArticleCategory()
     {
         _builder.Entity<ArticleCategory>().HasData(_articleCategories);
         return this;
     }
 
-    public DataSeeder SeedQuestionAndAnswers()
+    internal DataSeeder SeedQuestionAndAnswers()
     {
         _builder.Entity<QuestionAnswer>().HasData(
             new QuestionAnswer
@@ -322,7 +323,7 @@ public class DataSeeder(ModelBuilder builder)
         return this;
     }
 
-    public DataSeeder SeedArticlePostEntity()
+    internal DataSeeder SeedArticlePostEntity()
     {
         var articlesFromManifest = ArticleManifestData.Read();
 
@@ -399,7 +400,7 @@ public class DataSeeder(ModelBuilder builder)
         return this;
     }
 
-    public DataSeeder SeedTestimoniesEntity()
+    internal DataSeeder SeedTestimoniesEntity()
     {
         _builder.Entity<ClientTestimony>().HasData(
             new ClientTestimony
@@ -444,5 +445,18 @@ public class DataSeeder(ModelBuilder builder)
             });
 
         return this;
+    }
+
+    internal void SeedFeatureProjectsEntity()
+    {
+        var featurePrjsFromManifest = FeatureProjectManifestData.Read();
+        var featurePrjImgs = new List<FeatureProjectImage>(featurePrjsFromManifest.SelectMany(p => p.FeatureProjectImages));
+        var featurePrjs = featurePrjsFromManifest;
+
+        foreach (var project in featurePrjsFromManifest)
+            project.FeatureProjectImages = []; // Clear the list or assign an empty list
+
+        _builder.Entity<FeatureProject>().HasData(featurePrjs);
+        _builder.Entity<FeatureProjectImage>().HasData(featurePrjImgs);
     }
 }

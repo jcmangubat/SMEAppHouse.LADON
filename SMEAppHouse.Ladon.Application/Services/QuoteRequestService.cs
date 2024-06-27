@@ -53,7 +53,7 @@ public class QuoteRequestService(ILogger<QuoteRequestService> logger,
         }
     }
 
-    public async Task<QuoteRequestModel> SaveQuoteRequestAsync(QuoteRequestModel quoteRequest)
+    public async Task<QuoteRequestModel> AddQuoteRequestAsync(QuoteRequestModel quoteRequest)
     {
         try
         {

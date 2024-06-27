@@ -21,6 +21,7 @@ const handleAnchorClick = (e) => {
     } else {
         // Store the target section in sessionStorage
         sessionStorage.setItem('scrollToSection', hrefAttrib);
+
         // Redirect to the root URL
         window.location.href = '/';
     }
@@ -41,6 +42,11 @@ $.when(
 
     // Add event listeners for 'dropdown-item' elements
     $('.other-site-features a.dropdown-item').on('click', handleAnchorClick);
+
+    // toggle menu dropdown on menu item click
+    $('.navbar .nav-item').on('click', function () {
+        $('.navbar .navbar-collapse').removeClass('show');
+    });
 
     // Back to top button
     $(window).on('scroll', function () {
@@ -90,31 +96,7 @@ $.when(
 ).done(function (data) { // Document is ready.
     "use strict";
 
-    //$('#user-sign-out').on('click', function () {
-    //    // Send an AJAX request to the server to logout
-    //    $.ajax({
-    //        url: '/Account/Logout', // URL of the logout action method
-    //        method: 'POST', // Use POST method to send the request
-    //        success: function (data) {
-    //            // Redirect to the home page after successful logout
-    //            window.location.href = '/';
-    //        },
-    //        error: function (xhr, status, error) {
-    //            // Handle error if logout request fails
-    //            console.error('Error occurred while signing out:', error);
-    //        }
-    //    });
-    //});
 
-    /*$('#user-sign-out').on("click", function (event) {
-        event.preventDefault(); // Prevent the default action of the link
 
-        // Submit the form when the link is clicked
-        $(this).closest('form').trigger("submit");
-    });*/
 
-    // Hide the usr-menu-dropdown when scrolled or hovered out of it.
-    /*$(window).on('scroll', function () {
-        $('.usr-menu-dropdown').dropdown('hide');
-    });*/
 });

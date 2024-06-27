@@ -76,6 +76,13 @@ public class MappingProfile : Profile
         CreateMap<ArticleMetricModel, ArticleMetric>().ReverseMap();
         CreateMap<ClientTestimonyModel, ClientTestimony>().ReverseMap();
 
+
+        CreateMap<FeatureProjectModel, FeatureProject>()
+            //.ForMember(dest => dest.FeatureProjectImages, opt => opt.MapFrom(src => src.FeatureProjectImages))
+            .ReverseMap();
+
+        CreateMap<FeatureProjectImageModel, FeatureProjectImage>().ReverseMap();
+
     }
 }
 

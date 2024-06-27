@@ -25,9 +25,19 @@
         user-select: none; /* Standard syntax */
     }
 
+        .team .team-img:hover::before {
+            transform: scale(1.03);
+        }
+
         .team .team-img img {
             width: 100%;
+            filter: grayscale(100%);
+            transition: 0.5s ease;
         }
+
+            .team .team-img img:hover {
+                filter: grayscale(0%);
+            }
 
     .team .team-text {
         position: relative;

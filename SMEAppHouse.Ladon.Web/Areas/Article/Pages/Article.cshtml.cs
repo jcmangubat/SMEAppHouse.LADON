@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SMEAppHouse.Core.CodeKits;
 using SMEAppHouse.Core.CodeKits.Extensions;
 using SMEAppHouse.Ladon.Application.Interfaces;
 using SMEAppHouse.Ladon.Application.Models;
@@ -21,7 +22,7 @@ public class ArticlePageModel(ApplicationSettings applicationSettings,
 
     public async Task<IActionResult> OnGet(string title)
     {
-        var slug = ArticleModel.MakeSlug(title);
+        var slug = CodeKit.MakeSlug(title);
 
         // Fetch the blog article based on the title slug
         Article = await _articleService.GetArticleBySlug(slug) ?? throw new Exception("Article not found.");

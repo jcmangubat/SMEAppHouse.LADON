@@ -8,7 +8,6 @@
 
 @section CritialPreLoads {
     <environment include="Development">
-
         <link rel="preload" href="~/css/carousel.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <link rel="preload" href="~/css/feature.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <link rel="preload" href="~/css/welcome.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -22,8 +21,8 @@
         <link rel="preload" href="~/css/blog.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <link rel="preload" href="~/css/contact.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <link rel="preload" href="~/css/site.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/projects.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <link rel="preload" href="~/js/site.js" as="script" />
-
     </environment>
 
     <environment exclude="Development">
@@ -40,23 +39,25 @@
 
     <environment include="Development">
         <noscript>
-            <link rel="stylesheet" href="~/css/carousel.css" />
-            <link rel="stylesheet" href="~/css/feature.css" />
-            <link rel="stylesheet" href="~/css/welcome.css" />
             <link rel="stylesheet" href="~/css/about.css" />
-            <link rel="stylesheet" href="~/css/fact.css" />
-            <link rel="stylesheet" href="~/css/service.css" />
-            <link rel="stylesheet" href="~/css/video.css" />
-            <link rel="stylesheet" href="~/css/team.css" />
-            <link rel="stylesheet" href="~/css/faq.css" />
-            <link rel="stylesheet" href="~/css/testimonial.css" />
             <link rel="stylesheet" href="~/css/blog.css" />
+            <link rel="stylesheet" href="~/css/carousel.css" />
             <link rel="stylesheet" href="~/css/contact.css" />
+            <link rel="stylesheet" href="~/css/fact.css" />
+            <link rel="stylesheet" href="~/css/faq.css" />
+            <link rel="stylesheet" href="~/css/feature.css" />
+            <link rel="stylesheet" href="~/css/projects.css" />
+            <link rel="stylesheet" href="~/css/service.css" />
             <link rel="stylesheet" href="~/css/site.css" />
-        </noscript>
-    </environment>
+            <link rel="stylesheet" href="~/css/team.css" />
+            <link rel="stylesheet" href="~/css/testimonial.css" />
+            <link rel="stylesheet" href="~/css/video.css" />
+            <link rel="stylesheet" href="~/css/welcome.css" />
+            <link rel="stylesheet" href="~/css/projects.css    />
+    </noscript>
+</environment>
 
-    <environment exclude="Development">
+<environment exclude="Development">
         <noscript>
             <link rel="stylesheet" href="~/css/dist/styles.min.css" />
         </noscript>
@@ -140,11 +141,25 @@
     </section>
 }
 
-<!-- Our Portfolios & Projects -->
+<!-- Our Portfolios of Projects -->
 @if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurPortfoliosProjects && p.Value == true))
 {
-    <section id="portfolios">
-        @* <partial name="~/pages/partialviews/portfolios.cshtml" /> *@
+    <section id="projects">
+        @* <partial name="~/pages/home/partialviews/_projects.cshtml" /> *@
+
+        <div class="projects">
+            <div class="container" style="max-width:100%;">
+                <div class="section-header text-center">
+                    <p>Project Portfolios</p>
+                    <h2>Showcase of some of our projects</h2>
+                    <h2>we are proud of...</h2>
+                </div>
+                <div class="feature-projects">
+                    <div class="owl-carousel projects-carousel owl-theme">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 }
 
@@ -235,6 +250,34 @@
 
             "use strict";
 
+            function loadFeatureProjects(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "FeatureProjects")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('.feature-projects .owl-carousel').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading offered service items:', error);
+                    }
+                });
+            }
+            loadFeatureProjects(function () {
+
+                $(".projects-carousel").owlCarousel({
+                    autoWidth: true,
+                    loop: true,
+                    autoplay: true
+                });
+
+                $(".projects-carousel .item").on('click', function () {
+                    $(".projects-carousel .item").not($(this)).removeClass("active");
+                    $(this).toggleClass("active");
+                });
+            });
+
             function loadOfferedServicesAnswers(callback) {
                 $.ajax({
                     url: '@Url.Page("Index", "OfferedServices")',
@@ -257,7 +300,7 @@
 
                     var pHeight = $pElement.outerHeight();
                     var containerHeight = $srvcDesc.outerHeight();
-                    var translateYValue = pHeight-10;
+                    var translateYValue = pHeight - 10;
                     $pElement.data('translateY', translateYValue);
 
                     $(this).on('mouseenter', function () {
@@ -363,7 +406,6 @@
                 });
                 $('.testimonial .slider-nav').css({ "position": "relative", "height": "170px" });
             });
-
         });
 
     </script>

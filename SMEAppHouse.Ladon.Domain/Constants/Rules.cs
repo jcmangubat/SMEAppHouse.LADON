@@ -376,4 +376,11 @@ public class Rules
         Like,
         Heart
     }
+
+    public enum ImageSizeOrientationStylesEnum { 
+        Small,
+        Big, 
+        Wide,
+        Tall            
+    }
 }

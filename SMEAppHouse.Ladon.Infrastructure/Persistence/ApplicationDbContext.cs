@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SMEAppHouse.Core.Patterns.EF.SettingsModel;
 using SMEAppHouse.Ladon.Domain.Entities.EFModels;
 using SMEAppHouse.Ladon.Infrastructure.Persistence.Configurations;
-using SMEAppHouse.Ladon.Infrastructure.Persistence.Seeder;
+using SMEAppHouse.Ladon.Infrastructure.Seeder;
 using DataProtectionKey = Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.DataProtectionKey;
 namespace SMEAppHouse.Ladon.Infrastructure.Persistence;
 
@@ -30,6 +30,9 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public virtual DbSet<QuoteRequest> QuoteRequests { get; set; }
     public virtual DbSet<QuoteRequestAttachment> QuoteRequestAttachments { get; set; }
     public virtual DbSet<QuestionAnswer> QuestionAnswers { get; set; }
+
+    public virtual DbSet<FeatureProject> FeatureProjects { get; set; }
+    public virtual DbSet<FeatureProjectImage> FeatureProjectImages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -73,12 +76,15 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         builder.ApplyConfiguration(new QuoteRequestConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuoteRequestAttachmentConfiguration(dbSchema));
         builder.ApplyConfiguration(new QuestionAnswerConfiguration(dbSchema));
+        builder.ApplyConfiguration(new FeatureProjectConfiguration(dbSchema));
+        builder.ApplyConfiguration(new FeatureProjectImageConfiguration(dbSchema));
 
         new DataSeeder(builder)
             .SeedRolesAndUsers()
             .SeedQuestionAndAnswers()
             .SeedArticleCategory()
             .SeedArticlePostEntity()
-            .SeedTestimoniesEntity();
+            .SeedTestimoniesEntity()
+            .SeedFeatureProjectsEntity();
     }
 }

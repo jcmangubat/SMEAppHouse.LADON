@@ -1,7 +1,7 @@
 ﻿using System.Xml.Serialization;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
-namespace SMEAppHouse.Ladon.Infrastructure.Persistence.Seeder;
+namespace SMEAppHouse.Ladon.Infrastructure.Seeder.ManifestModels;
 
 public class ArticleManifestData
 {
@@ -9,7 +9,7 @@ public class ArticleManifestData
     {
         var articles = new List<Article>();
         var outputDirectory = AppContext.BaseDirectory;
-        var articlesFolder = Path.Combine(outputDirectory, "SeedData", "Articles");
+        var articlesFolder = Path.Combine(outputDirectory, "Seeder", "Data", "Articles");
         var articleManifestFiles = Directory.GetFiles(articlesFolder, "*.xml");
         var articleContentFiles = Directory.GetFiles(articlesFolder, "*.md");
 

@@ -59,7 +59,7 @@
 }
 
     .faqs .card:last-child {
-        margin-bottom: 0;
+        margin-bottom: 15px;
     }
 
 .faqs .card-header {

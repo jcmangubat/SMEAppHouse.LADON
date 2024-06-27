@@ -136,7 +136,7 @@ public class ArticleService(IMapper mapper,
         }
     }
 
-    public async Task<ArticleModel?> SaveArticleAsync(ArticleModel articleModel)
+    public async Task<ArticleModel?> AddArticleAsync(ArticleModel articleModel)
     {
         try
         {
@@ -174,8 +174,8 @@ public class ArticleService(IMapper mapper,
         try
         {
             Article articleEF = await _articleRepository.GetSingleAsync(
-                                    predicate: a => a.Slug == slug,
-                                    include: b => b.Include(p => p.Images)
+                                    filterPredicate: a => a.Slug == slug,
+                                    includeExpression: b => b.Include(p => p.Images)
                                                     .Include(p => p.Comments)
                                                     .Include(p => p.RelatedPostsFrom)
                                                     .Include(p => p.RelatedPostsTo)

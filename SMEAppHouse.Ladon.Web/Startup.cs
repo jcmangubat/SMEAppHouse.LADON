@@ -165,6 +165,8 @@ public class Startup(IConfiguration configuration)
         services.AddTransient<IQuoteRequestRepository, QuoteRequestRepository>();
         services.AddTransient<IQuoteRequestAttachmentRepository, QuoteRequestAttachmentRepository>();
         services.AddTransient<IQuestionAnswerRepository, QuestionAnswerRepository>();
+        services.AddTransient<IFeatureProjectRepository, FeatureProjectRepository>();
+        services.AddTransient<IFeatureProjectImageRepository, FeatureProjectImageRepository>();
 
         // CORS Configuration
         services.AddCors(options =>
@@ -221,6 +223,8 @@ public class Startup(IConfiguration configuration)
         services.AddScoped<IArticleMetricsService, ArticleMetricsService>();
         services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
         services.AddScoped<IClientTestimonialsService, ClientTestimonialsService>();
+        services.AddScoped<IFeatureProjectService, FeatureProjectService>();
+        services.AddScoped<IFeatureProjectImageService, FeatureProjectImageService>();
 
         // Add MVC and Razor Pages
         services.AddControllersWithViews()

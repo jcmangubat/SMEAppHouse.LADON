@@ -6,5 +6,5 @@ public interface IMessageService
 {
     Task<MessageModel> GetMessageAsync(Guid? id);
     Task<IEnumerable<MessageModel>> GetMessagesAsync();
-    Task SaveMessageAsync(MessageModel message);
+    Task AddMessageAsync(MessageModel message);
 }

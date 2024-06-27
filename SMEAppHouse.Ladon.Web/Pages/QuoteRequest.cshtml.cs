@@ -141,7 +141,7 @@ public class QuoteRequestPageModel(ILogger<QuoteRequestPageModel> logger,
                 }
             }
             _logger.LogInformation("SubmitQuoteRequest: Saving RFP...");
-            var quoteRequest = await _quoteRequestService.SaveQuoteRequestAsync(QuoteRequest);
+            var quoteRequest = await _quoteRequestService.AddQuoteRequestAsync(QuoteRequest);
 
             if (FormFiles != null && FormFiles.Count > 0)
             {
@@ -164,7 +164,7 @@ public class QuoteRequestPageModel(ILogger<QuoteRequestPageModel> logger,
                             QuoteRequestId = quoteRequest.Id,
                         };
 
-                        await _quoteRequestAttachmentService.SaveAttachmentAsync(attachment);
+                        await _quoteRequestAttachmentService.AddAttachmentAsync(attachment);
                     }
                     catch (Exception ex)
                     {
@@ -176,7 +176,7 @@ public class QuoteRequestPageModel(ILogger<QuoteRequestPageModel> logger,
             _logger.LogInformation("SubmitQuoteRequest: Creating message transformed from RFP to get internals notified...");
             MessageModel? message = await _quoteRequestService.GetMessageFromQuoteRequestAsync(quoteRequest.Id);
             if (message != null)
-                await _messageService.SaveMessageAsync(message);
+                await _messageService.AddMessageAsync(message);
 
             _logger.LogInformation("SubmitQuoteRequest: Done...");
         }

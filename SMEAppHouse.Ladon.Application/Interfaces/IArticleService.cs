@@ -16,7 +16,7 @@ public interface IArticleService
 
     Task<ArticleModel?> GetArticleAsync(Expression<Func<ArticleModel, bool>> modelFilter);
 
-    Task<ArticleModel?> SaveArticleAsync(ArticleModel articleModel);
+    Task<ArticleModel?> AddArticleAsync(ArticleModel articleModel);
 
     Task UpdateArticleAsync(ArticleModel articleModel);
 

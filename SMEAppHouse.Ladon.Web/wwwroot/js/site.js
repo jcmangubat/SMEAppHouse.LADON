@@ -83,7 +83,7 @@ $.when(
         }
     }
     toggleNavbarMethod();
-    $(window).resize(toggleNavbarMethod);
+    $(window).on('resize', toggleNavbarMethod);
 });
 
 $.when(
@@ -201,4 +201,15 @@ $.when(
             window.location.href = href;
         }
     });
+});
+
+// Projects Gallery Carousel
+$.when(
+    $.ready
+).done(function (data) {
+
+    "use strict";
+
+    
+
 });

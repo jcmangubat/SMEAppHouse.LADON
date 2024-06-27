@@ -60,7 +60,6 @@
     <Content Remove="Pages\Home\PartialViews\Testimonials_OLD.cshtml" />
     <Content Remove="Pages\Home\PartialViews\_BlogsAndNews_OLD.cshtml" />
     <Content Remove="Pages\Home\PartialViews\_Services -old-masonry.cshtml" />
-    <Content Remove="Pages\Home\PartialViews\_Services-old.cshtml" />
     <Content Remove="Pages\Home\_Login.cshtml" />
     <Content Remove="Pages\QuoteRequest - Copy.cshtml" />
     <Content Remove="Pages\Shared\_LoginPartial.cshtml" />

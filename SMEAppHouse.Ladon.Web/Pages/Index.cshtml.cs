@@ -11,18 +11,20 @@ namespace SMEAppHouse.Ladon.Web.Pages
     public class IndexModel(ILogger<IndexModel> logger, ApplicationSettings applicationSettings,
                             IQuestionAnswerService questionAnswerService,
                             IArticleService articleService,
-                            IClientTestimonialsService clientTestimonialsService)
+                            IClientTestimonialsService clientTestimonialsService,
+                            IFeatureProjectService featureProjectService)
         : BasePageModel(applicationSettings)
     {
         private readonly IArticleService _articleService = articleService;
         private readonly IQuestionAnswerService _questionAnswerService = questionAnswerService;
         private readonly IClientTestimonialsService _clientTestimonialsService = clientTestimonialsService;
+        private readonly IFeatureProjectService _featureProjectService = featureProjectService;
 
         public IEnumerable<QuestionAnswerModel> RandomQuestionAnswers { get; set; }
-        
+
         public void OnGet()
         {
-            
+
         }
 
         public async Task<IActionResult> OnGetRandomQuestionAnswersAsync()
@@ -49,6 +51,13 @@ namespace SMEAppHouse.Ladon.Web.Pages
             var testimonials = await _clientTestimonialsService.GetClientTestimonialsAsync(activesOnly: true);
 
             return Partial("~/Pages/Home/PartialViews/_Testimonials.cshtml", testimonials);
+        }
+
+        public async Task<IActionResult> OnGetFeatureProjectsAsync()
+        {
+            var featurePrjs = await _featureProjectService.GetFeatureProjectsAsync(modelFilter: p => !(p.HideTitle ?? false) && (p.IsActive ?? false));
+
+            return Partial("~/Pages/Home/PartialViews/_Projects.cshtml", featurePrjs);
         }
 
         private static List<ServiceItem> OpenOfferedServicesJson()

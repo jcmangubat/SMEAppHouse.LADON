@@ -68,7 +68,7 @@ public class QuestionAnswerService(IMapper mapper,
         }
     }
 
-    public async Task<QuestionAnswerModel?> SaveQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel)
+    public async Task<QuestionAnswerModel?> AddQuestionAnswerAsync(QuestionAnswerModel questionAnswerModel)
     {
         try
         {

@@ -69,7 +69,7 @@ public class ClientTestimonialsService(IMapper mapper,
         }
     }
 
-    public async Task<ClientTestimonyModel?> SaveClientTestimonialAsync(ClientTestimonyModel clientTestimonyModel)
+    public async Task<ClientTestimonyModel?> AddClientTestimonialAsync(ClientTestimonyModel clientTestimonyModel)
     {
         try
         {

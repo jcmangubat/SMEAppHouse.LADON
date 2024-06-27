@@ -1,5 +1,4 @@
-﻿using SMEAppHouse.Core.CodeKits;
-using SMEAppHouse.Ladon.Application.Models.Base;
+﻿using SMEAppHouse.Ladon.Application.Models.Base;
 using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
 namespace SMEAppHouse.Ladon.Application.Models.Data;
@@ -37,17 +36,4 @@ public class ArticleModel : KeyedModel
 
     public Guid? QuestionAnswerId { get; set; }
     public virtual QuestionAnswerModel? QuestionAnswer { get; set; }
-
-
-
-    public static string MakeSlug(string title)
-    {
-        var cleanedTitle = title.Trim().Replace(".", "");
-        cleanedTitle = CodeKit.URLSafeString(cleanedTitle);
-        if (!cleanedTitle.Any(p => p == ' ')) // already a slug
-            return cleanedTitle;
-        var titleParts = title.Split(' ').Select(p => p.Trim().ToLower()).ToList();
-        var slug = CodeKit.URLSafeString(string.Join('-', titleParts));
-        return slug;
-    }
 }
