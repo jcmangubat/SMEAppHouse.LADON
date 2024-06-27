@@ -10,9 +10,6 @@ public class FeatureProjectModel : KeyedModel
 
     public string? Slug { get; set; }
 
-    [JsonProperty("hideTitle")]
-    public bool? HideTitle { get; set; }
-
     [JsonProperty("description")]
     public string? Description { get; set; }
 

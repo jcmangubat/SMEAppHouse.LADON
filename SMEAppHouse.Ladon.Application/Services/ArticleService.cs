@@ -202,7 +202,7 @@ public class ArticleService(IMapper mapper,
             else if (!string.IsNullOrEmpty(article.ContentSourceMDFileName))
             {
                 var outputDirectory = AppContext.BaseDirectory;
-                var phyMDFile = Path.Combine(outputDirectory, "SeedData", "Articles", article.ContentSourceMDFileName);
+                var phyMDFile = Path.Combine(outputDirectory, "Resources", "Documents", "Articles", article.ContentSourceMDFileName);
                 var mdContent = await _markdownService.ConvertMarkdownToHtmlAsync(phyMDFile);
 
                 article.Content = mdContent;

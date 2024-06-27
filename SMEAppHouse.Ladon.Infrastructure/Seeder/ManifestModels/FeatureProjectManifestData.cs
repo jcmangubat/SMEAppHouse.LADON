@@ -30,8 +30,7 @@ public class FeatureProjectManifestData
                 Description = (string?)obj["description"],
                 ImageCDNUrl = (string)obj["primaryImage"],
                 Location = (string?)obj["location"],
-                CompletionDate = (DateTime?)obj["completionDate"],
-                HideTitle = (bool?)obj["hideTitle"]
+                CompletionDate = (DateTime?)obj["completionDate"]
             };
 
             JArray imagesArray = (JArray)obj["images"];

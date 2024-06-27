@@ -4,23 +4,24 @@ using SMEAppHouse.Ladon.Application.Interfaces;
 using SMEAppHouse.Ladon.Application.Models;
 using SMEAppHouse.Ladon.Application.Models.Data;
 using SMEAppHouse.Ladon.Web.Pages.Common;
-using static SMEAppHouse.Ladon.Domain.Constants.Rules;
 
 namespace SMEAppHouse.Ladon.Web.Pages
 {
-    public class IndexModel(ILogger<IndexModel> logger, ApplicationSettings applicationSettings,
+    public class IndexPageModel(ILogger<IndexPageModel> logger, ApplicationSettings applicationSettings,
                             IQuestionAnswerService questionAnswerService,
                             IArticleService articleService,
                             IClientTestimonialsService clientTestimonialsService,
                             IFeatureProjectService featureProjectService)
         : BasePageModel(applicationSettings)
     {
+        private readonly ILogger<IndexPageModel> _logger = logger;
         private readonly IArticleService _articleService = articleService;
         private readonly IQuestionAnswerService _questionAnswerService = questionAnswerService;
         private readonly IClientTestimonialsService _clientTestimonialsService = clientTestimonialsService;
         private readonly IFeatureProjectService _featureProjectService = featureProjectService;
 
         public IEnumerable<QuestionAnswerModel> RandomQuestionAnswers { get; set; }
+        public FactPoints FactPoints => applicationSettings.FactPoints;
 
         public void OnGet()
         {
@@ -55,7 +56,7 @@ namespace SMEAppHouse.Ladon.Web.Pages
 
         public async Task<IActionResult> OnGetFeatureProjectsAsync()
         {
-            var featurePrjs = await _featureProjectService.GetFeatureProjectsAsync(modelFilter: p => !(p.HideTitle ?? false) && (p.IsActive ?? false));
+            var featurePrjs = await _featureProjectService.GetFeatureProjectsAsync(modelFilter: p => (p.IsActive ?? false));
 
             return Partial("~/Pages/Home/PartialViews/_Projects.cshtml", featurePrjs);
         }

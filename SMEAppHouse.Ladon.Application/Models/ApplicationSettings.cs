@@ -17,4 +17,6 @@ public class ApplicationSettings
 
     [JsonPropertyName("SiteSectionOptions")]
     public required Dictionary<SiteSectionsEnum, bool> SiteSectionOptions { get; set; }
+
+    public required FactPoints FactPoints { get; set; }
 }

@@ -6,7 +6,6 @@ public class FeatureProject : GuidKeyedEntity
 {
     public required string Title { get; set; }
     public required string Slug { get; set; }
-    public bool? HideTitle { get; set; }
     public string? Description { get; set; }
     public DateTime? CompletionDate { get; set; }
     public required string ImageCDNUrl { get; set; }

@@ -15,10 +15,7 @@
         }
         <img src="@fPrj.ImageCDNUrl">
         <div class="item-desc">
-            @if (!(fPrj.HideTitle ?? false))
-            {
-                <a href="/projects/@fPrj.Slug"><h3>@fPrj.Title</h3></a>
-            }
+            <a href="/projects/@fPrj.Slug"><h3>@fPrj.Title</h3></a>
             <p>
                 @fPrj.Description
             </p>

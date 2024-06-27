@@ -14,7 +14,6 @@ public class FeatureProjectConfiguration(string schema = "dbo")
     {
         entityBuilder.DefineDbField(x => x.Title, true, FieldLengths.General.ExtraLong, null, "nvarchar");
         entityBuilder.DefineDbField(x => x.Slug, true, FieldLengths.General.ExtraLong, null, "nvarchar");
-        entityBuilder.DefineDbField(x => x.HideTitle, false);
         entityBuilder.DefineDbField(x => x.Description, false, FieldLengths.General.SuperLong, null, "nvarchar");
         entityBuilder.DefineDbField(x => x.ImageCDNUrl, true, FieldLengths.General.URL, null, "nvarchar");
         entityBuilder.DefineDbField(x => x.Location, false, FieldLengths.General.ExtraLong, null, "nvarchar");

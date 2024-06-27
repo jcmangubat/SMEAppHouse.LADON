@@ -9,5 +9,4 @@ public interface IQuoteRequestService
     Task<IEnumerable<QuoteRequestModel>> GetQuoteRequestsAsync();
     Task<MessageModel?> GetMessageFromQuoteRequestAsync(Guid id);
     Task<QuoteRequestModel> AddQuoteRequestAsync(QuoteRequestModel message);
-
 }

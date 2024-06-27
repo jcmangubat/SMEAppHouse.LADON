@@ -207,6 +207,7 @@ public class Startup(IConfiguration configuration)
             resolver.GetRequiredService<IOptions<ApplicationSettings>>().Value);
 
         // Application Services
+        services.AddScoped<IFactPointsService, FactPointsService>();
         services.AddTransient<IMarkdownService, MarkdownService>();
         services.AddScoped<IAuthMembershipService, AuthMembershipService>();
         services.AddSingleton<IHangfireJobChecker, HangfireJobChecker>();

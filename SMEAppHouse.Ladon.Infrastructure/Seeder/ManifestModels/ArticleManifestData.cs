@@ -9,8 +9,11 @@ public class ArticleManifestData
     {
         var articles = new List<Article>();
         var outputDirectory = AppContext.BaseDirectory;
-        var articlesFolder = Path.Combine(outputDirectory, "Seeder", "Data", "Articles");
-        var articleManifestFiles = Directory.GetFiles(articlesFolder, "*.xml");
+
+        var manifestsFolder = Path.Combine(outputDirectory, "Seeder", "Data", "ArticleManifests");
+        var articleManifestFiles = Directory.GetFiles(manifestsFolder, "*.xml");        
+        
+        var articlesFolder = Path.Combine(outputDirectory, "Resources", "Documents", "Articles");
         var articleContentFiles = Directory.GetFiles(articlesFolder, "*.md");
 
         foreach (var articleManifestFile in articleManifestFiles)
@@ -20,7 +23,7 @@ public class ArticleManifestData
                 continue;
 
             var serializer = new XmlSerializer(typeof(Article));
-            var manifestFile = Path.Combine(articlesFolder, articleManifestFile);
+            var manifestFile = Path.Combine(manifestsFolder, articleManifestFile);
             var xmlContent = File.ReadAllText(manifestFile);
             using StringReader reader = new(xmlContent);
             var article = (Article)serializer.Deserialize(reader);

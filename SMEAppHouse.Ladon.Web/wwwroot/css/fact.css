@@ -4,7 +4,6 @@
 .fact {
     position: relative;
     width: 100%;
-    /*padding: 45px 0;*/
 }
 
     .fact .col-6 {
@@ -54,7 +53,7 @@
     }
 
     .fact .fact-left {
-        color: #fdbe33;
+        color: #2b210b;
         background: #ffffff;
     }
 
@@ -64,5 +63,5 @@
     }
 
     .fact .fact-left h2 {
-        color: #fdbe33;
+        color: #2e230b;
     }

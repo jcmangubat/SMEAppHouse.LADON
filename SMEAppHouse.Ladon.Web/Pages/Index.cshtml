@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model IndexPageModel
 @{
     ViewData["Title"] = "Ladon Construction Services - Home Page";
     ViewData["Keywords"] = "Philippines Mindanao Davao City Best Trusted Filipino Construction Company";
@@ -108,7 +108,8 @@
 @if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Facts && p.Value == true))
 {
     <section id="facts">
-        <partial name="~/pages/home/partialviews/_facts.cshtml" />
+        @* <partial name="~/pages/home/partialviews/_facts.cshtml" /> *@
+        <partial name="~/pages/home/partialviews/_facts.cshtml" model="Model.FactPoints" />
     </section>
 }
 

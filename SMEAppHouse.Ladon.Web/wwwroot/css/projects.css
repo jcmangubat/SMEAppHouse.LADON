@@ -104,6 +104,12 @@
         position: relative;
         z-index: 5;
     }
+
+    .feature-projects .owl-carousel .owl-stage-outer {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        mask-image: linear-gradient(to right, transparent, #ffffff 5%, #f9f9fa 95%, transparent);
+    }
+
 /******** Middle section CSS End *******/
 /***** responsive css Start ******/
 @media (min-width: 992px) and (max-width: 1199px) {

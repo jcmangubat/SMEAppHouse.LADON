@@ -381,6 +381,14 @@ public class Rules
         Small,
         Big, 
         Wide,
-        Tall            
+        Tall
+    }
+
+    public enum FactPointsEnum
+    {
+        ExpertWorkers,
+        HappyClients,
+        CompletedProjects,
+        RunningProjects
     }
 }

@@ -1,4 +1,7 @@
-﻿<div class="fact">
+﻿@using SMEAppHouse.Ladon.Application.Models
+@model FactPoints
+
+<div class="fact">
     <div class="container-fluid">
         <div class="row counters">
             <div class="col-md-6 fact-left wow slideInLeft">
@@ -8,7 +11,7 @@
                             <i class="flaticon-worker"></i>
                         </div>
                         <div class="fact-text">
-                            <h2 data-toggle="counter-up">44</h2>
+                            <h2 data-toggle="counter-up">@Model.ExpertWorkers</h2>
                             <p>Expert Workers</p>
                         </div>
                     </div>
@@ -17,7 +20,7 @@
                             <i class="flaticon-building"></i>
                         </div>
                         <div class="fact-text">
-                            <h2 data-toggle="counter-up">53</h2>
+                            <h2 data-toggle="counter-up">@Model.HappyClients</h2>
                             <p>Happy Clients</p>
                         </div>
                     </div>
@@ -39,7 +42,7 @@
                             <i class="flaticon-address"></i>
                         </div>
                         <div class="fact-text">
-                            <h2 data-toggle="counter-up">89</h2>
+                            <h2 data-toggle="counter-up">@Model.CompletedProjects</h2>
                             <p>Completed Projects</p>
                         </div>
                     </div>
@@ -48,7 +51,7 @@
                             <i class="flaticon-crane"></i>
                         </div>
                         <div class="fact-text">
-                            <h2 data-toggle="counter-up">13</h2>
+                            <h2 data-toggle="counter-up">@Model.RunningProjects</h2>
                             <p>Running Projects</p>
                         </div>
                     </div>
