@@ -1,0 +1,98 @@
+﻿<div class="contact wow fadeInUp">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Get In Touch</p>
+            <h2>For Any Inquiries or Messages</h2>
+        </div>
+        <div class="row">
+            <div class="contact-text" style="margin-bottom: 1em;">
+                <p>
+                    Yes, we said, send us an SMS or call us at <b>+63 0995 122 5449</b>. Whether you're seeking a quick quote, facing an urgent situation, or simply seeking a friendly conversation, our team is ready to assist you. Alternatively, if texting isn't your preference, you can email us or utilize the form below, or go old-school and give us a call using your trusty telephone, just like in the 80s.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="unselectable col-md-6">
+                <div class="contact-info">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7918.211105098905!2d125.50362131792824!3d7.113765328876814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f9134ed84342e1%3A0xb899b656f391fe74!2sLadon%20Construction%20Services!5e0!3m2!1sen!2sph!4v1714009663400!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <div class="col-md-12" style="">
+                        <div class="contact-address">
+                            <h2>Office Contact</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>&nbsp;Tierra Nueva Tacunan, Tugbok, Davao City, Davao del Sur, Philippines</p>
+                            <p><i class="fa fa-phone-alt"></i>&nbsp;+63 0995 122 5449</p>
+                            <p><i class="fa fa-envelope"></i>&nbsp;contactus@ladonco.ph</p>
+                            <div class="footer-social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <div class="control-group">
+                        <a href="#" style="text-decoration: underline;float: right;margin-bottom: 10px;">Make a quote request instead</a>
+                    </div>
+                    <form class="contact-message-form" id="contactForm">
+                        @Html.AntiForgeryToken()
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="name" name="Name" placeholder="Your Name" required maxlength="35" />
+                            <small id="name-validation" class="help-block vald-osci-text"></small>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="emailaddress" name="EmailAddress" placeholder="Your Email Address" required maxlength="254"/>
+                            <small id="emailaddress-validation" class="help-block vald-osci-text"></small>
+                        </div>
+                        <div class="control-group">
+                            <input class="form-control" id="mobilephoneno" name="MobilePhoneNo" placeholder="Your Phone Number (optional)" maxlength="20" />
+                            @* <p class="help-block vald-osci-text"></p> *@
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="subject" name="Subject" placeholder="Subject" required maxlength="200" />
+                            <small id="subject-validation" class="help-block vald-osci-text"></small>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control" id="content" name="Content" placeholder="Your message" required maxlength="1600"></textarea>
+                            <small id="content-validation" class="help-block vald-osci-text"></small>
+                        </div>
+                        <div class="control-group" style="padding-top: 20px;">
+                            <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal HTML -->
+    <div id="messageOK" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="icon-box">
+                        <i class="material-icons">&#xE876;</i>
+                    </div>
+                    <h4 class="modal-title w-100">Awesome!</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">
+                        Thank you for reaching out to us! We will review your message and get back to you as soon as possible. Please check your email for further details later on.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<style>    
+    .trigger-btn {
+        display: inline-block;
+        margin: 100px auto;
+    }
+</style>

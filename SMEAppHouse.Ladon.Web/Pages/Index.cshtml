@@ -1,0 +1,422 @@
+﻿@page
+@model IndexPageModel
+@{
+    ViewData["Title"] = "Ladon Construction Services - Home Page";
+    ViewData["Keywords"] = "Philippines Mindanao Davao City Best Trusted Filipino Construction Company";
+    ViewData["Description"] = "LADON Construction Service Official Website 2024";
+}
+
+@section CritialPreLoads {
+    <environment include="Development">
+        <link rel="preload" href="~/css/carousel.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/feature.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/welcome.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/about.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/fact.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/service.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/video.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/team.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/faq.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/testimonial.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/blog.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/contact.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/site.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/projects.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/js/site.js" as="script" />
+    </environment>
+
+    <environment exclude="Development">
+        <link rel="preload" href="~/css/dist/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/js/dist/styles.min.js" as="script" />
+    </environment>
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha512-EIeyz8jygFLurz4RBJgtb2xBcR7uGWs6Gr6qygPowG13vYlYIaln5FyH+DN+da3jwPtb3Dq+pLA9yTR+uB3FYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <environment include="Development">
+        <noscript>
+            <link rel="stylesheet" href="~/css/about.css" />
+            <link rel="stylesheet" href="~/css/blog.css" />
+            <link rel="stylesheet" href="~/css/carousel.css" />
+            <link rel="stylesheet" href="~/css/contact.css" />
+            <link rel="stylesheet" href="~/css/fact.css" />
+            <link rel="stylesheet" href="~/css/faq.css" />
+            <link rel="stylesheet" href="~/css/feature.css" />
+            <link rel="stylesheet" href="~/css/projects.css" />
+            <link rel="stylesheet" href="~/css/service.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+            <link rel="stylesheet" href="~/css/team.css" />
+            <link rel="stylesheet" href="~/css/testimonial.css" />
+            <link rel="stylesheet" href="~/css/video.css" />
+            <link rel="stylesheet" href="~/css/welcome.css" />
+            <link rel="stylesheet" href="~/css/projects.css    />
+    </noscript>
+</environment>
+
+<environment exclude="Development">
+        <noscript>
+            <link rel="stylesheet" href="~/css/dist/styles.min.css" />
+        </noscript>
+    </environment>
+}
+
+<!-- Carousel -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Carousel && p.Value == true))
+{
+    <section id="carousel">
+        <partial name="~/pages/home/partialviews/_ServiceCarousel.cshtml" />
+    </section>
+}
+
+<!-- Feature -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Feature && p.Value == true))
+{
+    <section id="features">
+        <partial name="~/pages/home/partialviews/_features.cshtml" />
+    </section>
+}
+
+<!-- Welcome -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Welcome && p.Value == true))
+{
+    <section id="welcome">
+        <partial name="~/pages/home/partialviews/_welcome.cshtml" />
+    </section>
+}
+
+<!-- About Us -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.AboutUs && p.Value == true))
+{
+    <section id="about-us">
+        <partial name="~/pages/home/partialviews/_aboutus.cshtml" />
+    </section>
+}
+
+<!-- Teams -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Teams && p.Value == true))
+{
+    <section id="our-teams">
+        <partial name="~/pages/home/partialviews/_ourteam.cshtml" />
+    </section>
+}
+
+<!-- Facts -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Facts && p.Value == true))
+{
+    <section id="facts">
+        @* <partial name="~/pages/home/partialviews/_facts.cshtml" /> *@
+        <partial name="~/pages/home/partialviews/_facts.cshtml" model="Model.FactPoints" />
+    </section>
+}
+
+<!-- Company Video -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.CompanyVideo && p.Value == true))
+{
+    <section id="company-video">
+        <partial name="~/pages/home/partialviews/_companyvideo.cshtml" />
+    </section>
+}
+
+<!-- Our Services -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurServices && p.Value == true))
+{
+    <section id="our-services">
+        @* <partial name="~/pages/home/partialviews/_services.cshtml" /> *@
+
+        <div class="service">
+            <div class="container" style="max-width:100%;">
+                <div class="section-header text-center">
+                    <p>Our Services</p>
+                    <h2>We're Here to Help You!</h2>
+                    <h2>Count on Us for your...</h2>
+                </div>
+                <div class="services-container">
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+
+<!-- Our Portfolios of Projects -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.OurPortfoliosProjects && p.Value == true))
+{
+    <section id="projects">
+        @* <partial name="~/pages/home/partialviews/_projects.cshtml" /> *@
+
+        <div class="projects">
+            <div class="container" style="max-width:100%;">
+                <div class="section-header text-center">
+                    <p>Project Portfolios</p>
+                    <h2>Showcase of some of our projects</h2>
+                    <h2>we are proud of...</h2>
+                </div>
+                <div class="feature-projects">
+                    <div class="owl-carousel projects-carousel owl-theme">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<!-- Testimonials-->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Testimonials && p.Value == true))
+{
+    <section id="testimonials">
+        @* <partial name="~/pages/home/partialviews/_testimonials.cshtml" /> *@
+
+        <div class="testimonial wow fadeIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Client Testimonials &amp Reviews</p>
+                    <h2>Our Proof is in the Praises</h2>
+                </div><div class="row">
+                    <div class="col-12">
+                        <div class="testimonial-slider" id="client-testimonials">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+}
+
+<!-- Contact Us -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.ContactUs && p.Value == true))
+{
+    <section id="contact-us">
+        <partial name="~/pages/home/partialviews/_contactus.cshtml" />
+    </section>
+}
+
+
+<!-- Blogs -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.Articles && p.Value == true))
+{
+    <section id="blogs">
+        <div class="blog wow fadeIn">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Latest Blog Articles</p>
+                    <h2>Check Out Our Latest Blog Updates</h2>
+                </div>
+                <div class="owl-carousel owl-theme" id="blog-articles">
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+<!-- FAQs -->
+@if (Model.ApplicationSettings.SiteSectionOptions.Any(p => p.Key == Domain.Constants.Rules.SiteSectionsEnum.FAQs && p.Value == true))
+{
+    <section id="faqs">
+        <div class="faqs">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Frequently Asked Question</p>
+                    <h2>You May Ask</h2>
+                </div>
+                <div class="row" id="QAs">
+                    Loading...
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.5/isotope.pkgd.min.js" integrity="sha512-pTyLt2tKREvSiNYM21FRWRQtjOt/hZNYI+BRQx9yDObvcIydJ+3Ds/DxAKT/vK7D7ekSFfpubYh7ckity28MKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha512-nUUXyEC/xe6BRSl6eTPMaXErp5wdoftIGgrCBRd51MmwMn9PnN+X2usTJb7sGphsXtKT335xWAbccalopgcjNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="//code.tidio.co/ilyllpftycsrzawxqfzghkbscmkzkt4v.js" async></script>
+
+    <script>
+
+        $.when(
+            $.ready
+        ).done(function (data) { // Document is ready.
+
+            "use strict";
+
+            function loadFeatureProjects(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "FeatureProjects")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('.feature-projects .owl-carousel').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading offered service items:', error);
+                    }
+                });
+            }
+            loadFeatureProjects(function () {
+
+                $(".projects-carousel").owlCarousel({
+                    autoWidth: true,
+                    loop: true,
+                    autoplay: true
+                });
+
+                $(".projects-carousel .item").on('click', function () {
+                    $(".projects-carousel .item").not($(this)).removeClass("active");
+                    $(this).toggleClass("active");
+                });
+            });
+
+            function loadOfferedServicesAnswers(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "OfferedServices")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('.services-container').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading offered service items:', error);
+                    }
+                });
+            }
+            loadOfferedServicesAnswers(function () {
+                $('.service-item').each(function () {
+
+                    var $pElement = $(this).find('.srvc-desc p');
+                    var $srvcDesc = $(this).find('.srvc-desc');
+
+                    var pHeight = $pElement.outerHeight();
+                    var containerHeight = $srvcDesc.outerHeight();
+                    var translateYValue = pHeight - 10;
+                    $pElement.data('translateY', translateYValue);
+
+                    $(this).on('mouseenter', function () {
+                        var translateYValue = $pElement.data('translateY');
+                        $pElement.css({
+                            'transform': `translateY(-${translateYValue}px)`
+                        });
+                    }).on('mouseleave', function () {
+                        $pElement.css({
+                            'transform': 'translateY(0)'
+                        });
+                    });
+                });
+            });
+
+
+            function loadRandomQuestionAnswers(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "RandomQuestionAnswers")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('#QAs').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading FAQ items:', error);
+                    }
+                });
+            }
+            loadRandomQuestionAnswers();
+
+
+            function loadLatestBlogArticles(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "LatestBlogArticles")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('#blog-articles').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading latest blog articles:', error);
+                    }
+                });
+            }
+            loadLatestBlogArticles(function () {
+
+                // Blogs carousel
+                var blogsCarousel = $(".owl-carousel");
+                blogsCarousel.owlCarousel({
+                    autoplay: true,
+                    dots: false,
+                    loop: true,
+                    nav: true,
+                    navText: [
+                        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+                    ],
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        576: {
+                            items: 2
+                        },
+                        768: {
+                            items: 3
+                        }
+                    }
+                });
+                blogsCarousel.on('changed.owl.carousel', function (event) {
+                    if ($('.owl-nav').find('a.btn.blog-more.left-float').length === 0) {
+                        // If it doesn't exist, add it
+                        $('.owl-nav').prepend('<a class="btn blog-more left-float" href="/articles" target="_blank">View More...</a>');
+                    }
+                });
+            });
+
+            function loadClientTestimonials(callback) {
+                $.ajax({
+                    url: '@Url.Page("Index", "ClientTestimonials")',
+                    method: 'GET',
+                    success: function (data) {
+                        $('#client-testimonials').html(data);
+                        if (callback)
+                            callback();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading client testimonials:', error);
+                    }
+                });
+            }
+            loadClientTestimonials(() => {
+                $('.testimonial-slider').slick({
+                    infinite: true,
+                    autoplay: true,
+                    arrows: false,
+                    dots: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                });
+                $('.testimonial .slider-nav').css({ "position": "relative", "height": "170px" });
+            });
+        });
+
+    </script>
+
+    <!-- Application Javascript -->
+    <environment include="Development">
+        <script src="~/js/site.js"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <script src="~/js/dist/site.min.js"></script>
+    </environment>
+}

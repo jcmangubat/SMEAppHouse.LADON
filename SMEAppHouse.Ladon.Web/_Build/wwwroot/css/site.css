@@ -1,0 +1,54 @@
+﻿/* General styles */
+section {
+    /*margin-top: -50px;*/
+}
+
+/* Tidio Chat box styles */
+#tidio-chat {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standard syntax */
+}
+
+#tidio-chat-iframe {
+    bottom: 50px !important;
+}
+
+@media only screen and (max-width: 980px) {
+    #tidio-chat-iframe {
+        bottom: 50px !important;
+    }
+}
+
+/* Search box styles */
+.search-box-inner {
+    position: relative;
+    display: inline-block;
+}
+
+    .search-box-inner input[type="search"] {
+        border-radius: 5px;
+        padding: 5px 25px 5px 5px;
+    }
+
+    .search-box-inner i.fa {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #ccc;
+    }
+
+    .search-box-inner:hover i.fa {
+        color: #fdbe33; /* Change color on hover */
+    }
+
+/* Login form & validation styles */
+@keyframes validation-error {
+    50% {
+        color: #ffffff;
+    }
+}
+
+

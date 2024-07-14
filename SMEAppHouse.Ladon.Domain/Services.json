@@ -1,0 +1,380 @@
+{
+  "Residential": [
+    {
+      "Code": "RES1",
+      "Description": "Custom home building"
+    },
+    {
+      "Code": "RES2",
+      "Description": "Duplex construction"
+    },
+    {
+      "Code": "RES3",
+      "Description": "Home additions"
+    },
+    {
+      "Code": "RES4",
+      "Description": "Luxury home construction"
+    },
+    {
+      "Code": "RES5",
+      "Description": "Multi-family housing developments"
+    },
+    {
+      "Code": "RES6",
+      "Description": "Renovations and remodeling for residential properties"
+    },
+    {
+      "Code": "RES7",
+      "Description": "Single-family home construction"
+    },
+    {
+      "Code": "RES8",
+      "Description": "Townhouse construction"
+    },
+    {
+      "Code": "RES9",
+      "Description": "Vacation home construction"
+    },
+    {
+      "Code": "RES10",
+      "Description": "Villa construction"
+    }
+  ],
+  "Commercial": [
+    {
+      "Code": "COM1",
+      "Description": "Bank construction"
+    },
+    {
+      "Code": "COM2",
+      "Description": "Commercial office renovations"
+    },
+    {
+      "Code": "COM3",
+      "Description": "Hotel and hospitality construction"
+    },
+    {
+      "Code": "COM4",
+      "Description": "Medical office building construction"
+    },
+    {
+      "Code": "COM5",
+      "Description": "Office building construction"
+    },
+    {
+      "Code": "COM6",
+      "Description": "Retail plaza construction"
+    },
+    {
+      "Code": "COM7",
+      "Description": "Retail store construction"
+    },
+    {
+      "Code": "COM8",
+      "Description": "Restaurant construction"
+    },
+    {
+      "Code": "COM9",
+      "Description": "Shopping mall construction"
+    },
+    {
+      "Code": "COM10",
+      "Description": "Warehouse store construction"
+    }
+  ],
+  "Industrial": [
+    {
+      "Code": "IND1",
+      "Description": "Cold storage facility construction"
+    },
+    {
+      "Code": "IND2",
+      "Description": "Distribution center construction"
+    },
+    {
+      "Code": "IND3",
+      "Description": "Factory expansions or renovations"
+    },
+    {
+      "Code": "IND4",
+      "Description": "Food processing plant construction"
+    },
+    {
+      "Code": "IND5",
+      "Description": "Industrial park development"
+    },
+    {
+      "Code": "IND6",
+      "Description": "Laboratory facility construction"
+    },
+    {
+      "Code": "IND7",
+      "Description": "Manufacturing facility construction"
+    },
+    {
+      "Code": "IND8",
+      "Description": "Oil refinery construction"
+    },
+    {
+      "Code": "IND9",
+      "Description": "Power plant construction"
+    },
+    {
+      "Code": "IND10",
+      "Description": "Warehouse and distribution center construction"
+    }
+  ],
+  "Institutional": [
+    {
+      "Code": "INS1",
+      "Description": "Community center construction"
+    },
+    {
+      "Code": "INS2",
+      "Description": "Court building construction"
+    },
+    {
+      "Code": "INS3",
+      "Description": "Government building construction"
+    },
+    {
+      "Code": "INS4",
+      "Description": "Healthcare clinic construction"
+    },
+    {
+      "Code": "INS5",
+      "Description": "Hospital and healthcare facility construction"
+    },
+    {
+      "Code": "INS6",
+      "Description": "Library construction"
+    },
+    {
+      "Code": "INS7",
+      "Description": "Museum construction"
+    },
+    {
+      "Code": "INS8",
+      "Description": "Religious institution construction (e.g., churches, mosques)"
+    },
+    {
+      "Code": "INS9",
+      "Description": "School and educational facility construction"
+    },
+    {
+      "Code": "INS10",
+      "Description": "University building construction"
+    }
+  ],
+  "Infrastructure": [
+    {
+      "Code": "INF1",
+      "Description": "Airport infrastructure projects"
+    },
+    {
+      "Code": "INF2",
+      "Description": "Bridge construction"
+    },
+    {
+      "Code": "INF3",
+      "Description": "Dam construction"
+    },
+    {
+      "Code": "INF4",
+      "Description": "Highway construction"
+    },
+    {
+      "Code": "INF5",
+      "Description": "Public transit infrastructure projects"
+    },
+    {
+      "Code": "INF6",
+      "Description": "Railway construction"
+    },
+    {
+      "Code": "INF7",
+      "Description": "Road and highway construction"
+    },
+    {
+      "Code": "INF8",
+      "Description": "Sewer system construction"
+    },
+    {
+      "Code": "INF9",
+      "Description": "Tunnel construction"
+    },
+    {
+      "Code": "INF10",
+      "Description": "Water and wastewater treatment facilities"
+    }
+  ],
+  "Recreational": [
+    {
+      "Code": "REC1",
+      "Description": "Aquarium construction"
+    },
+    {
+      "Code": "REC2",
+      "Description": "Amusement park construction"
+    },
+    {
+      "Code": "REC3",
+      "Description": "Community park development"
+    },
+    {
+      "Code": "REC4",
+      "Description": "Entertainment venue construction (e.g., theaters, amusement parks)"
+    },
+    {
+      "Code": "REC5",
+      "Description": "Golf course construction"
+    },
+    {
+      "Code": "REC6",
+      "Description": "Gym and fitness center construction"
+    },
+    {
+      "Code": "REC7",
+      "Description": "Public pool construction"
+    },
+    {
+      "Code": "REC8",
+      "Description": "Recreational center construction"
+    },
+    {
+      "Code": "REC9",
+      "Description": "Sports facility construction (e.g., stadiums, arenas)"
+    },
+    {
+      "Code": "REC10",
+      "Description": "Zoo construction"
+    }
+  ],
+  "Specialized": [
+    {
+      "Code": "SPE1",
+      "Description": "Biotech lab construction"
+    },
+    {
+      "Code": "SPE2",
+      "Description": "Data center construction"
+    },
+    {
+      "Code": "SPE3",
+      "Description": "Exhibition hall construction"
+    },
+    {
+      "Code": "SPE4",
+      "Description": "Historical building restoration"
+    },
+    {
+      "Code": "SPE5",
+      "Description": "Military base construction"
+    },
+    {
+      "Code": "SPE6",
+      "Description": "Nuclear facility construction"
+    },
+    {
+      "Code": "SPE7",
+      "Description": "Renewable energy infrastructure projects (e.g., solar farms, wind farms)"
+    },
+    {
+      "Code": "SPE8",
+      "Description": "Space facility construction"
+    },
+    {
+      "Code": "SPE9",
+      "Description": "Telecommunications infrastructure projects"
+    },
+    {
+      "Code": "SPE10",
+      "Description": "Underground bunker construction"
+    }
+  ],
+  "MixedUseDevelopments": [
+    {
+      "Code": "MIX1",
+      "Description": "Commercial and residential towers"
+    },
+    {
+      "Code": "MIX2",
+      "Description": "Integrated retail and residential complexes"
+    },
+    {
+      "Code": "MIX3",
+      "Description": "Mixed-use residential and commercial developments"
+    },
+    {
+      "Code": "MIX4",
+      "Description": "Multi-use redevelopment projects"
+    },
+    {
+      "Code": "MIX5",
+      "Description": "Residential and office developments"
+    },
+    {
+      "Code": "MIX6",
+      "Description": "Retail and entertainment complexes"
+    },
+    {
+      "Code": "MIX7",
+      "Description": "Smart city projects"
+    },
+    {
+      "Code": "MIX8",
+      "Description": "Transit-oriented developments"
+    },
+    {
+      "Code": "MIX9",
+      "Description": "Urban redevelopment projects combining residential, commercial, and recreational spaces"
+    },
+    {
+      "Code": "MIX10",
+      "Description": "Waterfront mixed-use developments"
+    }
+  ],
+  "Others": [
+    {
+      "Code": "OTH1",
+      "Description": "Agricultural construction projects (e.g., barns, agricultural processing facilities)"
+    },
+    {
+      "Code": "OTH2",
+      "Description": "Animal shelter construction"
+    },
+    {
+      "Code": "OTH3",
+      "Description": "Disaster relief construction projects"
+    },
+    {
+      "Code": "OTH4",
+      "Description": "Environmentally sustainable construction projects"
+    },
+    {
+      "Code": "OTH5",
+      "Description": "Modular construction projects"
+    },
+    {
+      "Code": "OTH6",
+      "Description": "Remote area construction projects"
+    },
+    {
+      "Code": "OTH7",
+      "Description": "Resort construction"
+    },
+    {
+      "Code": "OTH8",
+      "Description": "Specialized healthcare facility construction"
+    },
+    {
+      "Code": "OTH9",
+      "Description": "Temporary event structure construction"
+    },
+    {
+      "Code": "OTH10",
+      "Description": "Wildlife sanctuary construction"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email with Custom Font</title>
+    <style>
+        @font-face {
+            font-family: 'Timmana';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Timmana'), url(https://fonts.gstatic.com/s/timmana/v3/6xKvdShfL9yK-rvpOmzRKV4KQOI.woff2) format('woff2');
+        }
+
+        body {
+            font-family: 'Timmana', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .content-parag {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Site Visitor Message</h1>
+    <p class="content-parag">[content]</p><br />
+
+    <p><b>[sender-name]</b></p>
+    <p><b>[sender-phone]</b></p>
+</body>
+</html>

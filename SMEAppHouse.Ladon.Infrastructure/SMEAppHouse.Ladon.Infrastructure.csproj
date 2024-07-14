@@ -1,0 +1,154 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\ArticleGeneratorService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Seeder\Data\featureProjectsSeed.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Seeder\Data\featureProjectsSeed.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
+    <PackageReference Include="Imagekit" Version="4.0.2" />
+    <PackageReference Include="MailKit" Version="4.7.0" />
+    <PackageReference Include="Markdig" Version="0.37.0" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SMEAppHouse\CodeLibraries\SMEAppHouse.Core.Patterns.EF\SMEAppHouse.Core.Patterns.EF.csproj" />
+    <ProjectReference Include="..\..\..\..\SMEAppHouse\CodeLibraries\SMEAppHouse.Core.Patterns.Repo\SMEAppHouse.Core.Patterns.Repo.csproj" />
+    <ProjectReference Include="..\SMEAppHouse.Ladon.Application\SMEAppHouse.Ladon.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Identity\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Documents\ServiceProcedures\architectural-design-and-planning.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\commercial-construction.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\electrical-systems-installation-and-maintenance.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\exterior-and-interior-landscaping.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\flooring-installation-and-restoration.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\hvac-installation-and-maintenance.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\interior-fit-out-works.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\new-construction.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\painting.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\plumbing-and-piping-services.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\renovation-and-remodeling.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\residential-construction - Copy.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\residential-construction.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\restoration-renovation-and-preservation-works.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\roofing-and-waterproofing.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\structural-engineering-and-planning.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\ServiceProcedures\telecommunications-infrastructure-.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\build-your-dreams-with-ladon-construction-services.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\build-your-dreams-with-ladon-construction-services.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\certified-vs-self-claimed-experienced-builders-why-certification-matters.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\certified-vs-self-claimed-experienced-builders-why-certification-matters.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\innovative-materials-in-construction-from-recycled-concrete-to-bamboo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\lcs-Secures-Major-Contract.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\lcs-New-Industry-Leader.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\lcs-Small-Residence-Projects-Sustainability.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\lcs-Small-Residence-Projects-Sustainability.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\lcs-expands-focus-small-house-projects.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\lcs-expands-focus-small-house-projects.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\lcs--wins-public-bid-for-northpoint-camella-fit-out-in-davao-city.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\lcs-sustainable-solutions.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Seeder\Data\ArticleManifests\lcs-Secures-Major-Contract.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\lcs-New-Industry-Leader.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Documents\Articles\lcs-sustainable-solutions.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

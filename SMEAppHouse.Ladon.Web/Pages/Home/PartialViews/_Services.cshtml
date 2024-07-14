@@ -1,0 +1,28 @@
+﻿@using SMEAppHouse.Ladon.Application.Models
+@model IEnumerable<ServiceItem>
+@{
+    var offeredServices = Model.ToArray();
+}
+
+@foreach (var oSrvc in offeredServices)
+{
+    if (!oSrvc.Show)
+        continue;
+
+    var presenterClass = (oSrvc.PresenterClass.HasValue 
+                                    ? oSrvc.PresenterClass.Value.ToString().ToLower() 
+                                    : string.Empty);
+
+    <div class="@($"service-item {presenterClass}".Trim())">
+        <div class="srvc-desc">
+            <p>@Html.Raw($"{oSrvc.Description} <br/><br/> Please click on the button below to see the details of our procedures.")</p>
+        </div>
+        <img src="@oSrvc.ImageCDNUrl" alt="">
+        <div class="service-text">
+            <h3>@oSrvc.Name</h3>
+            <a class="btn" href="img/service-4.jpg" data-lightbox="service" data-toggle="tooltip" title="Click to see our procedures">
+                <i class="fa-solid fa-eye"></i>
+            </a>
+        </div>
+    </div>
+}

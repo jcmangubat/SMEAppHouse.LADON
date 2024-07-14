@@ -1,0 +1,105 @@
+﻿/*******************************/
+/*********** Team CSS **********/
+/*******************************/
+.team {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+    background: linear-gradient(rgb(3 15 39 / 70%), rgb(137 141 149 / 90%)), url(https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/06workers_web.jpg?updatedAt=1718374885453);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .team .team-item {
+        position: relative;
+        margin-bottom: 30px;
+        overflow: hidden;
+    }
+
+    .team .team-img {
+        position: relative;
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Standard syntax */
+    }
+
+        .team .team-img img {
+            width: 100%;
+        }
+
+    .team .team-text {
+        position: relative;
+        padding: 25px 15px;
+        text-align: center;
+        background: #000000;
+        transition: .5s;
+    }
+
+        .team .team-text h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fdbe33;
+            transition: .5s;
+        }
+
+        .team .team-text p {
+            margin: 0;
+            color: #ffffff;
+        }
+
+    .team .team-item:hover .team-text {
+        background: #fdbe33;
+    }
+
+        .team .team-item:hover .team-text h2 {
+            color: #030f27;
+            letter-spacing: 1px;
+        }
+
+    .team .team-social {
+        position: absolute;
+        width: 100px;
+        top: 0;
+        left: -50px;
+        display: flex;
+        flex-direction: column;
+        font-size: 0;
+    }
+
+        .team .team-social a {
+            position: relative;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+    .team .team-item:hover .team-social a:first-child {
+        background: #00acee;
+        left: 50px;
+        transition: .3s 0s;
+    }
+
+    .team .team-item:hover .team-social a:nth-child(2) {
+        background: #3b5998;
+        left: 50px;
+        transition: .3s .1s;
+    }
+
+    .team .team-item:hover .team-social a:nth-child(3) {
+        background: #0e76a8;
+        left: 50px;
+        transition: .3s .2s;
+    }
+
+    .team .team-item:hover .team-social a:nth-child(4) {
+        background: #3f729b;
+        left: 50px;
+        transition: .3s .3s;
+    }

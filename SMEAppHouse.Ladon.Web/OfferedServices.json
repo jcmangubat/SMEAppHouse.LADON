@@ -1,0 +1,104 @@
+[
+  {
+    "description": "Involves the construction of homes, apartments, and other residential structures. It includes everything from laying the foundation to framing, roofing, and finishing work such as painting and flooring.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975745/ladon_srvc_02_gvhaep.jpg",
+    "name": "Residential Construction",
+    "show": true
+  },
+  {
+    "description": "Commercial construction involves building structures intended for commercial purposes, such as offices, retail stores, restaurants, and warehouses. It requires expertise in designing and constructing spaces that meet the specific needs of businesses and adhere to commercial building codes.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975750/ladon_srvc_07_bn4wjq.jpg",
+    "name": "Commercial Construction",
+    "class": "wide",
+    "show": true
+  },
+  {
+    "description": "New construction refers to building projects from the ground up, whether residential or commercial. It encompasses all aspects of construction, including planning, design, permitting, and construction activities.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975747/ladon_srvc_04_qvyfc0.jpg",
+    "name": "New Construction",
+    "class": "tall",
+    "show": true
+  },
+  {
+    "description": "Involves making improvements to existing structures. This can include updating outdated features, modifying layouts, or adding new amenities to enhance functionality and aesthetics.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975776/2024_LCS_ladon_52_ej5z9n.jpg",
+    "name": "Renovation and Remodeling",
+    "class": "tall",
+    "show": true
+  },
+  {
+    "description": "Interior fit-out works involve customizing the interior spaces of buildings to meet the specific needs and preferences of occupants. This includes installing partitions, fixtures, fittings, cabinetry, and other interior elements.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975774/2024_LCS_ladon_48_vdk6qq.jpg",
+    "name": "Interior Fit-out Works",
+    "class": "big",
+    "show": true
+  },
+  {
+    "description": "Exterior landscaping focuses on the design and installation of outdoor spaces, including gardens, lawns, trees, shrubs, and hardscape features such as patios, walkways, and retaining walls.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975755/ladon_srvc_12_tkepxp.jpg",
+    "name": "Exterior & Interior Landscaping",
+    "show": true
+  },
+  {
+    "description": "This encompasses the restoration, renovation, and preservation of historical or heritage buildings. It involves specialized techniques to maintain or restore the original architectural elements and historical significance of the structure.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975756/ladon_srvc_13_eyrzgb.jpg",
+    "name": "Restoration, Renovation and Preservation Works",
+    "class": "tall",
+    "show": true
+  },
+  {
+    "description": "Structural engineering involves the analysis, design, and construction of structural elements to ensure the stability and safety of buildings and infrastructure. Structural engineers design load-bearing components such as beams, columns, and foundations.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975768/ladon_srvc_22_rx1ljy.jpg",
+    "name": "Structural Engineering & Planning",
+    "show": true
+  },
+  {
+    "description": "Architectural design and planning involve creating designs and plans for buildings and structures. Architects work closely with clients to understand their needs and preferences and develop architectural drawings and specifications.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975749/ladon_srvc_06_rljusp.jpg",
+    "name": "Architectural Design and Planning",
+    "show": true
+  },
+  {
+    "description": "HVAC installation involves the design, installation, and maintenance of heating, ventilation, and air conditioning systems. This includes equipment such as furnaces, boilers, air conditioners, ductwork, and ventilation systems.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975766/ladon_srvc_21_a75c4u.jpg",
+    "name": "HVAC Installation and Maintenance",
+    "show": true
+  },
+  {
+    "description": "Plumbing and piping services involve the installation, repair, and maintenance of plumbing systems and piping networks. This includes water supply, drainage, and sewage systems in residential, commercial, and industrial buildings.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975753/ladon_srvc_10_zoemiz.jpg",
+    "name": "Plumbing and Piping Services",
+    "show": true
+  },
+  {
+    "description": "This involves the installation, repair, and maintenance of electrical systems and components. This includes wiring, lighting, switches, outlets, circuit breakers, and electrical panels.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975751/ladon_srvc_09_la1ldi.jpg",
+    "name": "Electrical Systems Installation and Maintenance",
+    "show": true
+  },
+  {
+    "description": "Flooring installation and restoration encompass the installation of various types of flooring materials such as hardwood, tile, carpet, and laminate. It also includes refinishing and restoring existing floors to their original condition.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975761/ladon_srvc_16_cjy9sb.jpg",
+    "name": "Flooring Installation and Restoration",
+    "show": true
+  },
+  {
+    "description": "Painting services involve applying paint or other finishes to interior and exterior surfaces of buildings and structures. This includes walls, ceilings, trim, doors, and other architectural elements. Painting can enhance aesthetics, protect surfaces from wear and tear, and improve overall durability and longevity.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975762/ladon_srvc_17_dwz5ya.jpg",
+    "name": "Painting",
+    "show": true
+  },
+  {
+    "description": "Roofing and waterproofing involve the installation and maintenance of roof systems to protect buildings from water damage. This includes roof installation, repair, and maintenance, as well as waterproofing measures to prevent leaks and moisture intrusion.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975763/ladon_srvc_19_yvhyfb.jpg",
+    "name": "Roofing and Waterproofing",
+    "show": true
+  },
+  {
+    "description": "This involves the installation of telecommunications infrastructure, including private branch exchange (PBX) systems. It includes setting up internal phone networks, extensions, and other telecommunications equipment within a business or organization.",
+    "imageCDNUrl": "https://res.cloudinary.com/dkgz8tnno/image/upload/v1713975765/ladon_srvc_20_klhr5w.jpg",
+    "name": "Telecommunications Infrastructure / Private Branch Exchange (PBX) Installation",
+    "class": "wide",
+    "show": true
+  }
+]

@@ -1,0 +1,58 @@
+﻿@page "/projects/{titleSlug}"
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@using SMEAppHouse.Core.CodeKits.Helpers
+@using SMEAppHouse.Ladon.Domain.Constants
+@using SMEAppHouse.Ladon.Web.Areas.Article.Pages
+@using Microsoft.AspNetCore.Http
+@model FeatureProjectPageModel
+@{
+    ViewData["Title"] = Model.FeatureProject.Title;
+    ViewData["Description"] = Model.FeatureProject.Description;
+}
+
+@section Styles {
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+
+    <environment include="Development">
+        <link href="~/css/featureproject.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/css/dist/featureproject.min.css" rel="stylesheet" />
+    </environment>
+}
+
+<div class="container">
+    <div class="main-body">
+        <div class="grid-wrapper">
+            @foreach (var item in (Model.FeatureProject.FeatureProjectImages ?? []).Select((value, index) => new { value, index }))
+            {
+                var fpImg = item.value;
+                var oStyle = string.Empty;
+                if (fpImg.Style.HasValue)
+                    oStyle = $"class={fpImg.Style.Value.ToString().ToLower()}";
+
+                <div @oStyle>
+                    <a href="@fpImg.ImageCDNUrl" data-lightbox="image-@item.index" data-title="@fpImg.ImageCaption">
+                        <img src="@fpImg.ImageCDNUrl" alt="img-@item.index-@fpImg.ImageCaption" />
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+    <environment include="Development">
+        <script src="~/js/featureproject.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/dist/featureproject.min.js"></script>
+    </environment>
+}

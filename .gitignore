@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Ignore user secrets
+secrets.json
+
+# Exclude environment variable files
+.env

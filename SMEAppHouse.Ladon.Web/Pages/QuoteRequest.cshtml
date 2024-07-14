@@ -1,0 +1,413 @@
+﻿@page
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Quote Request Page";
+}
+
+@model QuoteRequestPageModel
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fengyuanchen/viewerjs@v1.10.5/dist/viewer.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+
+    <link href="~/css/quoterequest.css" rel="stylesheet" />
+}
+
+<div class="container main-body">
+    @* <form asp-page-handler="SubmitQuoteRequest" method="post" style="max-width: 100%;" novalidate> *@
+    @* enctype="multipart/form-data"  *@
+    <form id="quoteRequestForm" method="post" action="/QuoteRequest?handler=SubmitQuoteRequest"             
+            style="max-width: 100%;" novalidate>
+        @Html.AntiForgeryToken()
+        <div class="card">
+            <div class="card-body" id="contactInformation">
+                <h3 class="card-title form-title" id="form-title">Contact Information</h3>
+                <div class="row mt-5 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.FirstName" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="First name" id="FirstName" asp-for="QuoteRequest.FirstName" />
+                        <span asp-validation-for="QuoteRequest.FirstName" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.LastName" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="Last name" id="LastName" asp-for="QuoteRequest.LastName" />
+                        <span asp-validation-for="QuoteRequest.LastName" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.CompanyName" class="font-weight-light"></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control mb-2" aria-label="Company name" id="CompanyName" asp-for="QuoteRequest.CompanyName" />
+                            <span asp-validation-for="QuoteRequest.CompanyName" class="text-danger fs-5"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.EmailAddress" class="font-weight-light"></label>
+                        <input type="email" class="form-control mb-2" aria-label="Email address" id="EmailAddress" asp-for="QuoteRequest.EmailAddress" />
+                        <span asp-validation-for="QuoteRequest.EmailAddress" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.PhoneNo" class="font-weight-light"></label>
+                        <input type="tel" class="form-control mb-2" aria-label="Phone number" id="PhoneNo" asp-for="QuoteRequest.PhoneNo" />
+                        <span asp-validation-for="QuoteRequest.PhoneNo" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+                <div class="form-input mt-3" style="margin:20px 0 20px;">
+                    <div class="form-row" style="padding:0">
+                        <div class="col">
+                            <label asp-for="QuoteRequest.ContactPreference" class="form-label font-weight-light"></label>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="viaEmail" value="0" name="QuoteRequest.ContactPreference" />
+                                <label class="form-check-label font-weight-light" for="viaEmail">
+                                    Via Email
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="viaPhone" value="1" name="QuoteRequest.ContactPreference" />
+                                <label class="form-check-label font-weight-light" for="viaPhone">
+                                    Via Phone
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="viaBoth" value="2" name="QuoteRequest.ContactPreference" />
+                                <label class="form-check-label font-weight-light" for="viaBoth">
+                                    Both
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <small id="ContactPreference-validation" class="help-block vald-osci-text text-danger"></small>
+                </div>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.Address" class="font-weight-light"></label>
+                        <div class="input-group mb-2">
+                            <textarea class="form-control" id="Address" asp-for="QuoteRequest.Address" rows="4" spellcheck="false" style="height: 106px;"></textarea>
+                            <span asp-validation-for="QuoteRequest.Address" class="text-danger fs-5"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.City" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="City" id="City" asp-for="QuoteRequest.City">
+                        <span asp-validation-for="QuoteRequest.City" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.StateOrRegion" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="StateOrRegion" id="StateOrRegion" asp-for="QuoteRequest.StateOrRegion">
+                        <span asp-validation-for="QuoteRequest.StateOrRegion" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.CountryCode" class="font-weight-light"></label>
+                        <div class="input-group mb-2">
+                            <select class="form-control form-control-sm custom-select mb-2" id="CountryCode" asp-for="QuoteRequest.CountryCode">
+                                <option value="">Select a country</option>
+                                <optgroup label="------------------------"></optgroup>
+                                @foreach (var country in Model.Countries)
+                                {
+                                    <option value="@country.Value">@country.Description</option>
+                                }
+                            </select>
+                        </div>
+                        <span asp-validation-for="QuoteRequest.CountryCode" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.ZipCode" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="ZipCode" id="ZipCode" asp-for="QuoteRequest.ZipCode">
+                        <span asp-validation-for="QuoteRequest.ZipCode" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body" id="projectDetails">
+                <h3 class="card-title form-title" id="form-title">Project Details</h3>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SiteProjectName" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="SiteProjectName" id="SiteProjectName" asp-for="QuoteRequest.SiteProjectName" />
+                        <span asp-validation-for="QuoteRequest.SiteProjectName" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.ServiceCategory" class="font-weight-light"></label>
+                        <select class="form-control form-control-sm custom-select mb-2" id="ServiceCategory" asp-for="QuoteRequest.ServiceCategory">
+                            <option value="">Select a category</option>
+                            <optgroup label="------------------------"></optgroup>
+                            @foreach (var serviceCategory in Model.ServiceCategories)
+                            {
+                                <option value="@serviceCategory.Value">@serviceCategory.Description</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.ServiceCode" class="font-weight-light"></label>
+                        <select class="form-control form-control-sm custom-select mb-2" id="ServiceCode" asp-for="QuoteRequest.ServiceCode">
+                            @* Options will be populated by JavaScript *@
+                        </select>
+                        <span asp-validation-for="QuoteRequest.ServiceCode" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col d-flex">
+                        <label asp-for="QuoteRequest.SiteAddress" class="font-weight-light"></label>
+                    </div>
+                    <div class="col" id="section-SiteAddressSameAsResidential">
+                        <div class="pull-right ml-auto" style="text-align: right;">
+                            <input class="form-check-input" data-val="true"
+                                   id="SiteAddressSameAsResidential" name="QuoteRequest.SiteAddressSameAsResidential" type="checkbox" value="true">
+                            <label class="" asp-for="QuoteRequest.SiteAddressSameAsResidential"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2 form-input">
+                    <div class="col">
+                        <textarea class="form-control" id="SiteAddress" asp-for="QuoteRequest.SiteAddress" rows="4" spellcheck="false" style="height: 106px;"></textarea>
+                        <small id="SiteAddress-validation" class="help-block vald-osci-text text-danger"></small>
+                    </div>
+                </div>
+
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SiteCity" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="SiteCity" id="SiteCity" asp-for="QuoteRequest.SiteCity">
+                        <span asp-validation-for="QuoteRequest.City" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SiteStateOrRegion" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="SiteStateOrRegion" id="SiteStateOrRegion" asp-for="QuoteRequest.SiteStateOrRegion">
+                        <span asp-validation-for="QuoteRequest.StateOrRegion" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SiteCountryCode" class="font-weight-light"></label>
+                        <div class="input-group mb-2">
+                            <select class="form-control form-control-sm custom-select mb-2" id="SiteCountryCode" asp-for="QuoteRequest.SiteCountryCode">
+                                <option value="">Select a country</option>
+                                <optgroup label="------------------------"></optgroup>
+                                @foreach (var country in Model.Countries)
+                                {
+                                    <option value="@country.Value">@country.Description</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SiteZipCode" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="SiteZipCode" id="SiteZipCode" asp-for="QuoteRequest.SiteZipCode">
+                        <span asp-validation-for="QuoteRequest.SiteZipCode" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" id="timeline">
+                <h3 class="card-title form-title" id="form-title">Timeline</h3>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.DesiredStartDate" class="font-weight-light"></label>
+                        <input type="date" class="form-control mb-2" aria-label="Desired start date" id="DesiredStartDate" asp-for="QuoteRequest.DesiredStartDate">
+                        <span asp-validation-for="QuoteRequest.DesiredStartDate" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.DesiredEndDate" class="font-weight-light"></label>
+                        <input type="date" class="form-control mb-2" aria-label="DesiredEndDate" id="DesiredEndDate" asp-for="QuoteRequest.DesiredEndDate">
+                        <span asp-validation-for="QuoteRequest.DesiredEndDate" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label class="font-weight-light">Project Duration (Projections)</label>
+                        <div class="input-group">
+                            <div class="col-sm-4">
+                                <label asp-for="QuoteRequest.DurationMonths" class="font-weight-light"></label>
+                                <input type="number" class="form-control mb-2" aria-label="DurationMonths" id="DurationMonths" asp-for="QuoteRequest.DurationMonths" min="0" max="120" />
+                                <small id="DurationMonths-validation" class="help-block text-danger vald-osci-text"></small>
+                            </div>
+                            <div class="col-sm-4">
+                                <label asp-for="QuoteRequest.DurationDays" class="font-weight-light"></label>
+                                <input type="number" class="form-control mb-2" aria-label="DurationDays" id="DurationDays" asp-for="QuoteRequest.DurationDays" min="0" max="31" />
+                            </div>
+                            <div class="col-sm-4">
+                                <label asp-for="QuoteRequest.DurationHours" class="font-weight-light"></label>
+                                <input type="number" class="form-control mb-2" aria-label="DurationHours" id="DurationHours" asp-for="QuoteRequest.DurationHours" min="0" max="24" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" id="projectSpecs">
+                <h3 class="card-title form-title" id="form-title">Specifications</h3>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SquareArea" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="SquareArea" id="SquareArea" asp-for="QuoteRequest.SquareArea" />
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.NumberOfFloors" class="font-weight-light"></label>
+                        <input type="number" class="form-control mb-2" aria-label="NumberOfFloors" id="NumberOfFloors" asp-for="QuoteRequest.NumberOfFloors" min="1" max="200" />
+                    </div>
+                </div>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SpecialRequirementsOrFeatures" class="font-weight-light"></label>
+                        @* <div class="input-group mb-2"> *@
+                        <textarea class="form-control" id="SpecialRequirementsOrFeatures"
+                                  asp-for="QuoteRequest.SpecialRequirementsOrFeatures" rows="4" spellcheck="false" style="height: 106px;"></textarea>
+                        <span asp-validation-for="QuoteRequest.SpecialRequirementsOrFeatures" class="text-danger fs-5"></span>
+                        @* </div> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" id="budgetInfo">
+                <h3 class="card-title form-title" id="form-title">Budget Information</h3>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.MinimumBudgetAmount" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="MinimumBudgetAmount"
+                               id="MinimumBudgetAmount" asp-for="QuoteRequest.MinimumBudgetAmount"
+                               onfocus="removeCommas(this)" onblur="formatWithCommas(this)">
+                        <span asp-validation-for="QuoteRequest.MinimumBudgetAmount" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.MaximumBudgetAmount" class="font-weight-light"></label>
+                        <input type="text" class="form-control mb-2" aria-label="MaximumBudgetAmount"
+                               id="MaximumBudgetAmount" asp-for="QuoteRequest.MaximumBudgetAmount"
+                               onfocus="removeCommas(this)" onblur="formatWithCommas(this)">
+                        <span asp-validation-for="QuoteRequest.MaximumBudgetAmount" class="text-danger fs-5"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="QuoteRequest.SpecificBudgetAmount" class="font-weight-light"></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control mb-2" aria-label="SpecificBudgetAmount"
+                                   id="SpecificBudgetAmount" asp-for="QuoteRequest.SpecificBudgetAmount"
+                                   onfocus="removeCommas(this)" onblur="formatWithCommas(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body" id="referralInfo">
+                <h3 class="card-title form-title" id="form-title">Additional Information</h3>
+                <div class="row mt-3 mb-2 form-input">
+                    <div class="col">
+                        <label asp-for="QuoteRequest.AdditionalCommentsOrQuestions" class="font-weight-light"></label>
+                        <textarea class="form-control" id="AdditionalCommentsOrQuestions" asp-for="QuoteRequest.AdditionalCommentsOrQuestions" rows="4" spellcheck="false" style="height: 106px;"></textarea>
+                        <span asp-validation-for="QuoteRequest.AdditionalCommentsOrQuestions" class="text-danger fs-5"></span>
+                    </div>
+                </div>
+                <div class="mt-3 form-input">
+                    <span>
+                        <div class="form-group">
+                            <label asp-for="QuoteRequest.ReferralSource" class="font-weight-light"></label>
+                            <select class="form-control form-control-sm custom-select" id="ReferralSource" asp-for="QuoteRequest.ReferralSource">
+                                <option value="">Please select your referral source</option>
+                                <optgroup label="------------------------"></optgroup>
+                                @foreach (var source in Model.ReferralSources)
+                                {
+                                    <option value="@source.Value">@source.Description</option>
+                                }
+                            </select>
+                            <span asp-validation-for="QuoteRequest.ReferralSource" class="text-danger fs-5"></span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <input style="display:none;" type="file" id="_attach-files" name="FormFiles" multiple>
+    </form>
+    <div class="card">
+        <div class="card-body" id="attachments">
+            <h3 class="card-title form-title" id="form-title">Attachments</h3>
+            <div class="mt-3 form-input">
+                <div class="form-group">
+                    <!-- Preview area -->
+                    <div class="gallery-box-container">
+                    </div>
+                    <!-- browse button area -->
+                    <div class="browse-area">
+                        <div class="file-caption">
+                            <div class="input-group ">
+                                <input readonly="" class="file-caption-name form-control kv-fileinput-caption" placeholder="Select files ..." title="">
+                                <a href="#" id="browse-files">
+                                    <div class="btn btn-primary btn-file" tabindex="500">
+                                        <i class="bi-folder2-open"></i>
+                                        <span class="hidden-xs">Browse …</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="validation-summary-errors"></div>
+
+    <div class="col-12">
+        <div class="form-group mb-3 row">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <button class="btn btn-primary btn-md" id="form-submit" type="submit">Send Quote Request!</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+        Processing, please wait...
+    </div>
+
+</div>
+<!-- Modal HTML -->
+<div id="quoterqst-messageOK" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#xE876;</i>
+                </div>
+                <h4 class="modal-title w-100">Awesome!</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">
+                    Thank you for reaching out to us! We will review your quote request and get back to you as soon as possible. Please check your email for further details later on.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/additional-methods.min.js" integrity="sha512-TiQST7x/0aMjgVTcep29gi+q5Lk5gVTUPE9XgN0g96rwtjEjLpod4mlBRKWHeBcvGBAEvJBmfDqh2hfMMmg+5A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="/js/quoterequest.js"></script>
+}

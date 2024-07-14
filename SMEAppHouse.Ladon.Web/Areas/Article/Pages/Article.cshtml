@@ -1,0 +1,408 @@
+﻿@page "/Articles/{title}"
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@using SMEAppHouse.Core.CodeKits.Helpers
+@using SMEAppHouse.Ladon.Domain.Constants
+@using SMEAppHouse.Ladon.Web.Areas.Article.Pages
+@using Microsoft.AspNetCore.Http
+@model ArticlePageModel
+@{
+    ViewData["Title"] = Model.Article.Title;
+    ViewData["Description"] = Model.Article.MetaDescription;
+    var publishedDate = Model.Article.PublishedDate.HasValue
+        ? Model.Article.PublishedDate.Value.ToString("yyyy-MM-dd")
+        : null;
+
+    var articleImgUrl = "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/000000.png";
+    if (Model.Article.Images != null && Model.Article.Images.Any())
+    {
+        var activeArticleImg = Model.Article.Images.FirstOrDefault(p => p.IsActive ?? false);
+        if (activeArticleImg != null)
+            articleImgUrl = activeArticleImg.ImageCDNUrl;
+    }
+
+    var categories = new List<(string Id, string Name)>();
+    if (Model.Article.ArticleCategories != null && Model.Article.ArticleCategories.Any())
+    {
+        categories = Model.Article.ArticleCategories.Select(c => (
+                                        string.Join("-", c.Name.Split(" ")
+                                                                .Select(c => c.ToLower().Trim())
+                                                                .Where(s => !string.IsNullOrEmpty(s))),
+                                        c.Name
+                                    )).ToList();
+    }
+
+    var authAvatarCDNUrl = "https://bootdey.com/img/Content/avatar/avatar1.png";
+    if (!string.IsNullOrEmpty(Model.Article.AuthorAvatarImageCDNUrl))
+        authAvatarCDNUrl = Model.Article.AuthorAvatarImageCDNUrl;
+
+    var baseUrl = Url.Content("~");
+    var articleUrl = $"{baseUrl}/articles/{Model.Article.Slug}";
+    var siteName = PageContext.HttpContext.Request.Host.Host;
+
+    var latestArticles = Model.LatestArticles;
+    var latestTags = latestArticles.SelectMany(a => a.Tags ?? [])
+                                    .Select(tag => tag).Order().Distinct().ToList();
+
+    var comments = Model.Article.Comments == null ? 0 : Model.Article.Comments.Count;
+    var commentsInf = comments > 0 ? $"{comments} {(comments > 1 ? "Comment".Pluralize() : "Comment")}" : "Comment";
+    var likesInf = Model.Article.Likes > 0 ? $"{Model.Article.Likes} {(Model.Article.Likes > 1 ? "Like".Pluralize() : "Like")}" : "Like";
+    var heartsInf = Model.Article.Hearts > 0 ? $"{Model.Article.Hearts} {(Model.Article.Hearts > 1 ? "Heart".Pluralize() : "Heart")}" : "Heart";
+
+}
+
+@section MetaTags {
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="@Model.Article.Title">
+    <meta property="og:description" content="@Model.Article.MetaDescription">
+    <meta property="og:image" content="@Model.Article.Images?.FirstOrDefault()?.ImageCDNUrl">
+    <meta property="og:url" content="@articleUrl">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="@siteName">
+    <meta property="article:author" content="@Model.Article.AuthorName">
+    <meta property="article:published_time" content="@((Model.Article.PublishedDate ?? DateTime.Now).ToString("yyyy-MM-ddTHH:mm:sszzz"))">
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="canonical" href="@Model.Article.CanonicalUrl" />
+
+    <environment include="Development">
+        <link href="~/css/article.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/css/dist/article.min.css" rel="stylesheet" />
+    </environment>
+}
+
+<div class="container">
+    <div class="main-body">
+
+        <div class="blog-single gray-bg">
+            <div class="container">
+                <div class="row align-items-start">
+                    <div class="col-lg-8 m-15px-tb">
+                        <a href="/articles" class="back-to-blogs">
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            <p>Back to Blogs Index</p>
+                        </a>
+                        <article class="article">
+                            <div class="article-img">
+                                <img src="@articleImgUrl" title="" alt="">
+                            </div>
+                            <div class="article-title">
+                                <h6>
+                                    @foreach (var category in categories)
+                                    {
+                                        <a href="#@category.Id">@category.Name</a>
+                                    }
+                                </h6>
+                                <h1>@Model.Article.Title</h1>
+                                <div class="media">
+                                    <div class="avatar">
+                                        <img src="@authAvatarCDNUrl" title="" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <label>@Model.Article.AuthorName</label>
+                                        @if (Model.Article.PublishedDate.HasValue)
+                                        {
+                                            <span>@Model.Article.PublishedDate.Value.ToString("D")</span>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="interaction-buttons">
+                                    <form id="like-form" async-call="@Url.Page("/article", new { handler = "Reaction", articleId = Model.Article.Id.Value, reaction = Rules.ReaderReactionsEnum.Like })">
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn btn-like hover-red" style="margin-right: 10px;">
+                                            <i class="fas fa-thumbs-up" aria-hidden="true"><span>@likesInf</span></i>
+                                        </button>
+                                    </form>
+
+                                    <form id="heart-form" async-call="@Url.Page("/article", new { handler = "Reaction", articleId = Model.Article.Id.Value, reaction = Rules.ReaderReactionsEnum.Heart })">
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn btn-heart hover-red" style="margin-right: 10px;">
+                                            <i class="fas fa-heart" aria-hidden="true"><span>@heartsInf</span></i>
+                                        </button>
+                                    </form>
+
+                                    <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Facebook">
+                                        <i class="fab fa-facebook-f" aria-hidden="true"><span>Facebook</span></i>
+                                    </button>
+                                    <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Twitter">
+                                        <i class="fa-brands fa-twitter" aria-hidden="true"><span>Twitter</span></i>
+                                    </button>
+                                    <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Linkedin">
+                                        <i class="fa-brands fa-linkedin" aria-hidden="true"><span>Linkedin</span></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="article-content">
+                                <p>
+                                    @Html.Raw(Model.Article.Content)
+                                </p>
+                            </div>
+                            @if (Model.Article.Tags != null && Model.Article.Tags.Any())
+                            {
+                                <div class="nav tag-cloud">
+                                    @foreach (var tag in Model.Article.Tags)
+                                    {
+                                        <a href="#">@tag</a>
+                                    }
+                                </div>
+                            }
+                        </article>
+                        <div class="interaction-buttons mt-2">
+                            <form id="like-form" async-call="@Url.Page("/article", new { handler = "Like", articleId = Model.Article.Id.Value })">
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-like hover-red" style="margin-right: 10px;">
+                                    <i class="fas fa-thumbs-up" aria-hidden="true"><span>@likesInf</span></i>
+                                </button>
+                            </form>
+
+                            <form id="heart-form" async-call="@Url.Page("/article", new { handler = "Heart", articleId = Model.Article.Id.Value })">
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-heart hover-red" style="margin-right: 10px;">
+                                    <i class="fas fa-heart" aria-hidden="true"><span>@heartsInf</span></i>
+                                </button>
+                            </form>
+
+                            <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Facebook">
+                                <i class="fab fa-facebook-f" aria-hidden="true"><span>Facebook</span></i>
+                            </button>
+                            <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Twitter">
+                                <i class="fa-brands fa-twitter" aria-hidden="true"><span>Twitter</span></i>
+                            </button>
+                            <button class="btn btn-share hover-red" data-toggle="tooltip" title="Share this article in Linkedin">
+                                <i class="fa-brands fa-linkedin" aria-hidden="true"><span>Linkedin</span></i>
+                            </button>
+                        </div>
+                        <div class="panel contact-form article-comment mt-2">
+                            <div class="panel-body">
+                                <h4>Leave a Comment</h4>
+                                <div class="cred-notice mb-4">
+                                    <span>
+                                        Please <a href="#">sign-in</a> or <a href="#">sign-up</a> to not always require your name and email address when leaving a comment.
+                                    </span>
+                                </div>
+                                <form id="contact-form" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control" style="height: 66px;"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="mar-top clearfix">
+                                                <button class="btn btn-sm btn-primary pull-right" type="submit">
+                                                    <i class="fa fa-pencil fa-fw"></i> Share
+                                                </button>
+                                                <!-- Do not remove. Intended for future feature
+                                                <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
+                                                <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
+                                                <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <!-- Newsfeed Content -->
+                                <!--===================================================-->
+                                <!--===================================================-->
+                                <!-- End Newsfeed Content -->
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="media-block">
+                                    <a class="media-left" href="#"><img class="img-circle img-sm" alt="Profile Picture" src="https://bootdey.com/img/Content/avatar/avatar1.png"></a>
+                                    <div class="media-body">
+                                        <div class="mar-btm">
+                                            <a href="#" class="btn-link text-semibold media-heading box-inline">Lisa D.</a>
+                                            <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - From Mobile - 11 min ago</p>
+                                        </div>
+                                        <p class="media-comments">consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                        <div class="pad-ver">
+                                            <div class="btn-group">
+                                                <a class="btn btn-sm btn-default btn-hover-success" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                                <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+                                            </div>
+                                            <a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
+                                        </div>
+                                        <hr>
+
+                                        <!-- Comments -->
+                                        <div>
+                                            <div class="media-block">
+                                                <a class="media-left" href="#"><img class="img-circle img-sm" alt="Profile Picture" src="https://bootdey.com/img/Content/avatar/avatar2.png"></a>
+                                                <div class="media-body">
+                                                    <div class="mar-btm">
+                                                        <a href="#" class="btn-link text-semibold media-heading box-inline">Bobby Marz</a>
+                                                        <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - From Mobile - 7 min ago</p>
+                                                    </div>
+                                                    <p class="media-comments">Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                                    <div class="pad-ver">
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-sm btn-default btn-hover-success active" href="#"><i class="fa fa-thumbs-up"></i> You Like it</a>
+                                                            <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+                                                        </div>
+                                                        <a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                            </div>
+
+                                            <div class="media-block">
+                                                <a class="media-left" href="#">
+                                                    <img class="img-circle img-sm" alt="Profile Picture" src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                                                </a>
+                                                <div class="media-body">
+                                                    <div class="mar-btm">
+                                                        <a href="#" class="btn-link text-semibold media-heading box-inline">Lucy Moon</a>
+                                                        <p class="text-muted text-sm"><i class="fa fa-globe fa-lg"></i> - From Web - 2 min ago</p>
+                                                    </div>
+                                                    <p class="media-comments">Duis autem vel eum iriure dolor in hendrerit in vulputate ?</p>
+                                                    <div class="pad-ver">
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-sm btn-default btn-hover-success" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                                            <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+                                                        </div>
+                                                        <a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 m-15px-tb blog-aside">
+
+                        @*<!-- Author -->
+                        <div class="widget widget-author">
+                        <div class="widget-title">
+                        <h3>Author</h3>
+                        </div>
+                        <div class="widget-body">
+                        <div class="media align-items-center">
+                        <div class="avatar">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
+                        </div>
+                        <div class="media-body">
+                        <h6>Hello, I'm<br> Rachel Roth</h6>
+                        </div>
+                        </div>
+                        <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
+                        </div>
+                        </div>
+                        <!-- End Author -->
+                        *@
+                        <!-- Latest Post -->
+                        <div class="widget widget-latest-post">
+                            <div class="widget-title">
+                                <h3>Latest Post</h3>
+                            </div>
+                            <div class="widget-body">
+                                @foreach (var article in latestArticles)
+                                {
+                                    <div class="latest-post-aside media">
+                                        <div class="lpa-left media-body">
+                                            <div class="lpa-title">
+                                                <h5><a href="@($"/articles/{article.Slug}")">@article.Title</a></h5>
+                                            </div>
+                                            <div class="lpa-meta">
+                                                <a class="name" href="#" )">
+                                                    @article.AuthorName
+                                                </a>
+                                                <a class="date" href="#">
+                                                    @(article.PublishedDate.HasValue ? article.PublishedDate.Value.ToString("dd MMMM yyyy") : string.Empty)
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lpa-right">
+                                            <a href="@($"/articles/{article.Slug}")">
+                                                <img src="@(article.Images==null || !article.Images.Any() ?
+                                                            "https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/000000?updatedAt=1718763727572" :
+                                                            article.Images.FirstOrDefault()?.ImageCDNUrl)"
+                                                     title="@($"{article.Slug}_img")"
+                                                     alt="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <!-- End Latest Post -->
+                        <!-- Trending Post -->
+                        <div class="widget widget-post">
+                            <div class="widget-title">
+                                <h3>Trending Now</h3>
+                            </div>
+                            <div class="widget-body">
+                            </div>
+                        </div>
+                        <!-- End Trending Post -->
+                        <!-- widget Tags -->
+                        <div class="widget widget-tags">
+                            <div class="widget-title">
+                                <h3>Latest Tags</h3>
+                            </div>
+                            <div class="widget-body">
+                                <div class="nav tag-cloud">
+                                    @foreach (var tag in latestTags)
+                                    {
+                                        <a href="#">@tag</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End widget Tags -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <environment include="Development">
+        <script src="~/js/article.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/dist/article.min.js"></script>
+    </environment>
+
+    <script type="application/ld+json">
+                {
+                    "@@context": "https://schema.org",
+                    "@@type": "BlogPosting",
+                    "headline": "@Model.Article.Title",
+                    "description": "@Model.Article.MetaDescription",
+
+        @if (publishedDate != null)
+        {
+            <text>"datePublished": "@publishedDate",</text>
+        }
+
+                    "author": {
+                        "@@type": "Person",
+                        "name": "@Model.Article.AuthorName"
+                    }
+                }
+    </script>
+
+}

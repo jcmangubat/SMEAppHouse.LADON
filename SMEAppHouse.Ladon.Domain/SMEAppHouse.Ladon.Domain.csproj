@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SMEAppHouse\CodeLibraries\SMEAppHouse.Core.Patterns.EF\SMEAppHouse.Core.Patterns.EF.csproj" />
+    <ProjectReference Include="..\..\..\..\SMEAppHouse\CodeLibraries\SMEAppHouse.Core.Patterns.Repo\SMEAppHouse.Core.Patterns.Repo.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Services.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\DomainModels\" />
+  </ItemGroup>
+
+</Project>

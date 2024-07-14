@@ -1,0 +1,223 @@
+﻿@{
+    var isAuthenticated = User.Identity.IsAuthenticated.ToString().ToLower();
+    var hasClientRole = User.IsInRole("Client").ToString().ToLower();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ladon Construction Services - @ViewData["Title"]</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Philippines Mindanao Davao City Best Trusted Filipino Construction Company" name="keywords">
+    <meta content="LADON Construction Service Official Website 2024" name="description">
+
+    <link href="~/favicon.ico" rel="icon">
+
+    <!-- CritialPreLoads -->
+    @await RenderSectionAsync("CritialPreLoads", required: false)
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+          integrity="sha512-TyUaMbYrKFZfQfp+9nQGOEt+vGu4nKzLk0KaV3nFifL3K8n7lzb8DayTzLOK0pNyzxGJzGRSw78e8xqJhURJ3Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="~/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <!-- Custom Stylesheet -->
+    <environment include="Development">
+        <link href="~/css/common.css" rel="stylesheet" />
+    </environment>
+
+    <environment exclude="Development">
+        <link href="~/css/dist/common.min.css" rel="stylesheet" />
+    </environment>
+
+    @await RenderSectionAsync("Styles", required: false)
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <section id="home"></section>
+        <!-- Ads Banner Bar -->
+        @* <partial name="~/pages/home/partialviews/_adsbanner.cshtml" /> *@
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/LCS-Logo-Transparent.jpg" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                        <div class="row" style="justify-content: end;">
+                            <div class="col-3">
+                                <div class="top-bar-item">
+                                    <div class="top-bar-icon">
+                                        <i class="flaticon-calendar"></i>
+                                    </div>
+                                    <div class="top-bar-text">
+                                        <h3>Opening Hour</h3>
+                                        <p>Mon - Fri, 7:00 AM - 6:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="top-bar-item">
+                                    <div class="top-bar-icon">
+                                        <i class="flaticon-call"></i>
+                                    </div>
+                                    <div class="top-bar-text">
+                                        <h3>Call Us</h3>
+                                        <p>+63 0995 122 5449</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="top-bar-item">
+                                    <div class="top-bar-icon">
+                                        <i class="flaticon-send-mail"></i>
+                                    </div>
+                                    <div class="top-bar-text">
+                                        <h3>Email Us</h3>
+                                        <p>contactus@ladonco.ph</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn-usr user-access" id="top-bar-user-access"
+                       data-target="user-access">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="40px" height="40px" data-ux="UtilitiesMenuIcon" data-typography="NavAlpha" class="x-el x-el-svg c1-1 c1-1m c1-2j c1-1n c1-41 c1-42 c1-24 c1-2l c1-2m c1-2n c1-2o c1-2e c1-g c1-3j c1-b c1-c c1-16 c1-20 c1-3g">
+                            <path fill-rule="evenodd" d="M19.62 19.29l.026.71h-2.421l-.028-.658c-.119-2.71-2.48-4.833-5.374-4.833-2.894 0-5.254 2.123-5.373 4.833L6.421 20H4l.027-.71c.098-2.56 1.658-4.896 4.04-6.135-1.169-.99-1.848-2.402-1.848-3.9C6.219 6.357 8.733 4 11.823 4c3.09 0 5.605 2.357 5.605 5.255 0 1.497-.68 2.909-1.85 3.9 2.383 1.239 3.944 3.574 4.041 6.135zM11.822 6.273c-1.754 0-3.18 1.338-3.18 2.982 0 1.645 1.426 2.982 3.18 2.982 1.754 0 3.18-1.337 3.18-2.982 0-1.644-1.426-2.982-3.18-2.982z"></path>
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <main>
+            @RenderBody()
+        </main>
+
+        <!-- Footer -->
+        <div class="footer wow fadeIn" data-wow-delay="0.3s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-contact">
+                            <h2>Office Contact</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Tierra Nueva Tacunan, Tugbok, Davao City, Davao del Sur, Philippines</p>
+                            <p><i class="fa fa-phone-alt"></i>+63 0995 122 5449</p>
+                            <p><i class="fa fa-envelope"></i>contactus@ladonco.ph</p>
+                            <div class="footer-social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-link">
+                            <h2>Services Areas</h2>
+                            <a href="">Building Construction</a>
+                            <a href="">House Renovation</a>
+                            <a href="">Architecture Design</a>
+                            <a href="">Interior Design</a>
+                            <a href="">Painting</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-link">
+                            <h2>Useful Pages</h2>
+                            <a href="">About Us</a>
+                            <a href="">Contact Us</a>
+                            <a href="">Our Team</a>
+                            <a href="">Projects</a>
+                            <a href="">Testimonial</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="newsletter">
+                            <h2>Newsletter</h2>
+                            <p>
+                                Stay ahead of the curve and subscribe to our newsletter to receive exclusive updates on our visionary projects, commitment to quality craftsmanship, and round-the-clock support.
+                            </p>
+                            <div class="form">
+                                <input class="form-control" placeholder="Email here">
+                                <button class="btn">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-menu">
+                <div class="f-menu">
+                    <a asp-area="" asp-page="/TermsOfUse">Terms of use</a>
+                    <a asp-area="" asp-page="/Privacy">Privacy policy</a>
+                    <a href="">Cookies</a>
+                    <a href="">Help</a>
+                    <a href="">FQAs</a>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">LADON Construction Services</a><br /> Copyright © 2024 ladon.ph - All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed &amp; Powered by <a href="https://smedigital.net" target="_blank">SME Digital Philippines</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+            integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+
+    <environment include="Development">
+        <script src="~/js/common.js"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <script src="~/js/dist/common.min.js"></script>
+    </environment>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

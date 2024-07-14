@@ -1,0 +1,51 @@
+﻿@page "/Account/ResendEmailConfirmationConfirm"
+@{
+    Layout = "~/Pages/Shared/_NoNavsLayout.cshtml";
+}
+@using SMEAppHouse.Ladon.Web.Areas.Identity.Pages.Account
+@model ResendEmailConfirmationConfirmPageModel
+@{
+    ViewData["Title"] = "Resend Email Confirmation";
+}
+
+@section Styles {
+
+    <environment include="Development">
+        <link href="~/css/user-auth.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/css/dist/user-auth.min.css" rel="stylesheet" />
+    </environment>
+}
+
+<div class="user-auth-container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card" style="width: 540px;">
+            <div class="card-header">
+                <h3>@(ViewData["Title"])</h3>
+            </div>
+            <div class="card-body">
+                <p id="external-login-description" class="text-info" style="text-align: center;">
+                    @Html.Raw(Model.Message)
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="links">
+                    Already have an account?
+                    <a id="sign-in" asp-page="./login">Sign In</a>
+                </div>
+                <div class="links">
+                    Don't have an account?
+                    <a id="sign-up" asp-page="./login">Sign Up</a>
+                </div>
+                <div class="links">
+                    <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                </div>
+                <div class="links">
+                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

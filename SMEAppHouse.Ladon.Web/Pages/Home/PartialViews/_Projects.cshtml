@@ -1,0 +1,24 @@
+﻿@using SMEAppHouse.Ladon.Application.Models.Data
+@model IEnumerable<FeatureProjectModel>
+@{
+    var featuredProjects = Model.ToArray();
+}
+
+@foreach (var (fPrj, index) in featuredProjects.Select((prj, idx) => (prj, idx)))
+{
+    var activeClass = index == 0 ? "active" : string.Empty;
+
+    <div class="item @activeClass">
+        @if (fPrj.CompletionDate.HasValue)
+        {
+            <div class="item-year"><h3>@(fPrj.CompletionDate.Value.Year)</h3></div>
+        }
+        <img src="@fPrj.ImageCDNUrl">
+        <div class="item-desc">
+            <a href="/projects/@fPrj.Slug"><h3>@fPrj.Title</h3></a>
+            <p>
+                @fPrj.Description
+            </p>
+        </div>
+    </div>
+}

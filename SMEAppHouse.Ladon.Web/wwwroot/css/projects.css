@@ -1,0 +1,271 @@
+﻿/*******************************/
+/********** Project Gallery CSS **********/
+/*******************************/
+.projects {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 30px 0;
+    background: linear-gradient(rgb(137 141 149 / 57%), rgba(3, 15, 39, .9)), url(https://ik.imagekit.io/yt1tgrjzh/LADONCO/Originals/2024%20LCS_ladon_26.png?updatedAt=1718209419997);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .projects .section-header {
+        margin-bottom: 5px;
+    }
+
+.feature-projects {
+    padding: 10px 50px;
+}
+
+    .feature-projects .owl-stage {
+        margin: 15px 0;
+        display: flex;
+        display: -webkit-flex;
+    }
+
+    .feature-projects .item {
+        margin: 0 15px 60px;
+        width: 320px;
+        height: 400px;
+        display: flex;
+        display: -webkit-flex;
+        align-items: flex-end;
+        -webkit-align-items: flex-end;
+        background: #343434 no-repeat center center / cover;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        border: white;
+        border-width: 1px;
+        border-color: white;
+        border-style: ridge;
+    }
+
+        .feature-projects .item.active {
+            width: 500px;
+            /*box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+     -webkit-box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+    */
+        }
+
+        .feature-projects .item:after {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(4 45 59 / 63%));
+        }
+
+    .feature-projects .item-desc {
+        padding: 0 24px 12px;
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+    }
+
+    .feature-projects .item.active .item-desc {
+        transform: none;
+        -webkit-transform: none;
+    }
+
+    .feature-projects .item-desc a:hover h3 {
+        font-weight: 900;
+        text-decoration: underline;
+    }
+
+    .feature-projects .item-desc p {
+        opacity: 0;
+        -webkit-transform: translateY(32px);
+        transform: translateY(32px);
+        transition: all 0.4s ease-in-out 0.2s;
+        -webkit-transition: all 0.4s ease-in-out 0.2s;
+        display: none;
+    }
+
+    .feature-projects .item.active .item-desc p {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    .feature-projects .owl-theme.custom-carousel .owl-dots {
+        margin-top: -20px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .feature-projects .owl-carousel .owl-stage-outer {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        mask-image: linear-gradient(to right, transparent, #ffffff 5%, #f9f9fa 95%, transparent);
+    }
+
+/******** Middle section CSS End *******/
+/***** responsive css Start ******/
+@media (min-width: 992px) and (max-width: 1199px) {
+    h2 {
+        margin-bottom: 32px;
+    }
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    /* -------- Landing page ------- */
+    .feature-projects {
+        padding: 50px 30px;
+    }
+
+        .feature-projects .item {
+            margin: 0 12px 60px;
+            width: 260px;
+            height: 360px;
+        }
+
+            .feature-projects .item.active {
+                width: 400px;
+            }
+
+        .feature-projects .item-desc {
+            transform: translateY(calc(100% - 46px));
+            -webkit-transform: translateY(calc(100% - 46px));
+        }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    h2 {
+        margin-bottom: 32px;
+    }
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .line-title {
+        width: 330px;
+    }
+    /* -------- Landing page ------- */
+    .feature-projects {
+        padding: 50px 30px 40px;
+    }
+
+        .feature-projects .item {
+            margin: 0 10px 10px;
+            width: 240px;
+            height: 330px;
+        }
+
+            .feature-projects .item.active {
+                width: 360px;
+            }
+
+        .feature-projects .item-desc {
+            transform: translateY(calc(100% - 42px));
+            -webkit-transform: translateY(calc(100% - 42px));
+        }
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 19px;
+        line-height: 24px;
+    }
+
+    .line-title {
+        width: 250px;
+    }
+    /* -------- Landing page ------- */
+    .feature-projects {
+        padding: 30px 15px 20px;
+    }
+
+        .feature-projects .item {
+            margin: 0 10px 40px;
+            width: 200px;
+            height: 280px;
+        }
+
+            .feature-projects .item.active {
+                width: 270px;
+                box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+                -webkit-box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+            }
+
+        .feature-projects .item-desc {
+            padding: 0 14px 5px;
+            transform: translateY(calc(100% - 42px));
+            -webkit-transform: translateY(calc(100% - 42px));
+        }
+}
+
+.feature-projects .item-desc h3 {
+    color: #fdbe33;
+    font-size: x-large;
+    font-family: monospace;
+}
+
+.feature-projects .item .item-year {
+    position: absolute;
+    z-index: 9999;
+    top: 15px;
+    right: 15px;
+    background: #fcad00;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+    .feature-projects .item .item-year h3 {
+        color: #fffefc;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0;
+        font-size: larger;
+    }
+
+.feature-projects .item.active p {
+    display: block;
+}
+
+.feature-projects .item img {
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2, 1.2);
+}
+
+.feature-projects .item:hover img {
+    -webkit-animation: projs-img-zoom 3s;
+    animation: projs-img-zoom 3s;
+    transform: scale(1, 1);
+}
+
+@keyframes projs-img-zoom {
+    from {
+        transform: scale(1.2, 1.2);
+    }
+
+    to {
+        transform: scale(1, 1);
+    }
+}

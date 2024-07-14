@@ -1,0 +1,51 @@
+﻿@using SMEAppHouse.Ladon.Application.Models.Data
+@using SMEAppHouse.Core.CodeKits
+@model IEnumerable<QuestionAnswerModel>
+
+@{
+    var firstQAs = Model.Take(6).ToList();
+    var secondQAs = Model.Skip(6).ToList();
+}
+
+<div class="col-md-6">
+    @for (int i = 0; i < firstQAs.Count; i++)
+    {
+        var qa = firstQAs[i];
+        var headingId = $"collapse_1_{i + 1}";
+        var collapseId = $"collapse_1_{i + 1}";
+
+        <div class="card wow fadeInLeft" data-wow-delay="0.1s">
+            <div class="card-header">
+                <a class="card-link collapsed" data-toggle="collapse" href="#@collapseId">
+                    @qa.Question
+                </a>
+            </div>
+            <div id="@collapseId" class="collapse" data-parent="#QAs">
+                <div class="card-body">
+                    @qa.AnswerText
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="col-md-6">
+    @for (int i = 0; i < firstQAs.Count; i++)
+    {
+        var qa = firstQAs[i];
+        var headingId = $"collapse_2_{i + 1}";
+        var collapseId = $"collapse_2_{i + 1}";
+
+        <div class="card wow fadeInRight" data-wow-delay="0.1s">
+            <div class="card-header">
+                <a class="card-link collapsed" data-toggle="collapse" href="#@collapseId">
+                    @qa.Question
+                </a>
+            </div>
+            <div id="@collapseId" class="collapse" data-parent="#QAs">
+                <div class="card-body">
+                    @qa.AnswerText
+                </div>
+            </div>
+        </div>
+    }
+</div>

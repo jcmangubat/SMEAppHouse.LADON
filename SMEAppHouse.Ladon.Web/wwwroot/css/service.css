@@ -1,0 +1,233 @@
+﻿/*******************************/
+/********* Service CSS *********/
+/*******************************/
+
+.service {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+    background: linear-gradient(rgb(3 15 39 / 82%), rgb(137 141 149 / 90%)), url(https://ik.imagekit.io/yt1tgrjzh/LADONCO/Assets/ladon_srvc_06.jpg?updatedAt=1715836389508);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.services-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+}
+
+    .services-container .wide {
+        grid-column: span 2;
+    }
+
+    .services-container .tall {
+        grid-row: span 2;
+    }
+
+    .services-container .big {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .services-container > .service-item {
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+        background: #0101015c;
+    }
+
+        .services-container > .service-item > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+    .services-container .service-item:hover .service-overlay {
+        opacity: 1;
+    }
+
+    .services-container .service-item a.btn {
+        width: 60px;
+        height: 60px;
+        padding: 3px 0 0 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: 100;
+        color: #030f27;
+        background: #fdbe33;
+        border-radius: 0;
+        transition: .3s;
+    }
+
+        .services-container .service-item a.btn i.fa-eye {
+            font-size: 25px;
+            color: #1f293e;
+        }
+
+    .services-container .service-item:hover a.btn i.fa-eye {
+        color: #a49a9a;
+    }
+
+    .services-container .service-item:hover img {
+        -webkit-animation: srvc-img-zoom 3s;
+        animation: srvc-img-zoom 3s;
+        transform: scale(1.5, 1.5);
+        opacity: 0.4;
+    }
+
+    .services-container:hover .service-item:not(:hover) {
+        filter: grayscale(100%);
+        opacity: 0.5;
+        transition: filter 1s ease, opacity 1s cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    .services-container .service-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(3, 15, 39, .7);
+        transition: .5s;
+        opacity: 0;
+    }
+
+    .services-container .service-text {
+        display: flex;
+        align-items: center;
+        height: 70px;
+        background: #030f278f;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .services-container .service-overlay p {
+        margin: 0;
+        color: #ffffff;
+        font-size: smaller;
+    }
+
+    .services-container .service-text h3 {
+        margin: 0;
+        padding: 0 15px 0 5px;
+        width: calc(100% - 60px);
+        font-size: 17px;
+        font-weight: 600;
+        color: #fdbe33;
+        text-align: left;
+        overflow: hidden;
+        white-space: break-spaces;
+        word-wrap: inherit;
+        height: 65px;
+    }
+
+    .services-container .service-item.big .service-text h3 {
+        font-size: 27px;
+    }
+
+    .services-container .service-item.wide .service-text {
+        height: 100px;
+    }
+
+        .services-container .service-item.wide .service-text h3 {
+            font-size: 27px;
+            height: 100%;
+        }
+
+    .services-container .service-item .srvc-desc {
+        top: 0px;
+        height: calc(100% - 70px);
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        padding-bottom: 10px;
+        z-index: 999;
+        overflow: hidden;
+    }
+
+        .services-container .service-item .srvc-desc p {
+            position: absolute;
+            top: 100%; /* Start from below the container */
+            height: auto;
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin: 0;
+            transform: translateY(0);
+            transition: transform 15s linear;
+        }
+
+@keyframes srvc-img-zoom {
+    from {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.5, 1.5);
+        opacity: .4;
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 600px) {
+    .service {
+        padding: 30px 0 10px 0;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr; /* One column layout */
+        grid-auto-rows: auto;
+    }
+
+        .services-container .wide,
+        .services-container .tall,
+        .services-container .big {
+            grid-column: span 1; /* Make sure items take only one column */
+            grid-row: span 1;
+        }
+
+        .services-container .service-item {
+            grid-auto-rows: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .services-container .service-text {
+            height: auto;
+            font-size: 14px;
+        }
+
+            .services-container .service-text h3 {
+                font-size: 16px;
+            }
+
+        .services-container .service-item.big .service-text h3,
+        .services-container .service-item.wide .service-text h3 {
+            font-size: 16px;
+        }
+
+        .services-container .service-item .srvc-desc p {
+            padding: 15px;
+        }
+}

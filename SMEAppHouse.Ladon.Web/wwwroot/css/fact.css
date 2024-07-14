@@ -1,0 +1,67 @@
+﻿/*******************************/
+/********** Fact CSS ***********/
+/*******************************/
+.fact {
+    position: relative;
+    width: 100%;
+}
+
+    .fact .col-6 {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .fact .fact-icon {
+        position: relative;
+        margin: 7px 15px 0 15px;
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .fact .fact-icon [class^="flaticon-"]::before {
+            margin: 0;
+            font-size: 60px;
+            line-height: 60px;
+            background-image: linear-gradient(#ffffff, #fdbe33);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: invert(100%) sepia(0%) saturate(7475%) hue-rotate(200deg) brightness(100%) contrast(98%);
+        }
+
+    .fact .fact-right .fact-icon [class^="flaticon-"]::before {
+        background-image: linear-gradient(#ffffff, #030f27);
+    }
+
+    .fact .fact-left,
+    .fact .fact-right {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .fact .fact-text h2 {
+        font-size: 35px;
+        font-weight: 700;
+    }
+
+    .fact .fact-text p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .fact .fact-left {
+        color: #2b210b;
+        background: #ffffff;
+    }
+
+    .fact .fact-right {
+        color: #030f27;
+        background: #fdbe33;
+    }
+
+    .fact .fact-left h2 {
+        color: #2e230b;
+    }
