@@ -402,3 +402,4 @@ secrets.json
 
 # Exclude environment variable files
 .env
+/SMEAppHouse.Ladon.Web/.env
